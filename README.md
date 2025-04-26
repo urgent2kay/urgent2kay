@@ -1,54 +1,104 @@
-# React + TypeScript + Vite
+🚀 URGENT 2KAY Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Project Overview
 
-Currently, two official plugins are available:
+URGENT 2KAY is a fintech web application designed to streamline bill payments by bundling multiple bills and financial needs into a single request. Bill sponsors can approve payments directly to service providers like utilities, schools, and merchants. This platform aims to make bill payments seamless and transparent for both requesters and sponsors.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Table of Contents
+Getting Started
 
-## Expanding the ESLint configuration
+Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Technologies & Libraries
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Development Setup
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Contributing
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Getting Started
+Prerequisites
+Before starting, ensure you have the following tools installed on your local machine:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Node.js (v16 or above)
+
+npm (comes with Node.js)
+
+VSCode (or your preferred code editor)
+
+Installation
+Clone the repository to your local machine:
+
+bash
+git clone https://github.com/urgent2kay/urgent2kay.git
+Navigate to the project folder:
+
+bash
+cd urgent2kay
+Install dependencies:
+
+bash
+npm install
+Start the development server:
+
+bash
+npm run dev
+This will launch the app at http://localhost:3000.
+
+Project Structure
+The project is organized to ensure clarity and scalability:
+
+plaintext
+src/
+├── assets/              # Static assets (images, logos, icons)
+├── components/          # Reusable UI components (Buttons, Inputs, Navbar)
+├── features/            # Redux slices & logic grouped by feature/domain
+├── hooks/               # Custom React hooks
+├── layouts/             # Layout components (Header, Sidebar)
+├── pages/               # Page components (Home, Dashboard)
+├── routes/              # React Router configuration
+├── store/               # Redux store configuration
+├── utils/               # Utility functions (e.g., formatters)
+└── App.tsx              # Main App entry point
+└── index.tsx            # Renders the App component
+Technologies & Libraries
+React: Library for building user interfaces
+
+TypeScript: For static typing
+
+Redux Toolkit: For state management
+
+React Router: For navigation between pages
+
+CSS: Standard CSS for styling
+
+Development Setup
+Running the App Locally
+To run the app locally after cloning the repository:
+
+bash
+npm run dev
+This will open the app in your browser at http://localhost:3000.
+
+Contributing
+We welcome contributions to the project! Here's how you can contribute:
+
+Fork the repository on GitHub.
+
+Clone your fork:
+
+bash
+git clone https://github.com/urgent2kay/urgent2kay.git
+Create a new branch for your feature or fix:
+
+bash
+git checkout -b feature/your-feature-name
+Make changes and commit:
+
+bash
+git commit -m "Your commit message"
+Push your changes:
+
+bash
+git push origin feature/your-feature-name
+Open a pull request to merge your changes into the dev branch.
+
