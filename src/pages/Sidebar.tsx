@@ -1,4 +1,4 @@
-// src/components/Sidebar.tsx
+
 import React from 'react';
 import { FaTachometerAlt, FaPlusCircle, FaUsers, FaHistory, FaQuestionCircle, FaUser, FaSignOutAlt } from 'react-icons/fa';
 

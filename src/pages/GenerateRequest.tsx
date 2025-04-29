@@ -1,11 +1,11 @@
-// src/pages/GenerateRequest.tsx
+
 import React, { useState } from 'react';
 
 import Sidebar from './Sidebar';
 import Header from '../components/Header';
 import { FaTimes } from 'react-icons/fa';
 import './GenerateRequest.css';
-import { Icon } from '@iconify/react'; // Add this import
+import { Icon } from '@iconify/react'; 
 
 
 const GenerateRequest: React.FC = () => {
@@ -17,14 +17,14 @@ const GenerateRequest: React.FC = () => {
 
   return (
     <div className="generate-request-container">
-      {/* Sidebar */}
+      
       <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
 
-      {/* Main Section */}
+      
       <div className="main-section">
         <Header />
         
-        {/* Main Content */}
+        
         <main className="main-content">
           <div style={{
             width: '1083px',
@@ -47,7 +47,7 @@ const GenerateRequest: React.FC = () => {
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '8px' // small space between text and eye icon
+                gap: '8px' 
               }}>
                 <span style={{
                   width: '87px',
@@ -56,7 +56,7 @@ const GenerateRequest: React.FC = () => {
                   fontWeight: 400,
                   fontSize: '12px',
                   color: '#F9FDFD',
-                  whiteSpace: 'nowrap' // **ensures Available Balance stays in one line**
+                  whiteSpace: 'nowrap' 
                 }}>
                   Available Balance
                 </span>
@@ -81,7 +81,7 @@ const GenerateRequest: React.FC = () => {
         </main>
       </div>
 
-      {/* Sidebar Toggle Button */}
+      
       <button className="sidebar-toggle" onClick={toggleSidebar}>
         {sidebarOpen ? <FaTimes /> : <span>☰</span>}
       </button>

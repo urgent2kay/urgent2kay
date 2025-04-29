@@ -1,4 +1,4 @@
-// src/components/Header.tsx
+
 import React, { useState } from 'react';
 import { FaSearch, FaBell, FaUser } from 'react-icons/fa';
 
