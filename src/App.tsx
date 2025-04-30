@@ -1,13 +1,14 @@
-import React from "react";
-import "./App.css";
-import BundleOverview from "./pages/BundleOverview";
+// src/App.tsx
+import { BrowserRouter } from "react-router-dom";
 
-const App: React.FC = () => {
+import AppRoutes from "./routes/AppRoutes";
+
+function App() {
   return (
-    <div className="App">
-      <BundleOverview />
-    </div>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
