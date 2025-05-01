@@ -1,15 +1,13 @@
-// src/App.tsx
-import { BrowserRouter } from "react-router-dom";
-
-import AppRoutes from "./routes/AppRoutes";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 function App() {
   return (
-    <BrowserRouter>
-      
-      <AppRoutes />
-    </BrowserRouter>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
 }
-
 export default App;
