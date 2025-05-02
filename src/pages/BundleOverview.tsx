@@ -3,6 +3,7 @@ import "./BundleOverview.css";
 import Sidebar from "./Sidebar";
 import Header from "../components/Header";
 import { FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 interface BundleItem {
   name: string;
@@ -45,12 +46,14 @@ const BundleOverview: React.FC = () => {
         {/* Main Content */}
         <main className="main-content">
           <div className="bundle-container">
-            <button className="back-button">
-              <span className="dropdown-icon">
-                <img src="./Image/dropdown.png" alt="Dropdown Icon" />
-              </span>
-              Back
-            </button>
+            <Link to="/choose-sponsor">
+              <button className="back-button">
+                <span className="dropdown-icon">
+                  <img src="./Image/dropdown.png" alt="Dropdown Icon" />
+                </span>
+                Back
+              </button>
+            </Link>
             <div className="bundle-header">
               {/* <h1>Bundle Overview / {sponsor.name}</h1> */}
 
@@ -68,7 +71,7 @@ const BundleOverview: React.FC = () => {
             </div>
 
             <div className="bundle-details">
-              <h2>Bundle</h2>
+              <h2>Bundle ID: 98BA340</h2>
               <h3>Monthly Essentials</h3>
               <ul className="bundle-list">
                 {bundleItems.map((item, index) => (
