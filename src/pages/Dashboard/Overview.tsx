@@ -3,7 +3,7 @@ import './Dashboard.css';
 import vectorImage from '../../assets/vector.svg';
 
 
-interface OverviewProps {
+export interface OverviewProps {
   requestsGenerated: number;
   billsSponsored: number;
   billsScheduled: number;
