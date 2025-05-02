@@ -121,10 +121,10 @@ h1{
     text-decoration:none;
 }
 .hero-images{
-    /* position: relative;
-    width: fit-content; */
+    position: relative;
+    width: fit-content;
     margin: 0 auto;
-    /* padding: 20px;  */
+    padding: 20px; 
 
 }
 .frame-img{
