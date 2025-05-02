@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.landingpage-container{
+    background: radial-gradient(#FFFFFFCC 80%, #F8F1F1);
+    
+
+}
+/* navbar section */
+urgent2kay-logo{
+    width: 229.032px;
+    height: 50.075px;
+    flex-shrink: 0;
+}
+
+.nav-buttons{
+    display:flex;
+    gap: 24px;
+
+}
+.sign-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    font-family: Archivo;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+    color: #401A6D;
+    border-radius: 58px;
+    border: 1.5px solid #401A6D;
+    background: radial-gradient(#FFFFFFCC 80%, #F8F1F1);
+    padding:6px 12px;
+    width: 97px;
+    height: 36px;
+}
+.join-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    font-family: Archivo;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+    color: #FFFFFF;
+    border-radius: 58px;
+    background-color:  #401A6D;
+    padding:6px 12px;
+    width: 175px;
+    height: 36px;
+    text-decoration:none;
+    border: none
+}
+
+/* Hero section */
+h1{
+    align-self: stretch;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 10px;
+    font-family: Archivo;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 72px;
+    color:#3F3F3F;
+    width: 70%;
+}
+.hero p{
+    
+    text-align: center; 
+    font-family: Archivo;
+    font-size: 23px;
+    font-weight: 400;
+    color:#525253;
+    line-height:32.2px;
+    width: 70%;
+    margin: 0 auto;
+}
+.cta-buttons{
+    display: flex;
+    gap:24px;
+    justify-content: center;
+    margin-top: 20px;
+}
+.get-started-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-family: Archivo;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+    color: #FFFFFF;
+    border-radius: 58px;
+    background-color:  #401A6D;
+    padding:16px;
+    width: 229px;
+    height: 56px;
+    text-decoration:none;
+    border: none
+}
+.learn-more-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-family: Archivo;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+    color: #401A6D;
+    border-radius: 58px;
+    border: 1.5px solid #E8BF31;
+    background-color:  #FFFFFF;
+    padding:6px 12px;
+    width: 229px;
+    height: 56px;
+    text-decoration:none;
+}
+.hero-images{
+    /* position: relative;
+    width: fit-content; */
+    margin: 0 auto;
+    /* padding: 20px;  */
+
+}
+.frame-img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-top: 50;
+
+}
+.smiling-img{
+    position: absolute;
+    top: 10;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-left-radius: 50% 20%;
+    border-bottom-right-radius: 50% 20%;
+    overflow: hidden;
+    width: 50%; 
+    z-index: 1;
+
+}
