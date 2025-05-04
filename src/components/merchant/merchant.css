@@ -1,0 +1,622 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+body {
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Archivo, sans-serif;
+}
+
+.error {
+    font-size: .6rem;
+    color: red;
+}
+
+.logo-container {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo-img {
+    width: 200px;
+}
+
+.logo-container p {
+    color: #F0EBF5;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0px;
+
+}
+
+.merch-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.merch-left {
+    flex: 1;
+}
+
+.merch-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.merch-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    padding: 2rem;
+    /* background-color: #f9f9f9; */
+}
+
+.merch-right-texts {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.merch-right-texts h2 {
+    margin-bottom: 1rem;
+    font-size: 2.4rem;
+    width: 100%;
+}
+
+.merch-right-texts p {
+    margin-bottom: 2rem;
+    color: #555;
+    font-size: 1rem;
+    max-width: 450px;
+    width: 100%;
+
+}
+
+.merch-right .start-button {
+    border-radius: 30px;
+    cursor: pointer;
+    border: none;
+    padding: 3rem, 2rem !important;
+    color: #FFFFFF !important;
+    background: #4b0082;
+    border: none;
+    padding: .75rem 4rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.start-button:hover {
+    background-color: #360063;
+}
+
+/*media query*/
+@media (max-width: 768px) {
+    .logo-img {
+        width: 82px;
+    }
+
+    .logo-container p {
+        color: #F0EBF5;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 0px;
+
+    }
+
+    .merch-container {
+        flex-direction: column;
+    }
+
+    .merch-image {
+        width: 100%;
+        height: 90%;
+        object-fit: cover;
+    }
+
+    .merch-left,
+    .merch-right {
+        flex: none;
+        width: 100%;
+        height: 50vh;
+    }
+
+    .merch-right {
+        padding: 1.5rem;
+    }
+
+    .merch-right-texts h2 {
+        font-size: 1.5rem;
+    }
+
+    .merch-right-texts p {
+        font-size: .95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .merch-image {
+        width: 100%;
+        height: 90%;
+        object-fit: cover;
+    }
+
+    .merch-right-texts h2 {
+        font-size: 1.25rem;
+    }
+
+    .merch-right-texts p {
+        font-size: .8rem;
+        width: 60%;
+    }
+
+    .start-button {
+        padding: .65rem 1.4rem;
+        font-size: .95rem;
+    }
+}
+
+/*Business Registration starts here*/
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: #000000;
+    width: 100vw;
+    height: 100vh;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    margin-left: -25rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    width: 50%;
+}
+
+.logo-container2 {
+    display: flex;
+    gap: .2rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+.form-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.form-header p {
+    margin: 0;
+    color: #555;
+}
+
+.form-steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    font-size: .96rem;
+    color: #aaa;
+    /* border: 1px solid; */
+    width: 50%;
+}
+
+hr {
+    width: 100px;
+    height: 1px;
+    background-color: #8A8787;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.step span {
+    width: 20px;
+    border: 1px solid;
+    border-radius: 50%;
+    padding: .01rem .4rem;
+}
+
+.step.active {
+    color: black;
+    font-weight: bold;
+}
+
+
+.busisness-form input {
+    color: #000000;
+    font-size: 1rem;
+    background-color: transparent;
+    caret-color: #4b0082;
+}
+
+input::placeholder {
+    font-size: .75rem;
+}
+
+
+.busisness-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
+    column-gap: 20rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: .25rem;
+    color: #525252;
+    font-size: .95rem;
+}
+
+.form-group input {
+    padding: .5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: transparent;
+    z-index: 1000;
+}
+
+.form-group small {
+    color: #999;
+    font-size: .75rem;
+    margin-top: .25rem;
+}
+
+.form-footer {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.next-button {
+    background: #4b0082;
+    border: none;
+    padding: .75rem 4rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.next-button:hover {
+    background: #360063;
+}
+
+
+/*media query*/
+@media (max-width: 768px) {
+    .form-container {
+        height: 100%;
+        margin: 2rem auto;
+    }
+
+    .busisness-form {
+        grid-template-columns: 1fr;
+        width: 80%;
+        padding: 1rem;
+    }
+
+    .form-header {
+        width: 80%;
+        padding: 1rem;
+    }
+
+    .logo-container2 {
+        width: 20%;
+    }
+
+    .logo-img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .form-footer {
+        text-align: center;
+    }
+
+    .form-header {
+        margin: 0;
+    }
+
+    .form-steps {
+        width: 80%;
+    }
+
+    .step {
+        font-size: .8rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .logo-container2 {
+        width: 30%;
+    }
+
+
+    .form-header-texts h2 {
+        font-size: 1rem;
+    }
+
+    .form-header-texts p {
+        font-size: .8rem;
+    }
+}
+
+/*seems bank details started here ⚠️*/
+
+.input-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.input-form-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    align-content: center;
+    align-self: center;
+    width: 35%;
+}
+
+.file-upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 50%;
+}
+
+.file-upload label {
+    font-size: .8rem;
+    margin-left: -4rem;
+    color: #000000;
+    font-weight: 600;
+    /*remeber to mak here responsive*/
+}
+
+.file-upload small {
+    color: #999;
+    font-size: .75rem;
+    margin-top: .25rem;
+    margin-left: -6rem;
+    color: #000000;
+    font-weight: 600;
+    /*remeber to mak here responsive*/
+}
+
+.drag-drop {
+    border: 2px dashed rgb(136, 136, 136) !important;
+    text-align: center;
+    cursor: pointer;
+    width: 50%;
+    background-color: #f1f1f1;
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.drag-drop input {
+    margin-top: 2rem;
+    display: none;
+}
+
+.drag-drop p {
+    width: 75%;
+    margin: .6rem auto;
+    font-size: .85rem;
+    color: #000000;
+    font-weight: 600;
+}
+
+.drag-drop p span {
+    color: crimson;
+    cursor: pointer;
+}
+
+.dropped-file {
+    font-size: .8rem;
+    color: green;
+    margin-top: 1rem;
+}
+
+.blue-border {
+    border: 1px solid blue;
+    background: #4b0082;
+}
+
+.gray-border {
+    border: 1px solid gray;
+}
+
+.terms {
+    font-size: .55rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: .3rem;
+}
+
+.terms-input {
+    background-color: #FFFFFF !important;
+    /*something is definitely causing this not to take effect ⚠️*/
+}
+
+.terms label span {
+    font-style: italic;
+    font-weight: 600;
+}
+
+.footer-text {
+    font-size: .6rem;
+    font-weight: 700;
+    color: #000000;
+}
+
+.display-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.merch-left2 {
+    position: relative;
+}
+
+.merch-left2 .logo-container2 {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+.merch-container2 {
+    position: relative;
+}
+
+.merch-left2 p {
+    position: absolute;
+    bottom: 5%;
+    padding: 0 2rem;
+    /*keep here responsive ⚠️*/
+    margin-left: 6rem;
+    color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+
+    .display-flex {
+        padding: 1rem;
+    }
+
+    .terms label {
+        text-align: center;
+    }
+
+    .file-upload {
+        padding: .4rem 1rem;
+        text-align: start;
+        align-items: start;
+    }
+
+    .file-upload label,
+    .file-upload small {
+        margin: 0;
+    }
+
+    .drag-drop {
+        width: 100%;
+    }
+
+    .footer-text {
+        text-align: center;
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .input-upload {
+        flex-direction: row-reverse;
+        flex-direction: column;
+    }
+
+    .input-form-details {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .file-upload {
+        width: 100%;
+    }
+
+
+    .form-footer {
+        margin: 0;
+    }
+}
+
+/*error and success screens starts here⚠️*/
+.error-screen {
+    border: 1px solid;
+    background-color: green;
+    width: 50vw;
+    height: 50vh;
+    margin: 0 auto;
+}
+
+.error-icon {
+    color: red !important;
+    font-size: 6rem;
+}
+
+.merch-right-texts h2 {
+    font-size: 2rem;
+}
+
+.error-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.error-actions .error-btn button,
+.error-actions .contact-support,
+.success-btn {
+    background-color: #360063 !important;
+    padding: .75rem 1.8rem !important;
+    border-radius: 3px;
+    color: #FFFFFF;
+    border: none;
+}
+
+.error-actions .error-btn button:hover,
+.error-actions .contact-support:hover,
+.success-btn:hover {
+    background-color: #4b0082;
+}
+
+.success-text1,
+.success-text2 {
+    font-size: 1rem;
+    color: green;
+}
+
+.success-text2 {
+    font-size: .8rem;
+}

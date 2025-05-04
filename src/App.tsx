@@ -2,11 +2,12 @@
 import { BrowserRouter } from "react-router-dom";
 
 import AppRoutes from "./routes/AppRoutes";
+// import MerchantHome from "./components/merchant/MerchantHome";
 
 function App() {
   return (
     <BrowserRouter>
-      
+      {/* <MerchantHome /> */}
       <AppRoutes />
     </BrowserRouter>
   );
