@@ -1,0 +1,70 @@
+/* Sidebar Styles */
+.sidebar {
+    width: 240px;
+    background-color: #1B0B2E;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: width 0.3s ease;
+  }
+  
+  .sidebar.open {
+    width: 240px;
+  }
+  
+  .logo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: white;
+  }
+  
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .nav-item {
+    text-decoration: none;
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s, font-weight 0.3s;
+  }
+  
+  .nav-item:hover {
+    color: white;
+  }
+  
+  .nav-item.active {
+    color: white;
+    font-weight: bold;
+  }
+  
+  .nav-icon {
+    margin-right: 10px;
+  }
+  
+  .logout-container {
+    margin-top: auto;
+    width: 100%;
+  }
+  
+  .logout-link {
+    display: flex;
+    align-items: center;
+    color: #555;
+    text-decoration: none;
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  
+  .logout-icon {
+    margin-right: 10px;
+  }
+  

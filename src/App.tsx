@@ -7,7 +7,6 @@ import AppRoutes from "./routes/AppRoutes";
 function App() {
   return (
     <BrowserRouter>
-      {/* <MerchantHome /> */}
       <AppRoutes />
     </BrowserRouter>
   );
