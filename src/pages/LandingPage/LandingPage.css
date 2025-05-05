@@ -2,11 +2,16 @@
 
 
 .landingpage-container{
-    background: radial-gradient(#FFFFFFCC 80%, #F8F1F1);
+    background: radial-gradient(17.89% 139.76% at 50% 50%, rgba(255, 255, 255, 0.80) 19.71%, #F8F1F1 100%);
     
 
 }
+
+
 /* navbar section */
+.navbar{background: radial-gradient(17.89% 139.76% at 50% 50%, rgba(255, 255, 255, 0.80) 19.71%, #F8F1F1 100%);
+overflow: hidden;}
+
 urgent2kay-logo{
     width: 229.032px;
     height: 50.075px;
@@ -29,7 +34,7 @@ urgent2kay-logo{
     line-height: 19.6px;
     color: #401A6D;
     border-radius: 58px;
-    border: 1.5px solid #401A6D;
+    border: 1.5px solid #E8BF31;
     background: radial-gradient(#FFFFFFCC 80%, #F8F1F1);
     padding:6px 12px;
     width: 97px;
@@ -54,7 +59,12 @@ urgent2kay-logo{
     border: none
 }
 
+
+
 /* Hero section */
+.hero{
+    margin-bottom: 3rem;
+}
 h1{
     align-self: stretch;
     text-align: center;
@@ -113,7 +123,7 @@ h1{
     line-height: 19.6px;
     color: #401A6D;
     border-radius: 58px;
-    border: 1.5px solid #E8BF31;
+    border: 2px solid #E8BF31;
     background-color:  #FFFFFF;
     padding:6px 12px;
     width: 229px;
@@ -121,28 +131,354 @@ h1{
     text-decoration:none;
 }
 .hero-images{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+    margin-bottom: 12rem ;
     position: relative;
-    width: fit-content;
-    margin: 0 auto;
-    padding: 20px; 
-
 }
-.frame-img{
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin-top: 50;
 
-}
-.smiling-img{
+.frame-img{ 
     position: absolute;
-    top: 10;
-    left: 50%;
-    transform: translateX(-50%);
-    border-bottom-left-radius: 50% 20%;
-    border-bottom-right-radius: 50% 20%;
-    overflow: hidden;
-    width: 50%; 
-    z-index: 1;
+    top: 80%;
+}
+
+.smiling-img{
+    width:800px
+}
+
+
+
+/* how-it-works */
+.how-it-works{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F7F6F6;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width:90%;
+     max-width:1300px;
+    height: 500px;
+    margin :3rem auto;
+    margin-top: 3rem;
+    margin-bottom: 10rem;
+    padding: 20px;
+    box-sizing: border-box; 
+    border-radius: 8px;  
+}
+
+.how-it-works-details{
+    margin-bottom: 6rem;
+}
+.section-title{
+    color: #000;
+    font-family: Archivo;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 140%;
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+}
+.section-title::after{
+    content:"";
+    display: block;
+    width: 430px;
+    height:4px;
+    background-color: #66488A;
+    margin-top: 8px;
+    margin-left: 0.5rem;
+    border-radius: 2px;
+}
+.icon-text{
+    display: flex;
+}
+.how-it-works-icon{
+    width:40px;
+    height:40px;
+    margin: 0.5rem;
+    background-color: #C4B8D2;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
 
 }
+.how-it-works-img{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top:25%;
+}
+.how-it-works-text{
+    font-family: Archivo;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 150%;
+    color:#000;
+    letter-spacing: 0.02em;
+    margin-left: 0.5rem;
+    margin-top: 1rem;
+}
+.how-it-works-shots{
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+    width: 90%;                      
+    display: block; 
+    margin-left: 3rem;
+}
+
+
+
+/* why-choose */
+.why-choose{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F7F6F6;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width:90%;
+     max-width:1300px;
+    height: 500px;
+    margin :3rem auto;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    padding: 20px;
+    box-sizing: border-box; 
+    border-radius: 8px;
+
+}
+.why-choose-shots{
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+    width: 80%;                      
+    display: block; 
+    margin-right: 3rem;
+
+}
+
+
+/* get-started */
+.get-started{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ECE8F0;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width:90%;
+    max-width: 1300px;
+    margin :3rem auto;
+    margin-top: 3rem;
+    margin-bottom: 10rem;
+    padding: 24px 24px 0px 24px;
+    border-radius: 8px;
+    box-sizing: border-box; 
+}
+
+
+.section-title-one{
+    color: #000;
+    font-family: Archivo;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 140%;
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+}  
+
+.join-one-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-family: Archivo;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 22.7px;
+    color: #FFFFFF;
+    border-radius: 58px;
+    background-color:  #401A6D;
+    padding:10px 16px;
+    width: 175px;
+    height: 44px;
+    text-decoration:none;
+    border: none
+}
+.get-started-text{
+    color: #000; 
+    font-family: Archivo;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 140%; 
+    margin-bottom: 2rem;
+}
+
+.iphone-img{
+    margin-top:4rem;
+}
+
+
+/* partner */
+.partner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ECE8F0;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width:90%;
+     max-width:1300px;
+    height: 500px;
+    margin :3rem auto;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    padding: 20px;
+    box-sizing: border-box; 
+    border-radius: 8px;
+}
+
+ul {
+    list-style-type: disc; 
+    padding-left: 1.5rem;   
+    margin: 1rem 0;  
+    color: #000;
+    font-family: Archivo;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.16px;
+         
+  }
+  .partner-img{
+    width:80%;
+    margin-left: 5rem;
+  }
+  
+
+  /* footer */
+  .footer{
+    background-color: #401A6D;
+    color: #FFFCFC;
+  }
+
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  /* .footer-brand {
+    flex: 1;
+  } */
+
+.urgent2kay-logo2{
+    width: 200px;
+    height: 60.091px;
+}
+.social-icons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-icons img {
+    width: 24px;
+    height: 24px;
+  }
+  .footer-links {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 76px;
+  }
+  .link-column h4 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: Archivo;
+    font-size: 23px;
+    line-height: 140%;
+    color:#FFFFFF;
+  }
+
+  .link-column a {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #fffcfc;
+    font-family: Archivo;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.01rem;
+  }
+  .link-column a:hover {
+    text-decoration: underline;
+  }
+  .footer-divider {
+    border: none;
+    border-top: 1px solid #fff;
+    margin: 2.5rem;
+    opacity: 0.26;
+  }
+  .footer-newsletter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  .footer-newsletter h4 {
+    color: #FFF;
+    font-family: Archivo;
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 140%;
+    margin-bottom: 0.3rem;
+  }
+  .footer-newsletter p {
+    color: #FFFCFC;
+    font-family: Archivo;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.16px;
+    opacity: 0.8;
+  }
+  .newsletter-form {
+    display: flex;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    overflow: hidden;
+    background: white;
+  }
+  .newsletter-form input {
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 50px 0 0 50px;
+    outline: none;
+    width: 250px;
+  }
+  .newsletter-form button {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    margin-left: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .icon-logo-one {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+  }
