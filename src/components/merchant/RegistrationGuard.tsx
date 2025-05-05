@@ -1,5 +1,5 @@
 import { Outlet, useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import { useState } from "react";
 import { BusinessDetails } from "../../types/merchantReg/merchant";
 import { PersonalDetails } from "../../types/merchantReg/merchant";
 import { BankDetails } from "../../types/merchantReg/merchant";
@@ -7,6 +7,7 @@ import { MerchantRegistrationData } from "../../types/merchantReg/merchant";
 import SuccessScreen from "../merchant/SuccessScreen";
 import ErrorScreen from "../merchant/ErrorScreen";
 import { OutletContextType } from "../../types/merchantReg/context";
+import "./merchant.css";
 
 type RegistrationStatus = "idle" | "submitting" | "success" | "error";
 
@@ -69,7 +70,7 @@ const RegistrationGuard = () => {
         "bank",
         JSON.stringify({
           ...completeData.bank,
-          ownershipProof: undefined, //this should remove file from json dada
+          ownershipProof: undefined, //this should remove file from json data
         })
       );
 
@@ -77,21 +78,24 @@ const RegistrationGuard = () => {
         formData.append("ownershipProof", completeData.bank.ownershipProof);
       }
 
-      const response = await fetch("/api/v1/service-provider/register", {
-        method: "POST",
-        // headers: {
-        //   "Content-Type": "application/json", //browser should set this
-        // },
-        body: formData,
-      });
+      const response = await fetch(
+        "http://localhost:10000/api/v1/partner/register",
+        {
+          method: "POST",
+          // headers: {
+          //   "Content-Type": "application/json", //browser should set this
+          // },
+          body: formData,
+        }
+      );
 
       if (!response.ok) {
-        const errorText = await response.text(); 
+        const errorText = await response.text();
         console.error("Raw error response:", errorText);
         throw new Error(errorText || "Registration failed");
       }
 
-      const data = await response.json(); 
+      const data = await response.json();
       setStatus("success");
       return data;
     } catch (error) {

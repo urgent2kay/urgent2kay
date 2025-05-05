@@ -14,6 +14,12 @@ body {
     color: red;
 }
 
+button {
+    color: #FFFFFF;
+    text-decoration: none !important;
+    font-weight: 600;
+}
+
 .logo-container {
     position: absolute;
     top: 10%;
@@ -518,6 +524,23 @@ input::placeholder {
     color: #FFFFFF;
 }
 
+.registration-wizard {
+    border: 1px solid;
+    overflow: hidden;
+    width: 100vw;
+}
+
+.overlay {
+    background-color: #F0EBF5;
+    width: 80%;
+}
+
+.spinner {
+    color: #360063;
+}
+
+
+
 @media (max-width: 768px) {
 
     .display-flex {
@@ -585,6 +608,12 @@ input::placeholder {
     font-size: 6rem;
 }
 
+.success-icon {
+    color: green !important;
+    font-size: 6rem;
+}
+
+
 .merch-right-texts h2 {
     font-size: 2rem;
 }
@@ -603,6 +632,8 @@ input::placeholder {
     border-radius: 3px;
     color: #FFFFFF;
     border: none;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .error-actions .error-btn button:hover,
@@ -618,5 +649,5 @@ input::placeholder {
 }
 
 .success-text2 {
-    font-size: .8rem;
+    font-size: 1.2rem;
 }

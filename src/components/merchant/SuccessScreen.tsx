@@ -47,14 +47,17 @@ const SuccessScreen = ({ onRestart }: SuccessScreenProps) => {
       </div>
       <div className="merch-right">
         <div className="merch-right-texts">
-          <FaCheck style={{ color: "green" }} />
+          <FaCheck style={{ color: "green" }} className="success-icon" />
           <h2>Registration Successful! 🎉</h2>
         </div>
-        <p className="success-text1">Thank you for registering your partner/service-provider account.</p>
-        <p className="success-text2">We'll review your application and contact you shortly.</p>
+        <p className="success-text1">
+          Thank you for registering your partner/service-provider account.{" "}
+          <br></br> We'll review your application and contact you shortly.
+        </p>
+        {/* <p className="success-text2">We'll review your application and contact you shortly.</p> */}
         <div className="error-actions">
           <button onClick={onRestart} className="success-btn">
-            Register Another Business 
+            Register Another Business
           </button>
         </div>
       </div>
