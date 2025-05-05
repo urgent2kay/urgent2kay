@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./BundleOverview.css";
+import "./SponsorBundleOverview.css";
 import Sidebar from "./Sidebar";
 import Header from "../components/Header";
 import { FaTimes } from "react-icons/fa";
@@ -10,7 +10,7 @@ interface BundleItem {
   amount: number;
 }
 
-interface Sponsor {
+interface Sponsoree {
   name: string;
   imageUrl: string;
 }
@@ -22,12 +22,12 @@ const bundleItems: BundleItem[] = [
   { name: "Lunch", amount: 4500 },
 ];
 
-const sponsor: Sponsor = {
-  name: "Mother",
+const sponsoree: Sponsoree = {
+  name: "Ada",
   imageUrl: "./Image/Mother.jpg",
 };
 
-const BundleOverview: React.FC = () => {
+const SponsorBundleOverview: React.FC = () => {
   const totalAmount = bundleItems.reduce((sum, item) => sum + item.amount, 0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -43,6 +43,7 @@ const BundleOverview: React.FC = () => {
       {/* Main Section */}
       <div className="main-section">
         <Header />
+
         {/* Main Content */}
         <main className="main-content">
           <div className="bundle-container">
@@ -55,19 +56,19 @@ const BundleOverview: React.FC = () => {
               </button>
             </Link>
             <div className="bundle-header">
-              {/* <h1>Bundle Overview / {sponsor.name}</h1> */}
-
-              <h2>Bundle Overview / {sponsor.name}</h2>
-              <h3>Sponsor</h3>
+              <h2>Request Overview</h2>
+              <h3>Beneficiary</h3>
             </div>
 
             <div className="sponsor-info">
               <img
-                src={sponsor.imageUrl}
-                alt={sponsor.name}
+                src={sponsoree.imageUrl}
+                alt={sponsoree.name}
                 className="sponsor-image"
               />
-              <span className="sponsor-name">{sponsor.name}</span>
+              <span className="sponsor-name">
+                <h4>Daughter/{sponsoree.name}</h4>
+              </span>
             </div>
 
             <div className="bundle-details">
@@ -87,27 +88,16 @@ const BundleOverview: React.FC = () => {
               </div>
             </div>
 
-            <div className="bundle-actions">
-              <input
-                type="text"
-                placeholder="Add a note"
-                className="note-input"
-              />
-              
-              <select className="priority-select">
-                <option>Select Priority</option>
-                <option>High</option>
-                <option>Medium</option>
-                <option>Low</option>
-              </select>
-            
+            <div className="priority-section">
+              <p>Priority</p>
+              <p className="priority-tag">Very urgent</p>
             </div>
 
             <div className="bundle-buttons">
               <Link to="request-sucessful">
-              <button className="send-button">Send to Sponsor</button>
+                <button className="send-button">Accept</button>
               </Link>
-              <button className="edit-button">Edit Request</button>
+              <button className="edit-button">Reject</button>
             </div>
           </div>
         </main>
@@ -120,4 +110,5 @@ const BundleOverview: React.FC = () => {
     </div>
   );
 };
-export default BundleOverview;
+
+export default SponsorBundleOverview;

@@ -1,0 +1,21 @@
+.priority-section {
+  color: #000;
+  margin-bottom: 10px;
+  font-size: 0.75rem;
+}
+
+.priority-tag {
+  background: #fff;
+  color: #cc0000;
+  border: 1px solid #ffcccc;
+  padding-right: 155px;
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 58px;
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  max-width: 252px;
+  font-size: 0.75rem;
+}
