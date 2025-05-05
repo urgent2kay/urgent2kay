@@ -12,7 +12,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, toggleSidebar }) => {
     <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
       <h2 className="logo">Urgent2Kay</h2>
       <nav className="nav-links">
-        <a href="#" className="nav-item">
+        <a href="/dashboard" className="nav-item">
           <FaTachometerAlt className="nav-icon" />
           Dashboard
         </a>

@@ -10,15 +10,18 @@ import RegistrationGuard from "../components/merchant/RegistrationGuard";
 import BusinessDetailsPage from "../components/merchant/BusinessDetails";
 import PersonalDetailsPage from "../components/merchant/PersonalDetails";
 import BankDetailsPage from "../components/merchant/BankDetails";
+import Dashboard from '../../src/pages/Dashboard/Dashboard';
+import LandingPage from "../pages/LandingPage/LandingPage";
 
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<GenerateRequest />} />
+      <Route path="/" element={<LandingPage />} /> 
       <Route path="/generate-request" element={<GenerateRequest />} />
       <Route path="/template" element={<TemplatePage />} />
       <Route path="/bundle-overview" element={<BundleOverview />} />
       <Route path="/sign-up" element={<Signup />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/choose-sponsor" element={<ChooseSponsor />} />
       {/* Note that whenever the other pages are ready, we can navigate from this
       point down. For now, the path will not work. i used the / path for
