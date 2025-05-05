@@ -20,9 +20,6 @@ const AppRoutes: React.FC = () => {
       <Route path="/bundle-overview" element={<BundleOverview />} />
       <Route path="/sign-up" element={<Signup />} />
       <Route path="/choose-sponsor" element={<ChooseSponsor />} />
-      <Route path="/" element={<GenerateRequest />} />
-      <Route path="/generate-request" element={<GenerateRequest />} />
-      <Route path="/template" element={<TemplatePage />} />
       {/* Note that whenever the other pages are ready, we can navigate from this
       point down. For now, the path will not work. i used the / path for
       testing ⚠️⚠️⚠️*/}
