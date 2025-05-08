@@ -4,6 +4,7 @@ import GenerateRequest from "../pages/GenerateRequest";
 import TemplatePage from "../pages/Template";
 import BundleOverview from "../pages/BundleOverview";
 import Signup from "../pages/Signup";
+import SelectPayment from "../pages/SelectPayment";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/template" element={<TemplatePage />} />
       <Route path="/bundle-overview" element={<BundleOverview />} />
       <Route path="/sign-up" element={<Signup />} />
+      <Route path="/select-payment" element={<SelectPayment />} />
     </Routes>
   );
 };
