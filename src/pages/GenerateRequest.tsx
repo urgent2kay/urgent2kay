@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
-import { FaBell, FaUser } from 'react-icons/fa'; // React icons for notification and profile
 import Sidebar from './Sidebar';
 
 import Header from '../components/Header';
@@ -27,7 +26,7 @@ const GenerateRequest: React.FC = () => {
         <Header />
 
         <main className="main-content">
-          {/* Balance Section */}
+          
           <div className="balance-card">
   <div className="balance-content">
     <div className="balance-header">
@@ -39,7 +38,7 @@ const GenerateRequest: React.FC = () => {
 </div>
 
 
-          {/* Request Section */}
+        
           <div className="request-container">
             <div className="request-item">
               <span className="request-text">Combine bills, subscriptions, and personal needs into one simple request.</span>
@@ -57,7 +56,7 @@ const GenerateRequest: React.FC = () => {
             </div>
           </div>
 
-          {/* Categories Section */}
+          
           <div className="categories-container">
   <div className="category-item">
     <div className="icon-circle"><IoIosFlash className="category-icon" /></div>
@@ -93,7 +92,7 @@ const GenerateRequest: React.FC = () => {
   </div>
 </div>
 
-          {/* Suggested Section */}
+        
           <div className="suggested-wrapper">
             <div className="suggested-header">Suggested For You</div>
             <div className="suggested-content">

@@ -45,7 +45,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, toggleSidebar }) => {
         </a>
       </nav>
 
-      {/* Logout */}
+      
       <div className="logout-container">
         <a href="#" className="logout-link">
           <FaSignOutAlt className="logout-icon" />
