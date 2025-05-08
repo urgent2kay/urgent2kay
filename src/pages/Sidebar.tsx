@@ -1,6 +1,8 @@
 import React from 'react';
-import { FaTachometerAlt, FaPlusCircle, FaUsers, FaHistory, FaQuestionCircle, FaUser, FaSignOutAlt } from 'react-icons/fa';
+import { FaTachometerAlt, FaPlusCircle,FaTimes, FaUsers, FaHistory, FaQuestionCircle, FaUser, FaSignOutAlt } from 'react-icons/fa';
+
 import './sidebar.css';
+
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -10,6 +12,11 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, toggleSidebar }) => {
   return (
     <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+      {/* Toggle button visible on mobile */}
+      <button className="sidebar-toggle" onClick={toggleSidebar}>
+      <FaTimes />
+      </button>
+
       <h2 className="logo">Urgent2Kay</h2>
       <nav className="nav-links">
         <a href="#" className="nav-item">
