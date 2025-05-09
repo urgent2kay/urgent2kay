@@ -1,13 +1,14 @@
 // src/App.tsx
 import { BrowserRouter } from "react-router-dom";
+// import AppRoutes from "./routes/AppRoutes";
+import NoRelationship from "./components/relationship/NoRelationship";
 
-import AppRoutes from "./routes/AppRoutes";
-// import MerchantHome from "./components/merchant/MerchantHome";
 
 function App() {
   return (
     <BrowserRouter>
-      <AppRoutes />
+      <NoRelationship />
+      {/* <AppRoutes /> */}
     </BrowserRouter>
   );
 }
