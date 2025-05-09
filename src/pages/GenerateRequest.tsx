@@ -19,7 +19,7 @@ import {
 import './GenerateRequest.css';
 import './GenerateRequestTwo.css';
 
-import rectangle40 from '../assets/rectangle40.png';
+import rectangle40 from '../assets/Rectangle40.png';
 import removebg from "../assets/removebg-preview.png";
 import gift from "../assets/gift.png";
 import woman from "../assets/woman.png";
