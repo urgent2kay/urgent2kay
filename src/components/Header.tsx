@@ -47,15 +47,15 @@ const Header: React.FC = () => {
               transform: 'translateY(-50%)',
               color: '#888'
             }} />
-            <input 
-              type="text" 
+            <input
+              type="text"
               placeholder="Search"
               style={{
-                padding: '5px 10px 5px 30px', 
-                borderRadius: '6px', 
-                border: '1px solid #ddd', 
-                fontSize: '12px', 
-                color: '#555', 
+                padding: '5px 10px 5px 30px',
+                borderRadius: '6px',
+                border: '1px solid #ddd',
+                fontSize: '12px',
+                color: '#555',
                 backgroundColor: '#f7f7f7',
                 width: '150px',
               }}
@@ -64,7 +64,14 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', position: 'relative', flexGrow: 1, justifyContent: 'flex-end' }}>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '12px',
+        position: 'relative',
+        flexGrow: 1,
+        justifyContent: 'flex-end',
+      }}>
         <button style={{
           backgroundColor: '#401A6D',
           color: 'white',
@@ -73,6 +80,7 @@ const Header: React.FC = () => {
           borderRadius: '6px',
           cursor: 'pointer',
           fontSize: '12px',
+          marginRight: '8px', 
         }}>Connect Wallet</button>
 
         {/* Notification Dropdown */}
@@ -86,6 +94,7 @@ const Header: React.FC = () => {
           justifyContent: 'center',
           alignItems: 'center',
           cursor: 'pointer',
+        
         }} onClick={toggleNotification}>
           <FaBell style={{ fontSize: '16px' }} />
           <div style={{
@@ -121,6 +130,7 @@ const Header: React.FC = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          marginRight: '10px', 
           cursor: 'pointer',
         }} onClick={toggleProfile}>
           <FaUser style={{ fontSize: '16px' }} />
@@ -136,6 +146,7 @@ const Header: React.FC = () => {
             flexDirection: 'column',
             width: '120px',
             zIndex: '1000',
+         
             visibility: profileOpen ? 'visible' : 'hidden',
             opacity: profileOpen ? '1' : '0',
             pointerEvents: profileOpen ? 'auto' : 'none',
