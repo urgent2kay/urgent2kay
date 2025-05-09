@@ -8,7 +8,7 @@ import Overview from './Overview';
 import './Dashboard.css';
 
 const Dashboard: React.FC = () => {
-  const [userState, setUserSate] = useState<'new' | 'firstRequest' | 'old'>('new');
+  const [userState, setUserState] = useState<'new' | 'firstRequest' | 'old'>('new');
   const [overviewData, setOverviewData] = useState({
     requestsGenerated: 0,
     billsSponsored: 0,
@@ -28,14 +28,14 @@ const Dashboard: React.FC = () => {
     const newActivity = { requestBundle: 'Monthly Essential', sponsor: 'Mummy', amount: 'N32,500', date: '01-05-25', time: '12:00am', status: 'pending' };
     setRecentActivities([newActivity, ...recentActivities]);
     setOverviewData({ ...overviewData, requestsGenerated: overviewData.requestsGenerated + 1 });
-    setUserSate('firstRequest');
+    setUserState('firstRequest');
   };
 
   const handlePayBundle = () => {
     const newActivity = { requestBundle: 'Monthly Essential', sponsor: 'Mummy', amount: 'N32,500', date: '01-05-25', time: '12:00am', status: 'approved' };
     setRecentActivities([newActivity, ...recentActivities]);
     setOverviewData({ ...overviewData, billsSponsored: overviewData.billsSponsored + 1 });
-    setUserSate('old');
+    setUserState('old');
   };
 
   return (
