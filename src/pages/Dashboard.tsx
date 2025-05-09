@@ -3,6 +3,9 @@ import StatsCards from '../components/dashboard/StatsCards';
 import DahboardActions from '../components/dashboard/DashboardActions';
 import RecentActivities from '../components/dashboard/RecentActivities';
 import { Activity } from '../types/dashboardindex';
+import Header from '../components/Header';
+import Sidebar from '../pages/Sidebar';
+
 
 const Dashboard: React.FC = () => {
     const[stats, setStats] = useState({
@@ -13,6 +16,9 @@ const Dashboard: React.FC = () => {
     });
 
     const[activities, setActivities] = useState<Activity[]>([]);
+
+    const [sidebarOpen, setSidebarOpen] = useState(true);
+    const toggleSidebar = () => setSidebarOpen(prev => !prev);
 
     useEffect(() => {
         // Simulate fetching data from an API
@@ -38,9 +44,19 @@ const Dashboard: React.FC = () => {
         }, []);
 
         return(
-            <div>
+            <div className='dashboard-container'>
+                <div>
+                <Header />
+                </div>
+                <div>
+                <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={ toggleSidebar}/>
+                </div>
+                <div>
                 <StatsCards stats={stats} />
+                </div>
+                <div>
                 <DahboardActions />
+                </div>
                 <RecentActivities activities={activities} />
             </div>
         );
