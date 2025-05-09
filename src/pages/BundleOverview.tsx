@@ -104,9 +104,9 @@ const BundleOverview: React.FC = () => {
             </div>
 
             <div className="bundle-buttons">
-              <Link to="request-sucessful">
+              {/* <Link to="request-sucessful"> */}
               <button className="send-button">Send to Sponsor</button>
-              </Link>
+              {/* </Link> */}
               <button className="edit-button">Edit Request</button>
             </div>
           </div>

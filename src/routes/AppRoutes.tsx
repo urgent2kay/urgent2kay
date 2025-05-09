@@ -5,6 +5,7 @@ import TemplatePage from "../pages/Template";
 import BundleOverview from "../pages/BundleOverview";
 import Signup from "../pages/Signup";
 import ChooseSponsor from "../pages/ChooseSponsor";
+import RequestSuccessful from "../pages/RequestSucessful";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/bundle-overview" element={<BundleOverview />} />
       <Route path="/sign-up" element={<Signup />} />
       <Route path="/choose-sponsor" element={<ChooseSponsor />} />
+      <Route path="request-successful" element={<RequestSuccessful />} />
     </Routes>
   );
 };

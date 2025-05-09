@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./BundleOverview.css";
+import "./RequestSucessful.css";
 import Sidebar from "./Sidebar";
 import Header from "../components/Header";
 import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import "./RequestSucessful.css";
 
 interface BundleItem {
   name: string;
@@ -28,12 +28,21 @@ const sponsor: Sponsor = {
   imageUrl: "./Image/Mother.jpg",
 };
 
-const RequestSucessful: React.FC = () => {
+const RequestSuccessful: React.FC = () => {
   const totalAmount = bundleItems.reduce((sum, item) => sum + item.amount, 0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
+  const sendRequestToSponsor = () => {
+    setIsSending(true);
+    // Simulate an API call
+    setTimeout(() => {
+      setIsSending(false);
+      setIsSuccess(true);
+    }, 3000); // 3 seconds delay
   };
 
   return (
@@ -44,7 +53,6 @@ const RequestSucessful: React.FC = () => {
       {/* Main Section */}
       <div className="main-section">
         <Header />
-        {/* Main Content */}
         <main className="main-content">
           <div className="bundle-container">
             <Link to="/choose-sponsor">
@@ -55,23 +63,8 @@ const RequestSucessful: React.FC = () => {
                 Back
               </button>
             </Link>
-            <div className="sucessful-overlay">
-              <img
-                src="./Image/successful.png"
-                alt="success Image"
-                className="sponsor-image"
-              />
-              <h2>Request Sent Successfully!</h2>
-              <h3>
-                Your bundle has been sent to {sponsor.name}. They will receive a
-                notification to review and approve your request.{" "}
-              </h3>
-              <button className="send-button">View Dashboard</button>
-            </div>
-            <div className="dim-background"></div>
-            <div className="bundle-header">
-              {/* <h1>Bundle Overview / {sponsor.name}</h1> */}
 
+            <div className="bundle-header">
               <h2>Bundle Overview / {sponsor.name}</h2>
               <h3>Sponsor</h3>
             </div>
@@ -108,18 +101,22 @@ const RequestSucessful: React.FC = () => {
                 placeholder="Add a note"
                 className="note-input"
               />
-              {/* <div className="custom-select"> */}
               <select className="priority-select">
                 <option>Select Priority</option>
                 <option>High</option>
                 <option>Medium</option>
                 <option>Low</option>
               </select>
-              {/* </div> */}
             </div>
 
             <div className="bundle-buttons">
-              <button className="send-button">Send to Sponsor</button>
+              <button
+                className="send-button"
+                onClick={sendRequestToSponsor}
+                disabled={isSending}
+              >
+                {isSending ? "Sending..." : "Send to Sponsor"}
+              </button>
               <button className="edit-button">Edit Request</button>
             </div>
           </div>
@@ -130,7 +127,39 @@ const RequestSucessful: React.FC = () => {
       <button className="sidebar-toggle" onClick={toggleSidebar}>
         {sidebarOpen ? <FaTimes /> : <span>☰</span>}
       </button>
+
+      {/* Loading Spinner */}
+      {isSending && (
+        <div className="loading-spinner">
+          <div className="spinner-circle"></div>
+        </div>
+      )}
+
+      {/* Success Popup */}
+      {isSuccess && (
+        <div className="success-popup">
+          <div className="success-popup-content">
+            <img
+              src="./Image/successful.png"
+              alt="Success"
+              className="success-image"
+            />
+            <h2>Request Sent Successfully!</h2>
+            <p>
+              Your bundle has been sent to {sponsor.name}. They will receive a
+              notification to review and approve your request.
+            </p>
+            <button
+              className="close-popup-button"
+              onClick={() => setIsSuccess(false)}
+            >
+              View Dashboard
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
-export default RequestSucessful;
+
+export default RequestSuccessful;
