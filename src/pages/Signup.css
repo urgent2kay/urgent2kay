@@ -154,3 +154,12 @@ html {
 .terms label {
   font-size: 0.5rem;
 }
+
+.terms input[type="checkbox"] {
+  position: relative;
+  z-index: 10;
+  opacity: 1;
+  pointer-events: auto;
+  width: 16px;
+  height: 16px;
+}
