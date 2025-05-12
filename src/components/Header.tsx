@@ -16,8 +16,10 @@ const Header: React.FC = () => {
           <h2>Hi, Ada</h2>
           <p>Let’s simplify your finances!</p>
         </div>
-        <div className="search-container">
-          <div className="search-icon"><FaSearch /></div>
+        <div className="search-container search-bar2">
+          <div className="search-icon">
+            <FaSearch />
+          </div>
           <button className="search-btn">Search</button>
         </div>
       </div>

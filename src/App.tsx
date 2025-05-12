@@ -1,14 +1,11 @@
-// src/App.tsx
 import { BrowserRouter } from "react-router-dom";
-// import AppRoutes from "./routes/AppRoutes";
-import NoRelationship from "./components/relationship/NoRelationship";
 
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   return (
     <BrowserRouter>
-      <NoRelationship />
-      {/* <AppRoutes /> */}
+      <AppRoutes />
     </BrowserRouter>
   );
 }
