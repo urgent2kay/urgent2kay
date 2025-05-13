@@ -61,7 +61,8 @@ const Login = () => {
             Pay bills, send money and stay on top of things.
           </p>
           <p className="signin-text">
-            Don’t have an account? <Link to="/sign-up">
+            Don’t have an account?{" "}
+            <Link to="/sign-up">
               <span className="link">Sign up</span>
             </Link>
           </p>
@@ -103,7 +104,10 @@ const Login = () => {
           </button>
 
           <p className="signin-text2">
-            Don’t have an account? <Link to="/sign-up"><span className="link">Sign up</span></Link>
+            Don’t have an account?{" "}
+            <Link to="/sign-up">
+              <span className="link">Sign up</span>
+            </Link>
           </p>
         </form>
       </div>
