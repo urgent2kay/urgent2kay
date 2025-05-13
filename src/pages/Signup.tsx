@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Signup.css";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -48,7 +49,7 @@ const Signup = () => {
       }
 
       setSuccess("Signup successful!");
-    } catch (err: {message: string}) {
+    } catch (err: { message: string }) {
       setError(err.message);
     } finally {
       setLoading(false);
@@ -70,7 +71,10 @@ const Signup = () => {
             payments.
           </p>
           <p className="signin-text">
-            Already have an account? <span className="link">Sign in</span>
+            Already have an account?{" "}
+            <Link to="/sign-in">
+              <span className="link">Sign in</span>
+            </Link>
           </p>
         </div>
       </div>
@@ -142,7 +146,10 @@ const Signup = () => {
             <span className="arrow">&rarr;</span>
           </button>
           <p className="signin-text2">
-            Already have an account? <span className="link">Sign in</span>
+            Already have an account?{" "}
+            <Link to="/sign-in">
+              <span className="link">Sign in</span>{" "}
+            </Link>
           </p>
         </form>
       </div>
