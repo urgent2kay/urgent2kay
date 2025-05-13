@@ -10,6 +10,7 @@ import RegistrationGuard from "../components/merchant/RegistrationGuard";
 import BusinessDetailsPage from "../components/merchant/BusinessDetails";
 import PersonalDetailsPage from "../components/merchant/PersonalDetails";
 import BankDetailsPage from "../components/merchant/BankDetails";
+
 import ViewDetails from "../pages/ViewDetails";
 import PaymentDetails from "../pages/PaymentDetails";
 import RemoveMainSponsor from "../pages/RemoveMainSponsor";
@@ -20,15 +21,18 @@ import SupportInvite from "../pages/SupportInvite";
 import NotifySupport from "../pages/NotifySupport";
 import NoRelationship from "../pages/NoRelationship";
 import CreateRelationship from "../pages/CreateRelationship";
+import Dashboard from '../../src/pages/Dashboard/Dashboard';
+import LandingPage from "../pages/LandingPage/LandingPage";
 
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<GenerateRequest />} />
+      <Route path="/" element={<LandingPage />} />
       <Route path="/generate-request" element={<GenerateRequest />} />
       <Route path="/template" element={<TemplatePage />} />
       <Route path="/bundle-overview" element={<BundleOverview />} />
       <Route path="/sign-up" element={<Signup />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/choose-sponsor" element={<ChooseSponsor />} />
       {/* the relationship pages have 14 screens, these are 10 out of the 14 */}
       <Route path="/choose-sponsor" element={<NoRelationship />} />
@@ -47,11 +51,18 @@ const AppRoutes: React.FC = () => {
       testing ⚠️⚠️⚠️*/}
       <Route path="/" element={<MerchantHome />} />
       {/* Registration flow - all steps nested under RegistrationGuard */}
+      
+      
+      <Route path="/merchant-home" element={<MerchantHome />} />
+      
+      
       <Route path="/register" element={<RegistrationGuard />}>
         <Route index element={<BusinessDetailsPage />} />
         <Route path="personal" element={<PersonalDetailsPage />} />
         <Route path="bank" element={<BankDetailsPage />} />
       </Route>
+
+      
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
