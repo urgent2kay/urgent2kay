@@ -3,6 +3,8 @@ import BundleOverview from "../pages/BundleOverview";
 import Signup from "../pages/Signup";
 import SelectPayment from "../pages/SelectPayment";
 import ChooseSponsor from "../pages/ChooseSponsor";
+
+import RequestSuccessful from "../pages/RequestSucessful";
 import { Routes, Route, Navigate } from "react-router-dom";
 import GenerateRequest from "../pages/GenerateRequest";
 import TemplatePage from "../pages/Template";
@@ -25,6 +27,7 @@ import CreateRelationship from "../pages/CreateRelationship";
 import Dashboard from '../../src/pages/Dashboard/Dashboard';
 import LandingPage from "../pages/LandingPage/LandingPage";
 
+
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
@@ -37,6 +40,9 @@ const AppRoutes: React.FC = () => {
       <Route path="/select-payment" element={<SelectPayment />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/choose-sponsor" element={<ChooseSponsor />} />
+
+      <Route path="request-successful" element={<RequestSuccessful />} />
+
       {/* the relationship pages have 14 screens, these are 10 out of the 14 */}
       <Route path="/choose-sponsor" element={<NoRelationship />} />
       <Route path="/create-relationship" element={<CreateRelationship />} />
@@ -67,6 +73,7 @@ const AppRoutes: React.FC = () => {
 
       
       <Route path="*" element={<Navigate to="/" replace />} />
+
 
     </Routes>
   );

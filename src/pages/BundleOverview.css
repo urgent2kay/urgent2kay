@@ -164,13 +164,13 @@
 
 .edit-button {
   background: none;
-  border: 2px solid #401a6d;
-  border-radius: 58px; /* Consistent border radius */
+  border: 2px solid #e8bf31;
+  border-radius: 58px;
   color: #401a6d;
 }
 
 .edit-button:hover {
-  border-color: #672ab1;
+  border-color: #c09f29;
 }
 
 .edit-button:focus {
