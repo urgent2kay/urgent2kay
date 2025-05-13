@@ -80,6 +80,7 @@ const Signup = () => {
       </div>
       <div className="right-pane">
         <form className="signup-form" onSubmit={handleSubmit}>
+        <form className="signup-form" onSubmit={handleSubmit}>
           <h2 className="form-title">Sign Up</h2>
 
           {error && <p className="error-text">{error}</p>}
