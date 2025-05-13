@@ -1,0 +1,852 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: Archivo, sans-serif;
+    overflow: hidden;
+    background-color: #FFFFFF !important;
+}
+
+.relationship-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f3f4f6;
+    overflow-x: hidden;
+    transition: margin-left 0.3s ease;
+}
+
+.middle-div {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.rel-body1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    /* max-width: 565px; */
+    width: 100%;
+}
+
+.text-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.rel-btn {
+    background-color: #401A6D;
+    padding: 1rem;
+    width: 338px;
+    height: 58px;
+    border-radius: 30px;
+    color: #FFFFFF;
+    border: none;
+    font-weight: 600;
+}
+
+.rel-text {
+    font-weight: 700;
+    font-size: 19px;
+    width: 565px;
+    height: 27px;
+    color: #4D4A4A;
+}
+
+
+/* THIS SHOULD ATTEMPT TO STYLE THE SEARCH FIELD ON THE HEADER */
+/* .search-bar2{
+    border: 1px solid;
+    width: 50%;
+} */
+
+/*CREATE RELATIONSHIP STARTS HERE*/
+.sponsor-form-container {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 1.2rem;
+    color: #525252;
+}
+
+.sponsor-form-container h1 {
+    font-size: 1.8rem;
+    margin-top: .6rem;
+}
+
+.sponsor-form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* .profile-upload-section {
+    border: 1px solid dashed;
+} */
+
+.profile-image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile-placeholder {
+    border: 1px solid;
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: none;
+    position: relative;
+}
+
+.rel-profile-icon {
+    /* border: 1px solid red; */
+    background-color: transparent !important;
+}
+
+.camIcon-div {
+    position: absolute;
+    top: 32%;
+    left: 59.2%;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #401A6D;
+    cursor: pointer;
+}
+
+.sponsor-form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    width: 90%;
+}
+
+.form-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 6rem;
+    row-gap: 1rem;
+    padding: 1rem;
+}
+
+.form-section .form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .6rem;
+}
+
+.form-field label {
+    font-size: 1rem;
+    margin-bottom: .2rem;
+    font-weight: 600;
+}
+
+.form-field input[type='text'],
+.form-field input[type='email'],
+.form-field input[type='tel'],
+.form-field select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #A8A8A8;
+    border-radius: 4px;
+    font-size: .8rem;
+    margin-bottom: .8rem;
+    box-sizing: border-box;
+}
+
+/* .form-field select {
+    appearance: none;
+
+} */
+
+.form-field span {
+    font-size: .5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.limit-div {
+    padding: 0;
+    margin: 0 !important;
+}
+
+.form-section input[type='text'] .limit-input {
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+
+}
+
+.save-button {
+    font-size: 1rem;
+    padding: 1.6rem 2rem;
+    width: 20%;
+    margin: 0 auto;
+    border-radius: 40px;
+    border: none;
+    background-color: #401A6D;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+.alert {
+    padding: .6rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.2rem;
+    font-size: .8rem;
+}
+
+.alert-success {
+    background-color: #A8A8A8;
+    color: green;
+    border: 1px solid #401A6D;
+}
+
+.alert-error {
+    background-color: #A8A8A8;
+    color: red;
+    border: 1px solid #401A6D;
+}
+
+.save-button:disabled {
+    background-color: #633f8ff9;
+    cursor: not-allowed;
+}
+
+/* RELATIONSHIP CREATED STARTS HERE!!! ⚠️ */
+.celebrate-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.celebrate-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 50%;
+}
+
+.celebrate-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+}
+
+.celebrate-top h3 {
+    font-size: 2rem;
+    color: #331122;
+}
+
+.celebrate-middle p {
+    font-weight: 700;
+    color: #000000;
+    font-size: 1.125rem;
+}
+
+.celebrate-photo {
+    width: 300px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    width: 50%;
+    padding: 1rem 0;
+}
+
+.left-part,
+.right-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.left-part button,
+.right-part button,
+.rel-invite-btn,
+.rel-invite-btn2 {
+    background-color: #401A6D;
+    color: #FFFFFF;
+    padding: .8rem 1.4rem;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.left-part p,
+.right-part p {
+    font-size: .8rem;
+    color: #000000;
+}
+
+/* SUPPORT INVITE AND NOTIFY SUPPORT BOTH SHARE SAME STYLING AND STARTS HERE! */
+
+.rel-invite-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.rel-invite {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rel-logo {
+    align-self: flex-start;
+    margin-left: 2rem;
+}
+
+.rel-invite h3 {
+    font-size: 1.6rem;
+}
+
+.rel-invite-btn {
+    margin-top: 1rem;
+}
+
+.invite-photo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .4rem;
+}
+
+.invite-photo-text p,
+.rel-invite p {
+    margin-bottom: 1.6rem;
+    font-weight: 500;
+}
+
+.invite-envelop {
+    width: 300px;
+}
+
+.invite-btn-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.yellow-border {
+    border: 1px solid #E8BF31;
+    background-color: #FFFFFF;
+    color: #401A6D;
+}
+
+.rel-invite-btn2 {
+    padding: .8rem 2.8rem;
+}
+
+/* FIRST RELATIONSHIP STARTS HERE */
+.main2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 2rem;
+}
+
+.align-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.display-relationship {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+    padding: .6rem 1.4rem;
+    border: 1px solid #E8BF31;
+    border-radius: 30px;
+}
+
+.main2 h1 {
+    font-size: 1.4rem;
+}
+
+.kebab-container {
+    position: relative;
+    display: inline-block;
+    border: none;
+}
+
+.kebab-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.kebab-menu {
+    position: absolute;
+    top: 150%;
+    right: 0;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    width: 22rem;
+    margin: 0 auto;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.kebab-item {
+    width: 100%;
+    padding: 8px 16px;
+    background: none;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+    border-bottom: 1px solid #00000080;
+    padding-bottom: 1rem;
+    font-weight: 500;
+}
+
+.kebab-item:last-child {
+    border: none;
+}
+
+.kebab-item:hover {
+    background-color: #331122;
+    color: #FFFFFF;
+    border-radius: 2px;
+}
+
+.kebab-item:last-child:hover {
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.kebab-item:first-child:hover {
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+.mother p {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.mother span {
+    font-weight: 500;
+}
+
+.main2-btn {
+    background-color: #401A6D;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 30px;
+    margin-left: 40%;
+    margin-right: 40%;
+    padding: .8rem 1rem;
+    cursor: pointer;
+}
+
+.small-rel-btn {
+    padding: .4rem .6rem;
+    border-radius: 30px;
+    border: none;
+    background-color: #401A6D;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.small-rel-btn2 {
+    background-color: #FFFFFF;
+    color: #401A6D;
+    border: 1px solid #E8BF31;
+}
+
+
+.dot-group {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    border: none;
+    cursor: pointer;
+}
+
+.dot-group div {
+    background-color: #000000;
+    padding: 1px .9px;
+    border-radius: 50%;
+    border: 1px solid;
+}
+
+/* MAIN SPONSOR STARTS HERE!!! */
+.invite-photo-text .success-text {
+    color: #A8A8A8;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.success-span {
+    color: #401A6D;
+}
+
+.rel-invite .success-text2 {
+    color: #A8A8A8;
+    font-weight: 500;
+}
+
+.invite-celebrate2 {
+    width: 400px;
+}
+
+
+/* PAYMENT DETAILS STARTS HERE!!! */
+.main3 {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    border: 1px solid;
+    height: 100%;
+}
+
+.main3 a {
+    text-decoration: none;
+}
+
+.back-nav button {
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+    color: #6C6969;
+    cursor: pointer;
+}
+
+.payment-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.payment-body h4 {
+    color: #6E6969;
+}
+
+.sponsor-body-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 2rem;
+}
+
+.sponsor-payment-body-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    border: none;
+    padding: 0;
+}
+
+.mother2 {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.amount-card-body {
+    display: flex;
+    gap: 2rem;
+    text-align: center;
+}
+
+.card1,
+.card2 {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    border: 1px solid #E8BF31;
+    padding: 1.6rem 2rem;
+    border-radius: 15px;
+}
+
+.card1 .amount-subcard,
+.card2 .bundle-subcard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: #000000;
+}
+
+.amount-subcard h4 {
+    color: #000000;
+}
+
+.payment-overview-div {
+    padding: 1rem 4rem;
+    background-color: #F8F8F8;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.overview-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.overview-top .top-overview-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 50%;
+    padding: 0 1rem;
+}
+
+.top-overview-left p {
+    font-size: 1rem;
+    width: 40%;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid;
+    padding: .4rem;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #E9DDDD;
+    background-color: #FFFFFF;
+
+}
+
+.payment-search-icon {
+    color: #9C9999;
+    font-size: 1rem;
+    z-index: 999;
+}
+
+.overview-top .top-overview-left input {
+    border: none;
+    width: 100%;
+}
+
+.overview-top .top-overview-left input:focus {
+    outline: none;
+    border: none;
+}
+
+.overview-top .top-overview-right {
+    display: flex;
+    gap: 10px;
+    border: 1px solid #E9DDDD;
+    width: 20%;
+    background-color: #FFFFFF;
+    padding: .4rem;
+}
+
+.hide-date-picker {
+    display: none;
+}
+
+.select-date-input {
+    width: 100%;
+    border: none;
+}
+
+.payment-table {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    border: 1px solid #E9DDDD;
+}
+
+.payment-table thead {
+    background-color: #FFFFFF;
+    color: #8A8787;
+    padding: .2rem 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #E9DDDD;
+
+}
+
+.payment-table tbody {
+    padding: .2rem 1rem;
+    padding-bottom: 1rem;
+}
+
+
+.payment-table thead tr,
+.payment-table tbody tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+tbody {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+
+
+
+tr td {
+    font-size: .8rem;
+}
+
+
+tr td:nth-child(1),
+tr td:nth-child(2),
+tr td:nth-child(3),
+tr td:nth-child(4) {
+    font-weight: 600;
+}
+
+tr td:nth-child(5) {
+    color: #4BAF4C;
+}
+
+tr td:nth-child(6) a {
+    text-decoration: none;
+    color: #8306BD;
+    text-transform: none;
+}
+
+
+/* BUNDLE DETAILS STARTS HERE */
+
+.bundle-container {
+    display: block;
+    max-width: 32rem;
+    margin: 2.4rem auto;
+    padding: 1.8rem;
+    border-radius: 12px;
+    background-color: #fdfdfd;
+    color: #000000;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+
+}
+
+.bundle-title {
+    font-size: 1.2rem;
+    color: #6D6969;
+    margin-bottom: 1rem;
+}
+
+.bundle-name {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.item-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.4rem 0;
+
+}
+
+.item-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 0;
+    font-size: 1rem;
+    /* border-bottom: 1px solid #eee; */
+}
+
+.amount-paid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+    margin: 1.2rem 0;
+    font-size: 1.2rem;
+}
+
+.amount-paid span {
+    color: #6D6969;
+}
+
+.done-button {
+    display: block;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    background-color: #401A6D;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+}
