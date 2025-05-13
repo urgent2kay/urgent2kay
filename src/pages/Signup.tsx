@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import "./Signup.css";
 
@@ -54,6 +55,26 @@ const Signup = () => {
       setLoading(false);
     }
   };
+
+
+import React from "react";
+import { Navigate } from "react-router-dom";
+import "./Signup.css";
+
+const Signup = () => {
+  const [redirectToDashboard, setRedirectToDashboard] = React.useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Simulate the signup process and redirect to the dashboard
+    setRedirectToDashboard(true);
+  };
+
+  if (redirectToDashboard) {
+    // Redirect to the dashboard after signup
+    return <Navigate to="/dashboard" replace />;
+  }
+
 
   return (
     <div className="signup-container">

@@ -1,0 +1,317 @@
+import React, { useState, useRef, useEffect } from "react";
+import {
+  SponsorFormData,
+  RelationshipType,
+  FrequencyType,
+  ApiResponse,
+} from "../types/relationship/relationshipData";
+import Sidebar from "./Sidebar";
+import Header from "../components/Header";
+import { FaTimes } from "react-icons/fa";
+import "./relationship.css";
+import manProfile from "../assets/manProfile.png";
+import camIcon from "../assets/Icon.png";
+
+const CreateRelationship: React.FC = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    spendLimit: "",
+    phoneNumber: "",
+    relationshipType: "Other",
+    frequency: "Monthly",
+    profileImage: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreviewImage(reader.result as string);
+        setFormData((prev) => ({
+          ...prev,
+          profileImage: reader.result as string,
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const triggerFileInput = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    console.log("Submit handler triggered");  //debugging
+
+    e.preventDefault();
+
+    if (
+      !formData.fullName ||
+      !formData.email ||
+      !formData.phoneNumber ||
+      !formData.spendLimit
+    ) {
+      setSubmitError("Please fill in all required fields");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+    setSubmitSuccess(false);
+    console.log("Form submitted:", formData);
+    // alert("Sponsor saved successfully 🎉");  //debugging
+
+    try {
+      const numericSpendLimit = parseFloat(
+        formData.spendLimit.replace(/,/g, "")
+      );
+
+      const submissionData = {
+        ...formData,
+        spendLimit: numericSpendLimit,
+        ...(formData.profileImage
+          ? { profileImage: formData.profileImage }
+          : {}),
+      };
+
+      const response = await fetch("https://learnable24group4.com/sponsor", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${addtokenhere}`,
+        },
+        body: JSON.stringify(submissionData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result: ApiResponse = await response.json();
+
+      if (result.success) {
+        setSubmitSuccess(true);
+        setFormData({
+          fullName: "",
+          email: "",
+          spendLimit: "",
+          phoneNumber: "",
+          relationshipType: "Other",
+          frequency: "Monthly",
+          profileImage: "",
+        });
+        setPreviewImage(null);
+      } else {
+        throw new Error(result.error || "Submission failed! 😞");
+      }
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "An unknown error occurred";
+      console.error("Submission error:", message);
+      setSubmitError(message);
+      setSubmitError(
+        error instanceof Error ? error.message : "An unknown error occurred"
+      );
+      console.error(
+        error instanceof Error ? error.message : "An unknown error occurred 😞"
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
+  return (
+    <div className="generate-request-container">
+      <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+      <div className="main-section">
+        <Header />
+        <main className="main-content">
+          <div className="sponsor-form-container">
+            <h1>Create Relationship</h1>
+            <div className="sponsor-form">
+              <div className="profile-upload-section">
+                <div
+                  className="profile-image-container"
+                  onClick={triggerFileInput}
+                >
+                  {previewImage ? (
+                    <img
+                      src={previewImage}
+                      alt="profile"
+                      className="profile-image"
+                    />
+                  ) : (
+                    <>
+                      <div className="profile-placeholder">
+                        <img
+                          src={manProfile}
+                          alt="profile photo icon"
+                          className="rel-profile-icon"
+                        />
+                      </div>
+                      <div className="camIcon-div">
+                        <img
+                          src={camIcon}
+                          alt="camera iscon"
+                          className="cam-icon"
+                        />
+                      </div>
+                    </>
+                  )}
+
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    onChange={handleImageChange}
+                    accept="image/*"
+                    style={{ display: "none" }}
+                  />
+                </div>
+              </div>
+
+              {submitSuccess && (
+                <div className="alert alert-success">
+                  Sponsor saved successfully! 🎉
+                </div>
+              )}
+
+              {submitError && (
+                <div className="alert alert-error">Error: {submitError}</div>
+              )}
+              <form onSubmit={handleSubmit}>
+                <div className="form-section">
+                  <div className="form-field">
+                    <label htmlFor="input">Sponsor's Full Name</label>
+                    <input
+                      type="text"
+                      name="fullName"
+                      value={formData.fullName}
+                      onChange={handleChange}
+                      placeholder="Input text"
+                      required
+                      disabled={isSubmitting}
+                    />
+                  </div>
+
+                  <div className="form-field">
+                    <label htmlFor="input">Sponsor's Phone Number</label>
+                    <input
+                      type="tel"
+                      name="phoneNumber"
+                      value={formData.phoneNumber}
+                      onChange={handleChange}
+                      placeholder="Input phone number"
+                      required
+                      disabled={isSubmitting}
+                    />
+                  </div>
+
+                  <div className="form-field">
+                    <label htmlFor="input">Email Address</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Enter your email"
+                      required
+                      disabled={isSubmitting}
+                    />
+                  </div>
+
+                  <div className="form-field">
+                    <label htmlFor="input">Relationship Type</label>
+                    <select
+                      name="relationshipType"
+                      value={formData.relationshipType}
+                      onChange={handleChange}
+                      required
+                      disabled={isSubmitting}
+                    >
+                      <option value="Father">Father</option>
+                      <option value="Mother">Mother</option>
+                      <option value="Sister">Sister</option>
+                      <option value="Brother">Brother</option>
+                      <option value="Friend">Friend</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+
+                  <div className="form-field limit-input">
+                    <label htmlFor="input">Spending Limit</label>
+                    <div className="limit-div">
+                      {" "}
+                      <input
+                        type="text"
+                        name="spendLimit"
+                        value={formData.spendLimit}
+                        onChange={handleChange}
+                        placeholder="Input limit"
+                        required
+                        disabled={isSubmitting}
+                      />
+                      <span>E.g. N5,000, N50,000, N500,000, N5,000,000</span>
+                    </div>
+                  </div>
+
+                  <div className="form-field">
+                    <label htmlFor="input">Frequency</label>
+                    <select
+                      name="frequency"
+                      value={formData.frequency}
+                      onChange={handleChange}
+                      required
+                      disabled={isSubmitting}
+                    >
+                      <option value="Daily">Daily</option>
+                      <option value="Weekly">Weekly</option>
+                      <option value="Monthly">Monthly</option>
+                    </select>
+                  </div>
+                </div>
+                <button
+                  type="submit"
+                  className="save-button"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Saving..." : "Save Sponsor"}
+                </button>
+              </form>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      {/* Sidebar Toggle Button */}
+      <button className="sidebar-toggle" onClick={toggleSidebar}>
+        {sidebarOpen ? <FaTimes /> : <span>☰</span>}
+      </button>
+    </div>
+  );
+};
+
+export default CreateRelationship;
