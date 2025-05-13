@@ -38,6 +38,11 @@ const Header: React.FC = () => {
           <h2 style={{ fontSize: '16px', color: '#333', marginRight: '5px' }}>Hi, Ada</h2>
           <p style={{ fontSize: '12px', color: '#555' }}>Let’s simplify your finances!</p>
         </div>
+        <div className="search-container search-bar2">
+          <div className="search-icon">
+            <FaSearch />
+          </div>
+          <button className="search-btn">Search</button>
         <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
           <div style={{ position: 'relative' }}>
             <FaSearch style={{

@@ -1,0 +1,94 @@
+.connect-wallet {
+  display: flex;
+  padding: 20px;
+  /* max-height: 60%; */
+}
+
+.left-panel {
+  flex: 1;
+  padding: 20px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.right-panel {
+  flex: 4;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-size: 18px;
+  margin: 15px 0 5px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 5px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+li img {
+  max-width: 20px;
+  margin-right: 0.5rem;
+}
+
+.get-wallet-button,
+.learn-more-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 2rem;
+  /* display: flex; */
+  /* flex-direction: column;
+  align-items: center;
+  align-content: center; */
+}
+
+.get-wallet-button {
+  background-color: #6a0dad;
+  color: white;
+  border-radius: 1.5rem;
+}
+
+.learn-more-button {
+  background-color: transparent;
+  color: #6a0dad;
+  border: 1px solid #e8bf31;
+  margin-left: 10px;
+  border-radius: 1.5rem;
+}
+
+.Wallet {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 10px;
+}
+
+.Wallet img {
+  max-width: 100px;
+  max-height: 50px;
+}
+
+.Wallet h1 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.Wallet p {
+  font-size: 1rem;
+  color: #888889;
+}
