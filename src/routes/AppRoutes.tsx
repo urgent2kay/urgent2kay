@@ -1,6 +1,7 @@
 import React from "react";
 import BundleOverview from "../pages/BundleOverview";
 import Signup from "../pages/Signup";
+import SelectPayment from "../pages/SelectPayment";
 import ChooseSponsor from "../pages/ChooseSponsor";
 import { Routes, Route, Navigate } from "react-router-dom";
 import GenerateRequest from "../pages/GenerateRequest";
@@ -32,6 +33,8 @@ const AppRoutes: React.FC = () => {
       <Route path="/template" element={<TemplatePage />} />
       <Route path="/bundle-overview" element={<BundleOverview />} />
       <Route path="/sign-up" element={<Signup />} />
+
+      <Route path="/select-payment" element={<SelectPayment />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/choose-sponsor" element={<ChooseSponsor />} />
       {/* the relationship pages have 14 screens, these are 10 out of the 14 */}
@@ -64,6 +67,7 @@ const AppRoutes: React.FC = () => {
 
       
       <Route path="*" element={<Navigate to="/" replace />} />
+
     </Routes>
   );
 };
