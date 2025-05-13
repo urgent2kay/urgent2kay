@@ -79,7 +79,7 @@ const Signup = () => {
         </div>
       </div>
       <div className="right-pane">
-        <form className="signup-form" onSubmit={handleSubmit}>
+        {/* <form className="signup-form" onSubmit={handleSubmit}> */}
         <form className="signup-form" onSubmit={handleSubmit}>
           <h2 className="form-title">Sign Up</h2>
 
