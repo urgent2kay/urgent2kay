@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+/* stats-cards component */
+.stats-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 2rem;
+    
+}
+
+.stats-cards-card{
+    background-color: #ffff;
+    border-radius:12px;
+    border: 1px solid #F9FDFD;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    align-items: center;
+    gap: 16px;
+    flex: 1 0 0;
+    min-width: 200px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.stats-cards-card:hover {
+    transform: translateY(-4px);
+  }
+
+.stats-cards-header{
+    display:flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: left;
+}
+.stats-cards-label{
+    font-family: 'Archivo';
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    color: #000;
+    line-height: 140%;
+}
+.stats-cards-value{
+    color:#401A6D;
+    font-family: Archivo;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; 
+    text-transform: capitalize;
+}
+.stats-cards-icon{
+    width: 36.86px;
+    height: 36.86px;
+}
+
+
+/* dashboard actions components */
+.dashboard-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  .dashboard-actions-card{
+    display: flex;
+    width: 270px;
+    height: 246.49px;
+    padding: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    transition: transform 0.2s ease;
+    border-radius:16px;
+    border: 0.5px solid #5D428E;
+    box-shadow: 0px 4px 8px 0px rgba(64, 26, 109, 0.20);
+  }
+  .dashboard-actions-card:hover {
+    transform: translateY(-4px);
+  }
+  .dashboard-actions-icon {
+    width: 29.491px;
+    height: 29.991px;
+  }
+  .dashboard-actions-title {
+    color: #FFF;
+    font-family: Archivo;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; 
+    text-transform: capitalize;
+  }
+  .dashboard-actions-desc {
+    color:#F4F4F5;
+    font-family: Archivo;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4; 
+    letter-spacing: 0.14px;
+  }
+  .dashboard-actions-link {
+    font-family: Archivo;
+    font-size: 0.9rem;
+    font-weight: 700;
+    align-self: flex-start;
+    color:#ECE8F0;
+  }
+/* recent activities component */
+.recent-container{
+    border-radius: 12px;
+    border: 1px solid #F9FDFD;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%), #F8F8F8;
+    width: 100%;
+    height: 585px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.recent-header {
+    display: flex;
+    gap:1rem;
+    margin-bottom: 16px;
+    margin-left: 1rem;
+    margin-top: 1rem;
+  }  
+  .recent-header h3 {
+    color: #000;
+    font-family: Archivo;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; 
+    margin-top: 0.5rem;
+    
+  }
+.search-input {
+    border-radius: 58px;
+    border: 1px solid #ccc;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+    display: flex;
+    width: 340px;
+    align-items: center;
+    gap: 10px;
+    font-family: Archivo;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    color: #9C9999;
+  }
+
+  /* empty state */
+.empty-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 1rem;
+        
+    }
+/* .empty-state img {
+    margin-bottom: 2rem;
+    }    */
+.empty-state-text {
+     color: #545050;
+      text-align: center;
+     font-family: Archivo;
+     font-size: 19px;
+     font-style: normal;
+     font-weight: 700;
+     line-height: 140%; 
+     text-transform: capitalize;
+        margin-bottom: 1rem;
+    
+      }
+.empty-state-button { 
+        border: none;
+        background-color: #401A6D;
+        color: #fff;
+        border-radius: 58px;
+        cursor: pointer;
+        display: flex;
+        width: 200px;
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+        gap: 19px;
+        font-family: Archivo;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        font-style: normal;
+        
+      }
+      /* table styles */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+      thead {
+        background-color: #fff;
+      }        

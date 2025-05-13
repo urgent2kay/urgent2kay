@@ -1,6 +1,7 @@
 import { useState } from "react";
 import './Dashboard.css';
 import { Activity } from "../../types/dashboardindex";
+import JourneyBro from "../../assets/Journey-bro.svg";
 
 interface Props {
     activities: Activity[];
@@ -28,7 +29,7 @@ const RecentActivities = ({ activities }: Props) => {
 
             {filtered.length === 0 ? (
                 <div className="empty-state">
-                    <img src="" alt=""/>
+                    <img src={JourneyBro} alt="no activity"/>
                     <p className="empty-state-text">No Transaction Yet. Complete Your First Payment To See It Here!</p>
                     <button  onClick={() => window.location.href = '/generate-request'} className="empty-state-button">Get Started</button>
                 </div>
@@ -53,7 +54,7 @@ const RecentActivities = ({ activities }: Props) => {
                                 <td>₦{a.amount.toLocaleString()}</td>
                                 <td>{a.date}</td>
                                 <td>{a.time}</td>
-                                <td className="[a.status.toLowerCase()]">{a.status}</td>
+                                <td> <span>className="[a.status.toLowerCase()]"{a.status}</span> </td>
                                 <td><a href="#">View details</a></td>
                             </tr>
                         ))}

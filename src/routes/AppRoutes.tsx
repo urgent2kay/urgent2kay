@@ -19,6 +19,7 @@ import BankDetailsPage from "../components/merchant/BankDetails";
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
+
       {/* Default route */}
       <Route path="/" element={<LandingPage />} />
 
@@ -29,14 +30,21 @@ const AppRoutes: React.FC = () => {
       <Route path="/generate-request" element={<GenerateRequest />} />
       <Route path="/template" element={<TemplatePage />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      
+      
+     
+      
+      
 
       {/* Merchant routes */}
-      <Route path="/merchant" element={<MerchantHome />} />
+      <Route path="/merchant-home" element={<MerchantHome />} />
       <Route path="/register" element={<RegistrationGuard />}>
         <Route index element={<BusinessDetailsPage />} />
         <Route path="personal" element={<PersonalDetailsPage />} />
         <Route path="bank" element={<BankDetailsPage />} />
       </Route>
+
+      
 
       {/* Catch-all: redirect unknown routes to landing */}
       <Route path="*" element={<Navigate to="/" replace />} />
