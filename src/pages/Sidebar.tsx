@@ -27,7 +27,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, toggleSidebar }) => {
           <FaPlusCircle className="nav-icon" />
           Generate Request
         </a>
-        <a href="#" className="nav-item">
+        <a href="/relationship" className="nav-item">
           <FaUsers className="nav-icon" />
           Relationship
         </a>
@@ -42,6 +42,10 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, toggleSidebar }) => {
         <a href="#" className="nav-item">
           <FaUser className="nav-icon" />
           Profile
+        </a>
+        <a href="/account" className="nav-item">
+          <FaUser className="nav-icon" />
+          Settings
         </a>
       </nav>
 
