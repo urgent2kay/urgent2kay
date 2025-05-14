@@ -12,6 +12,9 @@ import PersonalDetailsPage from "../components/merchant/PersonalDetails";
 import BankDetailsPage from "../components/merchant/BankDetails";
 import Dashboard from '../../src/pages/Dashboard/Dashboard';
 import LandingPage from "../pages/LandingPage/LandingPage";
+import Electricity from "../pages/Electricity/Electricity";
+import Jumia from "../pages/jumia/Jumia";
+import JumiaShopping from "../pages/jumia/JumiaShopping";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -23,6 +26,10 @@ const AppRoutes: React.FC = () => {
       <Route path="/sign-up" element={<Signup />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/choose-sponsor" element={<ChooseSponsor />} />
+      <Route path="/jumia-shopping" element={<JumiaShopping />} />
+      <Route path="/jumia" element={<Jumia />} />
+      
+      <Route path="/electricity" element={<Electricity />} />
       
       
       <Route path="/merchant-home" element={<MerchantHome />} />
