@@ -1,3 +1,6 @@
+
+
+
 import { useState } from "react";
 import "./Signup.css";
 import { Link } from "react-router-dom";
@@ -55,6 +58,78 @@ const Signup = () => {
       setLoading(false);
     }
   };
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setSuccess("");
+    // setRedirectToDashboard(true);
+
+    // if (redirectToDashboard) {
+    //   // Redirect to the dashboard after signup
+    //   return <Navigate to="/dashboard" replace />;
+    // }
+
+    if (!formData.termsAccepted) {
+      setError("You must agree to the terms and conditions.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch("https://your-api.com/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const resData = await response.json();
+        throw new Error(resData.message || "Signup failed");
+      }
+
+      setSuccess("Signup successful!");
+    } catch (err: unknown) {
+      console.error('server side error', err);
+      setError(err instanceof Error ? err.message : "An error occurred");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
+// import React from "react";
+// import { Navigate } from "react-router-dom";
+// import "./Signup.css";
+
+// const Signup = () => {
+//   const [redirectToDashboard, setRedirectToDashboard] = React.useState(false);
+
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+    // Simulate the signup process and redirect to the dashboard
+  //   setRedirectToDashboard(true);
+  // };
+
+  // if (redirectToDashboard) {
+  //   // Redirect to the dashboard after signup
+  //   return <Navigate to="/dashboard" replace />;
+  // }
+
 
   return (
     <div className="signup-container">

@@ -1,11 +1,13 @@
-
-import React, { useState } from 'react';
-
+import React, { useState, ReactNode } from 'react';
 import Sidebar from './Sidebar';
 import Header from '../components/Header';
 import { FaTimes } from 'react-icons/fa';
 
-const TemplatePage: React.FC = () => {
+interface TemplatePageProps {
+  children: ReactNode;
+}
+
+const TemplatePage: React.FC<TemplatePageProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -23,8 +25,7 @@ const TemplatePage: React.FC = () => {
 
         {/* Main Content */}
         <main className="main-content">
-          <h1>Template Page</h1>
-          {/* Your content for the page goes here */}
+          {children} {/* ✅ This renders the content passed into TemplatePage */}
         </main>
       </div>
 

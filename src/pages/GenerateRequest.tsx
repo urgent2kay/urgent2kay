@@ -32,7 +32,7 @@ const GenerateRequest: React.FC = () => {
     <div className="generate-request-container">
       <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
 
-      <div className="main-section">
+      <div className="main-section"> 
         <Header />
 
         <main className="main-content">
