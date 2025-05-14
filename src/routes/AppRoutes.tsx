@@ -30,6 +30,8 @@ import NotifySupport from "../pages/NotifySupport";
 import NoRelationship from "../pages/NoRelationship";
 import CreateRelationship from "../pages/CreateRelationship";
 
+import AccountSettingsPage from "../pages/AccountSettingsPage";
+
 
 
 const AppRoutes: React.FC = () => {
@@ -51,6 +53,9 @@ const AppRoutes: React.FC = () => {
       <Route path="/select-payment" element={<SelectPayment />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/choose-sponsor" element={<ChooseSponsor />} />
+
+      {/* user profile and account settings */}
+      <Route path="/account" element={<AccountSettingsPage />} />
 
       <Route path="request-successful" element={<RequestSuccessful />} />
 
