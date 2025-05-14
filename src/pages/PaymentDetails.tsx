@@ -5,16 +5,13 @@ import { format, isAfter, sub } from "date-fns";
 // import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Header from "../components/Header";
-import { FaTimes } from "react-icons/fa";
-import { FaSearch } from "react-icons/fa";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaTimes, FaSearch, FaArrowLeft } from "react-icons/fa";
 import womanProfile from "../assets/Doctor.png";
 import icon2 from "../assets/Icon2.png";
 import calendar from "../assets/calendar.png";
 import clipcheck from "../assets/clipboard-check.png";
 import "./GenerateRequest.css";
 import "./relationship.css";
-import { ReactFormState } from "react-dom/client";
 
 type Bundle = {
   _id: string;
@@ -23,8 +20,8 @@ type Bundle = {
 
 const PaymentDetails: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [selectedDate, setSelecetedDate] = useState(new Date());
-  const [filterType, setFilterTYpe] = useState("days");
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [filterType, setFilterType] = useState("days");
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Bundle[]>([]);
   const [error, setError] = useState("");
@@ -35,9 +32,8 @@ const PaymentDetails: React.FC = () => {
     setResults([]);
 
     try {
-      //Bundle API endpoint should go here
       const res = await fetch(
-        `http://localhost:500/api/bundles/search?name=${encodedURIComponent(
+        `http://localhost:500/api/bundles/search?name=${encodeURIComponent(
           query.trim()
         )}`
       );
@@ -54,36 +50,30 @@ const PaymentDetails: React.FC = () => {
     }
   };
 
-  //populate here from database
   const data = [
     {
       id: 1,
       name: "Monthly Essentials",
       amount: "\u20A632,500",
       date: new Date(),
-      //   pastDate: "01-05-25",
       time: "12:00am",
       status: "Paid",
       action: "View details",
     },
-
-    //did multiple data so i could test the flter function. UI design has on edata ⚠️
     {
-      id: 1,
+      id: 2,
       name: "Monthly Essentials",
       amount: "\u20A632,500",
-      currentDate: new Date(),
-      //   pastDate: "01-03-25",
+      date: sub(new Date(), { days: 3 }),
       time: "11:00am",
       status: "Pending",
       action: "View details",
     },
     {
-      id: 1,
+      id: 3,
       name: "Monthly Essentials",
       amount: "\u20A632,500",
-      date: new Date(),
-      //   pastDate: "61-01-25",
+      date: sub(new Date(), { weeks: 2 }),
       time: "12:00am",
       status: "Declined",
       action: "View details",
@@ -108,14 +98,13 @@ const PaymentDetails: React.FC = () => {
       default:
         return data;
     }
-    return data.filter((data) => isAfter(data.date, rangeDate));
+    return data.filter((entry) => isAfter(entry.date, rangeDate));
   };
 
-  //ignore here. only sevenDaysAgo was used
-  const today = new Date();
-  const oneWeekAgo = sub(today, { days: 7 });
-  const sevenDaysAgo = sub(new Date(), { days: 7 });
-  const result = isAfter(today, oneWeekAgo);
+  // Just to use the `result` variable properly
+  // const today = new Date();
+  // const oneWeekAgo = sub(today, { days: 7 });
+  // const result = isAfter(today, oneWeekAgo); // result is true, since today is obviously after last week
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -127,15 +116,14 @@ const PaymentDetails: React.FC = () => {
       <div className="main-section">
         <Header />
         <main className="main-content main3">
-          <a href="#" className="back-nav">
-            {" "}
-            <button className="back-nav">
-              <FaArrowLeft></FaArrowLeft> Back
-            </button>
-          </a>
+          <button className="back-nav">
+            <FaArrowLeft /> Back
+          </button>
+
           <div className="payment-body">
             <h4>Payment Details/Mother</h4>
-            <div className="sponsor-body-top ">
+
+            <div className="sponsor-body-top">
               <div className="display-relationship sponsor-payment-body-card">
                 <h3>Sponsor</h3>
                 <div className="mother2">
@@ -146,6 +134,7 @@ const PaymentDetails: React.FC = () => {
                   </div>
                 </div>
               </div>
+
               <div className="amount-card-body">
                 <div className="card1">
                   <p>Total Amount Sponsored:</p>
@@ -163,11 +152,12 @@ const PaymentDetails: React.FC = () => {
                 </div>
               </div>
             </div>
+
             <div className="payment-overview-div">
               <div className="overview-top">
                 <div className="top-overview-left">
                   <p>Recent Payments</p>
-                  <div className="search-container">
+                  <form onSubmit={handleSearch} className="search-container">
                     <FaSearch className="payment-search-icon" />
                     <input
                       type="search"
@@ -175,27 +165,31 @@ const PaymentDetails: React.FC = () => {
                       onChange={(e) => setQuery(e.target.value)}
                       placeholder="Search"
                     />
-                  </div>
+                  </form>
                 </div>
+
                 <div className="top-overview-right">
                   <DatePicker
                     selected={selectedDate}
-                    onChange={(date) => setSelecetedDate(date)}
+                    onChange={(date: Date | null) => {
+                      if (date) setSelectedDate(date);
+                    }}
                     className="hide-date-picker"
                   />
-                  <img src={calendar} />
+                  <img src={calendar} alt="calendar icon" />
                   <select
                     className="select-date-input"
                     value={filterType}
-                    onChange={(e) => setFilterTYpe(e.target.value)}
+                    onChange={(e) => setFilterType(e.target.value)}
                   >
                     <option value="days">Last 24 Hours</option>
                     <option value="weeks">Last 7 Days</option>
-                    <option value="monthss">Last 30 Days</option>
-                    <option value="days">Last 1 Year</option>
+                    <option value="months">Last 30 Days</option>
+                    <option value="years">Last 1 Year</option>
                   </select>
                 </div>
               </div>
+
               <div className="search-results">
                 {error && <p className="error-text">{error}</p>}
                 {results.map((bundle) => (
@@ -225,8 +219,7 @@ const PaymentDetails: React.FC = () => {
                       <tr key={person.id}>
                         <td>{person.name}</td>
                         <td>{person.amount}</td>
-                        <td>{format(sevenDaysAgo, "dd MMM yyyy")}</td>
-                        {/* <td>{person.pastDate}</td> */}
+                        <td>{format(person.date, "dd MMM yyyy")}</td>
                         <td>{person.time}</td>
                         <td>{person.status}</td>
                         <td>
@@ -239,11 +232,9 @@ const PaymentDetails: React.FC = () => {
               </div>
             </div>
           </div>
-          {/* Your content for the page goes here */}
         </main>
       </div>
 
-      {/* Sidebar Toggle Button */}
       <button className="sidebar-toggle" onClick={toggleSidebar}>
         {sidebarOpen ? <FaTimes /> : <span>☰</span>}
       </button>

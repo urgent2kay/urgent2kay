@@ -38,33 +38,35 @@ const Header: React.FC = () => {
           <h2 style={{ fontSize: '16px', color: '#333', marginRight: '5px' }}>Hi, Ada</h2>
           <p style={{ fontSize: '12px', color: '#555' }}>Let’s simplify your finances!</p>
         </div>
+
         <div className="search-container search-bar2">
           <div className="search-icon">
             <FaSearch />
           </div>
           <button className="search-btn">Search</button>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-          <div style={{ position: 'relative' }}>
-            <FaSearch style={{
-              position: 'absolute',
-              left: '10px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              color: '#888'
-            }} />
-            <input
-              type="text"
-              placeholder="Search"
-              style={{
-                padding: '5px 10px 5px 30px',
-                borderRadius: '6px',
-                border: '1px solid #ddd',
-                fontSize: '12px',
-                color: '#555',
-                backgroundColor: '#f7f7f7',
-                width: '150px',
-              }}
-            />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <div style={{ position: 'relative' }}>
+              <FaSearch style={{
+                position: 'absolute',
+                left: '10px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                color: '#888'
+              }} />
+              <input
+                type="text"
+                placeholder="Search"
+                style={{
+                  padding: '5px 10px 5px 30px',
+                  borderRadius: '6px',
+                  border: '1px solid #ddd',
+                  fontSize: '12px',
+                  color: '#555',
+                  backgroundColor: '#f7f7f7',
+                  width: '150px',
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -85,7 +87,7 @@ const Header: React.FC = () => {
           borderRadius: '6px',
           cursor: 'pointer',
           fontSize: '12px',
-          marginRight: '8px', 
+          marginRight: '8px',
         }}>Connect Wallet</button>
 
         {/* Notification Dropdown */}
@@ -99,7 +101,6 @@ const Header: React.FC = () => {
           justifyContent: 'center',
           alignItems: 'center',
           cursor: 'pointer',
-        
         }} onClick={toggleNotification}>
           <FaBell style={{ fontSize: '16px' }} />
           <div style={{
@@ -119,9 +120,9 @@ const Header: React.FC = () => {
             pointerEvents: notificationOpen ? 'auto' : 'none',
             transition: 'opacity 0.3s ease, visibility 0.3s ease',
           }}>
-            <p style={{ margin: '0', padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px', transition: 'background-color 0.3s' }}>Notification 1</p>
+            <p style={{ margin: '0', padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px' }}>Notification 1</p>
             <div style={{ borderTop: '1px solid #ddd', margin: '4px 0' }}></div>
-            <p style={{ margin: '0', padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px', transition: 'background-color 0.3s' }}>Notification 2</p>
+            <p style={{ margin: '0', padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px' }}>Notification 2</p>
           </div>
         </div>
 
@@ -135,7 +136,7 @@ const Header: React.FC = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          marginRight: '10px', 
+          marginRight: '10px',
           cursor: 'pointer',
         }} onClick={toggleProfile}>
           <FaUser style={{ fontSize: '16px' }} />
@@ -151,15 +152,14 @@ const Header: React.FC = () => {
             flexDirection: 'column',
             width: '120px',
             zIndex: '1000',
-         
             visibility: profileOpen ? 'visible' : 'hidden',
             opacity: profileOpen ? '1' : '0',
             pointerEvents: profileOpen ? 'auto' : 'none',
             transition: 'opacity 0.3s ease, visibility 0.3s ease',
           }}>
-            <p style={{ margin: '0', padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px', transition: 'background-color 0.3s' }}>Profile Settings</p>
+            <p style={{ margin: '0', padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px' }}>Profile Settings</p>
             <div style={{ borderTop: '1px solid #ddd', margin: '4px 0' }}></div>
-            <p style={{ margin: '0', padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px', transition: 'background-color 0.3s' }}>Logout</p>
+            <p style={{ margin: '0', padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px' }}>Logout</p>
           </div>
         </div>
       </div>
