@@ -15,10 +15,20 @@ body {
   display: flex;
   width: 100vw;
   min-height: 100vh;
-  background-color: #f3f4f6;
+  background-color: white;
   overflow-x: hidden;
   transition: margin-left 0.3s ease;
 }
+.suggested-card-gradient {
+  background: linear-gradient(135deg, #F9F5FF, #b09dc7, #FFFFFF66);
+}
+.suggested-card-gradient .suggested-info {
+  padding-left: 25px !important;
+}
+.suggested-card-woman .suggested-info {
+  margin-left: 168px; 
+}
+
 
 .logo {
   font-size: 1.375rem;
@@ -143,26 +153,29 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.9375rem;
+ 
 }
 
 .suggested-header {
   width: 100%;
-  font-family: 'Archivo', sans-serif;
-  font-weight: 400;
-  font-size: 0.8125rem;
   line-height: 140%;
   color: #6F6E6E;
+font-family: Archivo;
+font-size: 14px !important;
+font-style: normal;
+font-weight: 400;
 }
 
 .suggested-content {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   width: 100%;
+  margin-top: -30px !important;
 }
 
+
 .suggested-card {
-  flex: 1 1 18.75rem;
   min-width: 13.75rem;
   height: 11.5625rem;
   border-radius: 0.75rem;
@@ -173,7 +186,7 @@ body {
   justify-content: center;
 }
 
-/* First Box - Export40 Container */
+
 .export40-container {
   width: 100%;
   max-width: 12.4375rem;
@@ -185,7 +198,7 @@ body {
   align-items: center;
 }
 
-/* Suggested Yellow Card */
+
 .suggested-card-yellow {
   background-color: #E8BF31;
   padding: 1rem;
@@ -200,6 +213,7 @@ body {
   word-wrap: break-word;
   overflow-wrap: break-word;
   max-width: 100%;
+  margin-left: -25px !important;
 }
 
 .suggested-title,
@@ -216,7 +230,7 @@ body {
   width: fit-content;
 }
 
-/* Image Section */
+
 .image-wrapper {
   position: relative;
   width: 100%;
@@ -233,158 +247,43 @@ body {
 
 .image-preview {
   position: absolute;
-  top: 10%;
-  left: 0;
+  top: 30%;
+  left: -15px;
   width: 50%;
   height: 80%;
   object-fit: contain;
 }
 
 /* Mobile Styling */
-@media (max-width: 48rem) {
-  .generate-request-container {
-    flex-direction: column;
-    height: auto;
-    margin-top: 3.75rem;
-  }
-
-  .image-rectangle {
-    display: none !important;
-  }
-
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.625rem;
-  }
-
-  .navbar-left,
-  .navbar-right {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .navbar-left h2 {
-    font-size: 1.125rem;
-  }
-
-  .navbar-left p {
-    font-size: 0.875rem;
-  }
-  .search-container {
-    width: 100%;
-    margin-top: 0.625rem;
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-
-  .connect-wallet-btn {
-    width: 100%;
-    padding: 0.625rem;
-  }
-
-  .notification-icon,
-  .profile-icon {
-    width: 2.25rem;
-    height: 2.25rem;
-  }
-
-  .wallet-balance-card {
-    width: 100%;
-    margin-top: 1.25rem;
-    padding: 1.25rem;
-    background-color: white;
-    border-radius: 0.625rem;
-    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.05);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.25rem;
-  }
-
-  .wallet-info h3 {
-    font-size: 1rem;
-  }
-
-  .wallet-amount {
-    font-size: 1.5rem;
-  }
-
-  .wallet-buttons {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-  }
-
-  .create-bundle-btn,
-  .pay-bundle-btn {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1rem;
-  }
-
+@media (max-width: 768px) {
   .suggested-content {
+    display: flex;
     flex-direction: column;
+    gap: 1rem; 
   }
 
   .suggested-card {
     width: 100%;
   }
 
-  .image-preview {
-    position: relative;
-    width: 100%;
-    height: auto;
+  
+  .suggested-card-woman {
+    flex-direction: column !important;
+    align-items: flex-start !important;
   }
 
-  .suggested-info {
-    background-image: none !important;
-    background-color: #fff !important;
-    padding: 1rem !important;
-    width: 100% !important;
-    border-radius: 0.5rem !important;
-    box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.05) !important;
+  .suggested-card-woman .woman-image {
+    margin-right: 0 !important;
+    margin-bottom: 1rem;
+    width: 100%; 
+    max-width: 150px;
   }
-
-  .suggested-title {
-    font-size: 0.875rem !important;
-    color: #333 !important;
-    margin-bottom: 0.5rem !important;
+  .woman-title {
+    
+    margin-left: 80px; 
   }
-
-  .suggested-description {
-    font-size: 0.75rem !important;
-    color: #555 !important;
-    margin-bottom: 0.75rem !important;
-  }
-
-  .button-refer {
-    width: 100% !important;
-    font-size: 0.875rem !important;
-    padding: 0.75rem !important;
-    text-align: center !important;
-  }
-}
-
-@media (max-width: 30rem) {
-  .navbar-left h2 {
-    font-size: 1rem;
-  }
-
-  .wallet-amount {
-    font-size: 1.25rem;
-  }
-
-  .create-bundle-btn,
-  .pay-bundle-btn {
-    font-size: 0.875rem;
-    padding: 0.625rem;
-  }
-}
-
-@media (min-width: 48rem) {
-  .sidebar-toggle {
-    display: none !important;
+  .woman-description {
+    
+    margin-left: 80px; 
   }
 }

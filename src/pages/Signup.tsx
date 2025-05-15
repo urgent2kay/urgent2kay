@@ -119,16 +119,18 @@ const Signup = () => {
 // const Signup = () => {
 //   const [redirectToDashboard, setRedirectToDashboard] = React.useState(false);
 
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-    // Simulate the signup process and redirect to the dashboard
-  //   setRedirectToDashboard(true);
-  // };
 
-  // if (redirectToDashboard) {
-  //   // Redirect to the dashboard after signup
-  //   return <Navigate to="/dashboard" replace />;
-  // }
+//   const handleSubmit = (e: React.FormEvent) => {
+//     e.preventDefault();
+//     // Simulate the signup process and redirect to the dashboard
+//     setRedirectToDashboard(true);
+//   };
+
+//   if (redirectToDashboard) {
+//     // Redirect to the dashboard after signup
+//     return <Navigate to="/dashboard" replace />;
+//   }
+
 
 
   return (

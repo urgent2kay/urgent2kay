@@ -9,6 +9,7 @@
   align-items: flex-start !important;
   transition: width 0.3s ease !important;
   transform: translateX(0) !important;
+  height: 100vh !important; 
 }
 
 .sidebar.open {
@@ -27,6 +28,7 @@
   display: flex !important;
   flex-direction: column !important;
   width: 100% !important;
+  flex-grow: 1; 
 }
 
 .nav-item {
@@ -70,19 +72,14 @@
   margin-right: 10px !important;
 }
 
-
 .sidebar-toggle {
-  display: block !important;
-  position: fixed !important;
-  top: 20px !important;
-  left: 20px !important;
-  background: #401A6D !important;
-  border: none !important;
-  padding: 10px 15px !important;
-  border-radius: 8px !important;
-  font-size: 18px !important;
-  z-index: 1100 !important;
-  color: white !important;
+  display: none;
+  background: none;
+  border: none;
+  font-size: 20px;
+  margin: 10px;
+  cursor: pointer;
+  color: #fff;
 }
 
 .sidebar-toggle:hover {
@@ -119,4 +116,8 @@
     font-size: 18px !important;
     z-index: 1100 !important;
   }
+
+  .sidebar-toggle.mobile-only {
+    display: block;
+}
 }
