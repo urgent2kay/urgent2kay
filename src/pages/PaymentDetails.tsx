@@ -31,7 +31,9 @@ type PaymentData = {
 
 const PaymentDetails: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+
   const [filterType, setFilterType] = useState("days");
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Bundle[]>([]);
@@ -44,7 +46,9 @@ const PaymentDetails: React.FC = () => {
 
     try {
       const res = await fetch(
+
         `http://localhost:500/api/bundles/search?name=${encodeURIComponent(query.trim())}`
+
       );
       const data = await res.json();
 
@@ -59,7 +63,9 @@ const PaymentDetails: React.FC = () => {
     }
   };
 
+
   const data: PaymentData[] = [
+
     {
       id: 1,
       name: "Monthly Essentials",
@@ -73,7 +79,9 @@ const PaymentDetails: React.FC = () => {
       id: 2,
       name: "Monthly Essentials",
       amount: "\u20A632,500",
+
       date: new Date(),
+
       time: "11:00am",
       status: "Pending",
       action: "View details",
@@ -82,7 +90,9 @@ const PaymentDetails: React.FC = () => {
       id: 3,
       name: "Monthly Essentials",
       amount: "\u20A632,500",
+
       date: new Date(),
+
       time: "12:00am",
       status: "Declined",
       action: "View details",
@@ -107,8 +117,10 @@ const PaymentDetails: React.FC = () => {
       default:
         return data;
     }
+
     return data.filter((item) => item.date && isAfter(item.date, rangeDate));
   };
+
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -122,6 +134,7 @@ const PaymentDetails: React.FC = () => {
       <div className="main-section">
         <Header />
         <main className="main-content main3">
+
           <a href="#" className="back-nav">
             <button className="back-nav">
               <FaArrowLeft /> Back
@@ -129,6 +142,8 @@ const PaymentDetails: React.FC = () => {
           </a>
           <div className="payment-body">
             <h4>Payment Details/Mother</h4>
+
+            
             <div className="sponsor-body-top">
               <div className="display-relationship sponsor-payment-body-card">
                 <h3>Sponsor</h3>
@@ -140,6 +155,7 @@ const PaymentDetails: React.FC = () => {
                   </div>
                 </div>
               </div>
+
               <div className="amount-card-body">
                 <div className="card1">
                   <p>Total Amount Sponsored:</p>
@@ -157,11 +173,14 @@ const PaymentDetails: React.FC = () => {
                 </div>
               </div>
             </div>
+
             <div className="payment-overview-div">
               <div className="overview-top">
                 <div className="top-overview-left">
                   <p>Recent Payments</p>
+
                   <form className="search-container" onSubmit={handleSearch}>
+
                     <FaSearch className="payment-search-icon" />
                     <input
                       type="search"
@@ -171,6 +190,7 @@ const PaymentDetails: React.FC = () => {
                     />
                   </form>
                 </div>
+
                 <div className="top-overview-right">
                   <DatePicker
                     selected={selectedDate}
@@ -179,7 +199,7 @@ const PaymentDetails: React.FC = () => {
                     }}
                     className="hide-date-picker"
                   />
-                  <img src={calendar} />
+                  <img src={calendar} alt="calendar icon" />
                   <select
                     className="select-date-input"
                     value={filterType}

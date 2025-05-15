@@ -41,6 +41,7 @@ const Header: React.FC = () => {
           <p style={{ fontSize: '12px', color: '#555' }}>Let’s simplify your finances!</p>
         </div>
 
+
         <div
           className="search-container search-bar2"
           style={{
@@ -84,14 +85,20 @@ const Header: React.FC = () => {
                 backgroundColor: 'transparent',
               }}
             />
+
+    
           </div>
         </div>
       </div>
 
+
       <div
         style={{
+
+          
           display: 'flex',
           alignItems: 'center',
+
           gap: '12px',
           position: 'relative',
           flexGrow: 1,
@@ -155,10 +162,13 @@ const Header: React.FC = () => {
             <p style={{ margin: 0, padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px' }}>
               Notification 2
             </p>
+
+            
           </div>
         </div>
 
         {/* Profile Dropdown */}
+
         <div
           style={{
             position: 'relative',
@@ -201,6 +211,7 @@ const Header: React.FC = () => {
             <p style={{ margin: 0, padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px' }}>
               Logout
             </p>
+
           </div>
         </div>
       </div>

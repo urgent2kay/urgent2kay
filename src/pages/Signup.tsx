@@ -27,6 +27,12 @@ const Signup = () => {
     e.preventDefault();
     setError("");
     setSuccess("");
+    // setRedirectToDashboard(true);
+
+    // if (redirectToDashboard) {
+    //   // Redirect to the dashboard after signup
+    //   return <Navigate to="/dashboard" replace />;
+    // }
 
     if (!formData.termsAccepted) {
       setError("You must agree to the terms and conditions.");
@@ -49,8 +55,9 @@ const Signup = () => {
       }
 
       setSuccess("Signup successful!");
-    } catch (err: {message: string}) {
-      setError(err.message);
+    } catch (err: unknown) {
+      console.error('server side error', err);
+      setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setLoading(false);
     }
@@ -64,6 +71,7 @@ const Signup = () => {
 // const Signup = () => {
 //   const [redirectToDashboard, setRedirectToDashboard] = React.useState(false);
 
+
 //   const handleSubmit = (e: React.FormEvent) => {
 //     e.preventDefault();
 //     // Simulate the signup process and redirect to the dashboard
@@ -74,6 +82,7 @@ const Signup = () => {
 //     // Redirect to the dashboard after signup
 //     return <Navigate to="/dashboard" replace />;
 //   }
+
 
 
   return (
