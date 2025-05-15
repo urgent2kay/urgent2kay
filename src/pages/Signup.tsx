@@ -1,6 +1,9 @@
 
+
+
 import { useState } from "react";
 import "./Signup.css";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +13,51 @@ const Signup = () => {
     password: "",
     termsAccepted: false,
   });
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setSuccess("");
+
+    if (!formData.termsAccepted) {
+      setError("You must agree to the terms and conditions.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch("https://your-api.com/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const resData = await response.json();
+        throw new Error(resData.message || "Signup failed");
+      }
+
+      setSuccess("Signup successful!");
+    } catch (err: { message: string }) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -100,11 +148,15 @@ const Signup = () => {
             payments.
           </p>
           <p className="signin-text">
-            Already have an account? <span className="link">Sign in</span>
+            Already have an account?{" "}
+            <Link to="/sign-in">
+              <span className="link">Sign in</span>
+            </Link>
           </p>
         </div>
       </div>
       <div className="right-pane">
+        {/* <form className="signup-form" onSubmit={handleSubmit}> */}
         <form className="signup-form" onSubmit={handleSubmit}>
           <h2 className="form-title">Sign Up</h2>
 
@@ -172,7 +224,10 @@ const Signup = () => {
             <span className="arrow">&rarr;</span>
           </button>
           <p className="signin-text2">
-            Already have an account? <span className="link">Sign in</span>
+            Already have an account?{" "}
+            <Link to="/sign-in">
+              <span className="link">Sign in</span>{" "}
+            </Link>
           </p>
         </form>
       </div>

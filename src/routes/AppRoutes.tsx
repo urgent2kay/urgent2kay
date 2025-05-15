@@ -20,6 +20,9 @@ import BusinessDetailsPage from "../components/merchant/BusinessDetails";
 import PersonalDetailsPage from "../components/merchant/PersonalDetails";
 import BankDetailsPage from "../components/merchant/BankDetails";
 
+import Dashboard from "../../src/pages/Dashboard/Dashboard";
+import LandingPage from "../pages/LandingPage/LandingPage";
+
 import ViewDetails from "../pages/ViewDetails";
 import PaymentDetails from "../pages/PaymentDetails";
 import RemoveMainSponsor from "../pages/RemoveMainSponsor";
@@ -58,8 +61,14 @@ const AppRoutes: React.FC = () => {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/choose-sponsor" element={<ChooseSponsor />} />
 
+
+
+      <Route path="/merchant-home" element={<MerchantHome />} />
+
+
       {/* user profile and account settings */}
       <Route path="/account" element={<AccountSettingsPage />} />
+
 
       <Route path="request-successful" element={<RequestSuccessful />} />
 
@@ -98,9 +107,12 @@ const AppRoutes: React.FC = () => {
         <Route path="bank" element={<BankDetailsPage />} />
       </Route>
 
+
+
       
 
       {/* Catch-all: redirect unknown routes to landing */}
+
       <Route path="*" element={<Navigate to="/" replace />} />
 
 
