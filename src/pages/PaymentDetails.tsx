@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { format, isAfter, sub } from "date-fns";
-// import { Link } from "react-router-dom";
+
 import Sidebar from "./Sidebar";
 import Header from "../components/Header";
 import { FaTimes, FaSearch, FaArrowLeft } from "react-icons/fa";
@@ -10,6 +10,7 @@ import womanProfile from "../assets/Doctor.png";
 import icon2 from "../assets/Icon2.png";
 import calendar from "../assets/calendar.png";
 import clipcheck from "../assets/clipboard-check.png";
+
 import "./GenerateRequest.css";
 import "./relationship.css";
 
@@ -18,9 +19,21 @@ type Bundle = {
   title: string;
 };
 
+type PaymentData = {
+  id: number;
+  name: string;
+  amount: string;
+  date: Date;
+  time: string;
+  status: string;
+  action: string;
+};
+
 const PaymentDetails: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(new Date());
+
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+
   const [filterType, setFilterType] = useState("days");
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Bundle[]>([]);
@@ -33,9 +46,9 @@ const PaymentDetails: React.FC = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:500/api/bundles/search?name=${encodeURIComponent(
-          query.trim()
-        )}`
+
+        `http://localhost:500/api/bundles/search?name=${encodeURIComponent(query.trim())}`
+
       );
       const data = await res.json();
 
@@ -50,7 +63,9 @@ const PaymentDetails: React.FC = () => {
     }
   };
 
-  const data = [
+
+  const data: PaymentData[] = [
+
     {
       id: 1,
       name: "Monthly Essentials",
@@ -64,7 +79,9 @@ const PaymentDetails: React.FC = () => {
       id: 2,
       name: "Monthly Essentials",
       amount: "\u20A632,500",
-      date: sub(new Date(), { days: 3 }),
+
+      date: new Date(),
+
       time: "11:00am",
       status: "Pending",
       action: "View details",
@@ -73,7 +90,9 @@ const PaymentDetails: React.FC = () => {
       id: 3,
       name: "Monthly Essentials",
       amount: "\u20A632,500",
-      date: sub(new Date(), { weeks: 2 }),
+
+      date: new Date(),
+
       time: "12:00am",
       status: "Declined",
       action: "View details",
@@ -98,17 +117,16 @@ const PaymentDetails: React.FC = () => {
       default:
         return data;
     }
-    return data.filter((entry) => isAfter(entry.date, rangeDate));
+
+    return data.filter((item) => item.date && isAfter(item.date, rangeDate));
   };
 
-  // Just to use the `result` variable properly
-  // const today = new Date();
-  // const oneWeekAgo = sub(today, { days: 7 });
-  // const result = isAfter(today, oneWeekAgo); // result is true, since today is obviously after last week
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
+  const sevenDaysAgo = sub(new Date(), { days: 7 });
 
   return (
     <div className="generate-request-container">
@@ -116,13 +134,16 @@ const PaymentDetails: React.FC = () => {
       <div className="main-section">
         <Header />
         <main className="main-content main3">
-          <button className="back-nav">
-            <FaArrowLeft /> Back
-          </button>
 
+          <a href="#" className="back-nav">
+            <button className="back-nav">
+              <FaArrowLeft /> Back
+            </button>
+          </a>
           <div className="payment-body">
             <h4>Payment Details/Mother</h4>
 
+            
             <div className="sponsor-body-top">
               <div className="display-relationship sponsor-payment-body-card">
                 <h3>Sponsor</h3>
@@ -157,7 +178,9 @@ const PaymentDetails: React.FC = () => {
               <div className="overview-top">
                 <div className="top-overview-left">
                   <p>Recent Payments</p>
-                  <form onSubmit={handleSearch} className="search-container">
+
+                  <form className="search-container" onSubmit={handleSearch}>
+
                     <FaSearch className="payment-search-icon" />
                     <input
                       type="search"

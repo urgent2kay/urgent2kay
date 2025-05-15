@@ -1,0 +1,595 @@
+/* Full page layout */
+.electricity-page {
+    display: flex;
+    width: 100%;
+    min-height: 100vh; 
+    flex-direction: row; 
+}
+
+/* Sidebar section */
+.electricity-sidebar {
+    width: 250px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100vh; 
+    position: relative; 
+}
+
+
+.electricity-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+
+.main-content {
+    padding: 20px 40px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+
+.electricity-layout {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+
+.electricity-row {
+    display: flex;
+    gap: 60px; 
+    width: 100%;
+    justify-content: space-between; 
+}
+
+
+.electricity-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px; 
+}
+
+
+.electricity-section.meter-number {
+    margin-left: auto; 
+    max-width: none; 
+}
+
+
+.electricity-label {
+    align-self: stretch;
+    color: #9C9B9B;
+    font-family: Archivo, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; 
+}
+
+
+.electricity-select-wrapper {
+    display: flex;
+    height: 56px;
+    padding: 19px 10px 17px 19px; 
+    align-items: center;
+    align-self: stretch;
+    border-radius: 58px;
+    border: 1px solid #B7B2B2;
+    background-color: #FFFFFF;
+    justify-content: space-between; 
+}
+
+
+.electricity-select {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: Archivo, sans-serif;
+    color: #7F7B7B;
+    background-color: transparent;
+    font-size: 14px;
+    padding-right: 20px; 
+}
+
+
+.electricity-input-wrapper {
+    display: flex;
+    height: 56px;
+    padding: 19px 10px 17px 19px; 
+    align-items: center;
+    align-self: stretch;
+    border-radius: 58px;
+    border: 1px solid #B7B2B2;
+    background-color: #FFFFFF;
+}
+
+
+.electricity-input {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+
+.align-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.electricity-section {
+    flex: 1;
+    max-width: 420px; 
+}
+
+.electricity-row {
+    gap: 60px; 
+}
+
+.electricity-select-wrapper,
+.electricity-input {
+    width: 100%;
+    margin-right: 0; 
+}
+
+.electricity-caption {
+    align-self: stretch;
+    color: #9C9B9B;
+    font-family: 'Archivo', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; 
+    margin-bottom: -40px !important;
+    
+  }
+  
+.amount-container {
+    display: flex;
+    padding: 20px 24px 20px 18px;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 12px;
+    border: 1px solid #F9FDFD;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%), #F8F8F8;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-bottom: -40px !important;
+  
+  }
+  
+  
+  .amount-box {
+    color: #555353;
+    font-family: 'Archivo', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    padding: 8px 12px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    user-select: none;
+  }
+
+
+  .enter-amount-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: -20px !important;
+  }
+  
+  .naira-symbol {
+    width: 26.542px;
+    height: 26.542px;
+    font-size: 20px;
+    color: #555353;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  .enter-amount-box {
+    flex: 1;
+    height: 56px;
+    padding: 0 19px;
+    border-radius: 58px;
+    border: 1px solid #B7B2B2;
+    background: #FFFFFF;
+    color: #7F7B7B;
+    font-family: 'Archivo', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 140%;
+    outline: none;
+    border: 1px solid #B7B2B2;
+  }
+  
+  .enter-amount-box::placeholder {
+    color: #7F7B7B;
+  }
+
+  .create-request-wrapper {
+    margin-top: 20px; 
+    display: flex;
+    justify-content: center;
+  }
+  
+  .create-request-button {
+    display: flex;
+    height: 44px;
+    padding: 10px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 58px;
+    background: #401A6D; 
+    color: #FFFFFF;
+    font-family: 'Archivo', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; 
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .create-request-button:hover {
+    background: #33125a; 
+  }
+  
+
+
+
+  .jumia-page {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  .jumia-sidebar {
+    flex-shrink: 0;
+  }
+  
+  .jumia-main {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .back-button {
+    margin: 16px 0;
+    padding: 8px 16px;
+    border: none;
+    background-color: #f0f0f0;
+    color: #333;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: Archivo;
+  }
+  
+  .back-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .shopping-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    max-width: 400px;
+  }
+  
+  .shopping-title {
+    align-self: stretch;
+    color: #312D2D;
+    font-family: Archivo;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 39.2px */
+  }
+  
+  .service-provider-caption {
+    width: 343px;
+    color: #9C9B9B;
+    font-family: Archivo;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 19.6px */
+  }
+  
+  .provider-box {
+    display: flex;
+    width: 388px;
+    padding: 10px 16px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 58px;
+    border: 1px solid #E9DDDD;
+    background-color: #FFFFFF;
+    color: #312D2D;
+    font-family: Archivo;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+  }
+  
+  .jumia-name {
+    color: #918F8F;
+    font-family: Archivo;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+  }
+  
+
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  
+  .product-image {
+    width: 94.72px;
+    height: 94.72px;
+    flex-shrink: 0;
+    background: url('/path-to-image.png') lightgray 50% / cover no-repeat;
+    aspect-ratio: 1 / 1;
+  }
+  
+  .product-order-id {
+    height: 32px;
+    align-self: stretch;
+    color: #312D2D;
+    font-family: Archivo;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    text-transform: capitalize;
+  }
+  
+  .product-divider {
+    align-self: stretch;
+    border: none;
+    height: 1px;
+    background-color: #3B3838;
+  }
+  
+  .product-amount-label {
+    height: 32px;
+    align-self: stretch;
+    color: #312D2D;
+    font-family: Archivo;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    text-transform: capitalize;
+  }
+  
+  .product-amount-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .naira-icon {
+    width: 21.234px;
+    height: 21.234px;
+    flex-shrink: 0;
+  }
+  
+  .enter-amount-text {
+    color: #A09C9C;
+    font-family: Archivo;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    align-self: stretch;
+  }
+  
+  .add-to-cart-button {
+    display: inline-flex;
+    height: 44px;
+    padding: 10px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    border-radius: 58px;
+    background: #401A6D;
+    color: #FFF;
+    font-family: Archivo;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    border: none;
+    cursor: pointer;
+  }
+  
+
+.provider-box.clickable {
+  cursor: pointer;
+}
+
+.provider-box.clickable:hover,
+.provider-box.clickable:focus {
+  background-color: #401A6D;
+  color: white;
+  outline: none;
+}
+
+  
+  
+@media (max-width: 768px) {
+    
+    .electricity-page {
+        flex-direction: column;
+        min-height: 100vh;
+        padding-top: 0;
+    }
+
+    .electricity-sidebar {
+        width: 100%;
+        height: auto; 
+        padding: 0;
+        display: block; 
+        margin-top: 0; 
+    }
+
+   
+    .electricity-main {
+        width: 100%;
+        padding-top: 0; 
+        margin-top: 0; 
+        flex: 1; 
+    }
+
+    
+    .electricity-layout {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px; 
+        padding: 0 10px; 
+    }
+
+    
+    .electricity-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+   
+    .electricity-section {
+        width: 100%;
+        max-width: none; 
+        padding: 0; 
+    }
+
+    .electricity-section.meter-number {
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+   
+    .electricity-label {
+        align-self: stretch;
+        color: #9C9B9B;
+        font-family: Archivo, sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; 
+    }
+
+   
+    .electricity-select-wrapper {
+        display: flex;
+        height: 56px;
+        padding: 15px 10px; 
+        align-items: center;
+        align-self: stretch;
+        border-radius: 58px;
+        border: 1px solid #B7B2B2;
+        background-color: #FFFFFF;
+        justify-content: space-between;
+    }
+
+    .electricity-input-wrapper {
+        display: flex;
+        height: 56px;
+        padding: 15px 10px;
+        align-items: center;
+        align-self: stretch;
+        border-radius: 58px;
+        border: 1px solid #B7B2B2;
+        background-color: #FFFFFF;
+    }
+
+    .electricity-input,
+    .electricity-select {
+        padding: 10px;
+        width: 100%;
+        font-size: 14px; 
+    }
+
+  
+    .main-content {
+        padding: 10px 20px;
+    }
+
+   
+    .electricity-select-wrapper,
+    .electricity-input-wrapper {
+        margin: 5px 0;
+    }
+
+
+    .jumia-page {
+        flex-direction: column;
+      }
+    
+      .jumia-main {
+        padding: 16px 12px;
+      }
+    
+      .shopping-section {
+        max-width: 100%;
+        width: 100%;
+        gap: 12px;
+      }
+    
+      .shopping-title {
+        font-size: 22px;
+        line-height: 130%;
+      }
+    
+      .service-provider-caption {
+        width: 100%;
+        font-size: 13px;
+        line-height: 135%;
+      }
+    
+      .provider-box {
+        width: 100%;
+        font-size: 15px;
+        padding: 10px 14px;
+        gap: 8px;
+      }
+    
+      .back-button {
+        width: fit-content;
+        font-size: 13px;
+        padding: 6px 12px;
+        margin-bottom: 16px;
+      }
+
+}

@@ -1,10 +1,9 @@
 import { useState } from 'react';
-
 import { FaTimes } from 'react-icons/fa';
 import Sidebar from './Sidebar';
-
 import Header from '../components/Header';
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
 import {
   IoIosFlash,
   IoIosCart,
@@ -29,13 +28,21 @@ const GenerateRequest: React.FC = () => {
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
   return (
-    <div className="generate-request-container">
-      <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+    <div
+      className="generate-request-container"
+      style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}
+    >
+      <div style={{ height: '100vh', overflowY: 'auto', flexShrink: 0 }}>
+        <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+      </div>
 
-      <div className="main-section"> 
+      <div
+        className="main-section"
+        style={{ flex: 1, display: 'flex', flexDirection: 'column', overflowY: 'auto' }}
+      >
         <Header />
 
-        <main className="main-content">
+        <main className="main-content" style={{ padding: '0 20px' }}>
           <div className="balance-card">
             <div className="balance-content">
               <div className="balance-header">
@@ -61,15 +68,25 @@ const GenerateRequest: React.FC = () => {
             </div>
           </div>
 
-          <div className="categories-container">
-            <div className="category-item">
+          <div
+            className="categories-container"
+            style={{
+              background: 'linear-gradient(0deg, rgba(255, 255, 255, 0.334), #F9F9F9)',
+              padding: '16px',
+              borderRadius: '12px',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
+              gap: '12px'
+            }}
+          >
+            <Link to="/electricity" className="category-item" style={{ textDecoration: 'none', color: 'inherit' }}>
               <div className="icon-circle"><IoIosFlash className="category-icon" /></div>
               <span>Electricity</span>
-            </div>
-            <div className="category-item">
+            </Link>
+            <Link to="/jumia" className="category-item" style={{ textDecoration: 'none', color: 'inherit' }} >
               <div className="icon-circle"><IoIosCart className="category-icon" /></div>
               <span>Shop Online</span>
-            </div>
+            </Link>
             <div className="category-item">
               <div className="icon-circle"><IoIosSchool className="category-icon" /></div>
               <span>School Fees</span>
@@ -115,7 +132,7 @@ const GenerateRequest: React.FC = () => {
                 </div>
               </div>
 
-              <div className="suggested-card">
+              <div className="suggested-card suggested-card-gradient">
                 <img src={gift} alt="gift" className="gift-image" />
                 <div className="suggested-info">
                   <div className="suggested-title">Get ₦500 Free Credits!</div>
@@ -126,15 +143,18 @@ const GenerateRequest: React.FC = () => {
                 </div>
               </div>
 
-              <div className="suggested-card">
+              <div className="suggested-card suggested-card-woman">
                 <img src={woman} alt="woman" className="woman-image" />
-                <div className="suggested-info">
-                  <div className="suggested-title">Pay Bills, Get Cashback!</div>
-                  <div className="suggested-description">
+                <div className="suggested-info woman-info">
+                  <div className="suggested-title woman-title">
+                    Pay Bills, Get Cashback!
+                  </div>
+                  <div className="suggested-description woman-description">
                     Get 10% cashback on all utility bills. Offer ends in 3 days!
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </main>

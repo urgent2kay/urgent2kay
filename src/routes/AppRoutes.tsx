@@ -6,6 +6,7 @@ import GenerateRequest from "../pages/GenerateRequest";
 // import TemplatePage from "../pages/Template";
 import BundleOverview from "../pages/BundleOverview";
 import Signup from "../pages/Signup";
+
 import SelectPayment from "../pages/SelectPayment";
 import ChooseSponsor from "../pages/ChooseSponsor";
 
@@ -33,6 +34,9 @@ import CreateRelationship from "../pages/CreateRelationship";
 import AccountSettingsPage from "../pages/AccountSettingsPage";
 
 
+import Electricity from "../pages/Electricity/Electricity";
+import Jumia from "../pages/jumia/Jumia";
+import JumiaShopping from "../pages/jumia/JumiaShopping";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -76,6 +80,10 @@ const AppRoutes: React.FC = () => {
       testing ⚠️⚠️⚠️*/}
       <Route path="/" element={<MerchantHome />} />
       {/* Registration flow - all steps nested under RegistrationGuard */}
+      <Route path="/jumia-shopping" element={<JumiaShopping />} />
+      <Route path="/jumia" element={<Jumia />} />
+      
+      <Route path="/electricity" element={<Electricity />} />
       
       
      
