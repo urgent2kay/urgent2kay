@@ -41,45 +41,50 @@ const Header: React.FC = () => {
           <p style={{ fontSize: '12px', color: '#555' }}>Let’s simplify your finances!</p>
         </div>
 
-        {/* Figma-style Search Bar with Left-Aligned Input */}
         <div
+          className="search-container search-bar2"
           style={{
-            display: 'flex',
-            padding: '10px 16px',
-            alignItems: 'center',
-            gap: '10px',
-            borderRadius: '58px',
-            border: '1px solid #E9DDDD',
-            backgroundColor: '#FFFFFF',
-            flex: 1,
-            maxWidth: '340px', // Added max-width for larger screens
-            width: '100%',
+            border: 'none', 
+            boxShadow: 'none',
+            outline: 'none',
           }}
         >
-          <FaSearch
+          <div
             style={{
-              color: '#9C9999',
-              fontSize: '14px',
-              marginRight: '6px',
+              display: 'flex',
+              width: '340px',
+              padding: '5px',
+              alignItems: 'center',
+              gap: '10px',
+              borderRadius: '58px',
+              border: '1px solid #E9DDDD',
+              backgroundColor: '#FFFFFF',
             }}
-          />
-          <input
-            type="text"
-            placeholder="Search"
-            style={{
-              flex: 1,
-              border: 'none',
-              outline: 'none',
-              fontFamily: 'Archivo, sans-serif',
-              fontSize: '13px',
-              fontStyle: 'normal',
-              fontWeight: 400,
-              lineHeight: '140%',
-              letterSpacing: '0.52px',
-              color: '#9C9999',
-              backgroundColor: 'transparent',
-            }}
-          />
+          >
+            <FaSearch
+              style={{
+                color: '#9C9999',
+                fontSize: '14px',
+              }}
+            />
+            <input
+              type="text"
+              placeholder="Search"
+              style={{
+                flex: 1,
+                border: 'none',
+                outline: 'none',
+                fontFamily: 'Archivo, sans-serif',
+                fontSize: '13px',
+                fontStyle: 'normal',
+                fontWeight: 400,
+                lineHeight: '140%',
+                letterSpacing: '0.52px',
+                color: '#9C9999',
+                backgroundColor: 'transparent',
+              }}
+            />
+          </div>
         </div>
       </div>
 
@@ -193,7 +198,9 @@ const Header: React.FC = () => {
               Profile Settings
             </p>
             <div style={{ borderTop: '1px solid #ddd', margin: '4px 0' }}></div>
-            <p style={{ margin: 0, padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px' }}>Logout</p>
+            <p style={{ margin: 0, padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px' }}>
+              Logout
+            </p>
           </div>
         </div>
       </div>

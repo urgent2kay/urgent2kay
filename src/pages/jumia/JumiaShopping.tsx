@@ -31,7 +31,7 @@ const JumiaShopping: React.FC = () => {
       <div className="jumia-main">
         <Header />
 
-        <button className="back-button" onClick={() => navigate('/generate-request')}>
+        <button className="back-button" onClick={() => navigate('/jumia')}>
           ← Back
         </button>
 

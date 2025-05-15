@@ -38,7 +38,15 @@ const Jumia: React.FC = () => {
           <h2 className="shopping-title">Shopping</h2>
           <p className="service-provider-caption">Service Provider</p>
 
-          <div className="provider-box">Jumia</div>
+          <div
+            className="provider-box clickable"
+            onClick={() => navigate('/jumia-shopping')}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') navigate('/jumia-shopping'); }}
+          >
+            Jumia
+          </div>
           <div className="provider-box">Temu</div>
           <div className="provider-box">Shein</div>
           <div className="provider-box">Konga</div>

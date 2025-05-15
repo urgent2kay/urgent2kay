@@ -434,6 +434,16 @@
   }
   
 
+.provider-box.clickable {
+  cursor: pointer;
+}
+
+.provider-box.clickable:hover,
+.provider-box.clickable:focus {
+  background-color: #401A6D;
+  color: white;
+  outline: none;
+}
 
   
   
