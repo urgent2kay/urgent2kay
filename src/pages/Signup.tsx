@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRegisterMutation } from "../features/auth/authApi";
 import { useNavigate, Link } from "react-router-dom";
 import "./Signup.css";
-import { Link } from "react-router-dom";
+
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -74,19 +74,16 @@ const Signup = () => {
           </p>
           <p className="signin-text">
             Already have an account?{" "}
-<<<<<<< HEAD
+
             <Link to="/login" className="link">
               Sign in
-=======
-            <Link to="/sign-in">
-              <span className="link">Sign in</span>
->>>>>>> 49a42a848d866fbd0be86d29fcb995b1e8bee154
+
             </Link>
           </p>
         </div>
       </div>
       <div className="right-pane">
-        {/* <form className="signup-form" onSubmit={handleSubmit}> */}
+        
         <form className="signup-form" onSubmit={handleSubmit}>
           <h2 className="form-title">Sign Up</h2>
 
@@ -155,13 +152,10 @@ const Signup = () => {
           </button>
           <p className="signin-text2">
             Already have an account?{" "}
-<<<<<<< HEAD
+
             <Link to="/login" className="link">
               Sign in
-=======
-            <Link to="/sign-in">
-              <span className="link">Sign in</span>{" "}
->>>>>>> 49a42a848d866fbd0be86d29fcb995b1e8bee154
+
             </Link>
           </p>
         </form>
