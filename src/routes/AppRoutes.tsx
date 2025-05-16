@@ -23,11 +23,6 @@ import PersonalDetailsPage from "../components/merchant/PersonalDetails";
 import BankDetailsPage from "../components/merchant/BankDetails";
 
 
-
-import Dashboard from "../../src/pages/Dashboard/Dashboard";
-import LandingPage from "../pages/LandingPage/LandingPage";
-
-
 import ViewDetails from "../pages/ViewDetails";
 import PaymentDetails from "../pages/PaymentDetails";
 import RemoveMainSponsor from "../pages/RemoveMainSponsor";
@@ -50,7 +45,7 @@ const AppRoutes: React.FC = () => {
   return (
     <Routes>
 
-      {/* Default route */}
+      
       <Route path="/" element={<LandingPage />} />
 
       {/* Public pages */}

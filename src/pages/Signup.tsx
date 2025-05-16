@@ -1,9 +1,9 @@
 
 import { useState } from "react";
 import { useRegisterMutation } from "../features/auth/authApi";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./Signup.css";
-import { Link } from "react-router-dom";
+
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -70,19 +70,20 @@ const Signup = () => {
             Skip the hassle. Send & pay bills in one click.
           </p>
           <p className="small-text">
-            No more scattered requests or late fees—just simple, direct
-            payments.
+            No more scattered requests or late fees—just simple, direct payments.
           </p>
           <p className="signin-text">
             Already have an account?{" "}
-            <Link to="/sign-in">
-              <span className="link">Sign in</span>
+
+            <Link to="/login" className="link">
+              Sign in
+
             </Link>
           </p>
         </div>
       </div>
       <div className="right-pane">
-        {/* <form className="signup-form" onSubmit={handleSubmit}> */}
+        
         <form className="signup-form" onSubmit={handleSubmit}>
           <h2 className="form-title">Sign Up</h2>
 
@@ -151,8 +152,10 @@ const Signup = () => {
           </button>
           <p className="signin-text2">
             Already have an account?{" "}
-            <Link to="/sign-in">
-              <span className="link">Sign in</span>{" "}
+
+            <Link to="/login" className="link">
+              Sign in
+
             </Link>
           </p>
         </form>

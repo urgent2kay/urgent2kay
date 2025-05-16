@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./Signup.css";
-import { Link, useNavigate } from "react-router-dom";
-import { useLoginMutation } from "../features/auth/authApi";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -9,10 +8,9 @@ const Login = () => {
     password: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const navigate = useNavigate();
-
-  const [login, { isLoading, error }] = useLoginMutation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
@@ -24,23 +22,30 @@ const Login = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
     setSuccess("");
+    setLoading(true);
 
     try {
-      const result = await login(formData).unwrap();
-      console.log("Login success:", result);
+      const response = await fetch("https://your-api.com/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-      // ✅ Save user info in localStorage
-      if (result?.user) {
-        localStorage.setItem("user", JSON.stringify(result.user));
+      if (!response.ok) {
+        const resData = await response.json();
+        throw new Error(resData.message || "Login failed");
       }
 
       setSuccess("Login successful!");
-
-      // Redirect to dashboard
-      navigate("/dashboard");
+      // Optionally redirect here
     } catch (err: any) {
-      console.error("Login failed:", err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -67,11 +72,7 @@ const Login = () => {
         <form className="signup-form" onSubmit={handleSubmit}>
           <h2 className="form-title">Log In</h2>
 
-          {error && (
-            <p className="error-text">
-              {(error as any)?.data?.message || "Login failed"}
-            </p>
-          )}
+          {error && <p className="error-text">{error}</p>}
           {success && <p className="success-text">{success}</p>}
 
           <div className="form-group">
@@ -97,8 +98,8 @@ const Login = () => {
             />
           </div>
 
-          <button type="submit" className="signup-button" disabled={isLoading}>
-            {isLoading ? "Logging in..." : "Log In"}{" "}
+          <button type="submit" className="signup-button" disabled={loading}>
+            {loading ? "Logging in..." : "Log In"}{" "}
             <span className="arrow">&rarr;</span>
           </button>
 
