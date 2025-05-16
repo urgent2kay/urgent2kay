@@ -45,7 +45,7 @@ const AppRoutes: React.FC = () => {
   return (
     <Routes>
 
-      {/* Default route */}
+      
       <Route path="/" element={<LandingPage />} />
 
       {/* Public pages */}
