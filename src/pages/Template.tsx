@@ -2,6 +2,8 @@ import React, { useState, ReactNode } from 'react';
 import Sidebar from './Sidebar';
 import Header from '../components/Header';
 import { FaTimes } from 'react-icons/fa';
+import './Template.css';
+
 
 interface TemplatePageProps {
   children: ReactNode;

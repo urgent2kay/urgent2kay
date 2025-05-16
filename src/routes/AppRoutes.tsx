@@ -6,9 +6,11 @@ import GenerateRequest from "../pages/GenerateRequest";
 // import TemplatePage from "../pages/Template";
 import BundleOverview from "../pages/BundleOverview";
 import Signup from "../pages/Signup";
+import Login from "../pages/Signin";
 
 import SelectPayment from "../pages/SelectPayment";
 import ChooseSponsor from "../pages/ChooseSponsor";
+import VerifyEmail from "../pages/VerifyEmail";
 
 import RequestSuccessful from "../pages/RequestSucessful";
 import Dashboard from "../pages/Dashboard";
@@ -19,6 +21,7 @@ import RegistrationGuard from "../components/merchant/RegistrationGuard";
 import BusinessDetailsPage from "../components/merchant/BusinessDetails";
 import PersonalDetailsPage from "../components/merchant/PersonalDetails";
 import BankDetailsPage from "../components/merchant/BankDetails";
+
 
 // import ViewDetails from "../pages/ViewDetails";
 import PaymentDetails from "../pages/PaymentDetails";
@@ -47,17 +50,37 @@ const AppRoutes: React.FC = () => {
       <Route path="/" element={<LandingPage />} />
       {/* Public pages */}
       <Route path="/sign-up" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/choose-sponsor" element={<ChooseSponsor />} />
       <Route path="/bundle-overview" element={<BundleOverview />} />
       <Route path="/generate-request" element={<GenerateRequest />} />
       {/* <Route path="/template" element={<TemplatePage />} /> */}
       <Route path="/bundle-overview" element={<BundleOverview />} />
       <Route path="/sign-up" element={<Signup />} />
+
       <Route path="/select-payment" element={<SelectPayment />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/choose-sponsor" element={<ChooseSponsor />} />
       {/* user profile and account settings */}
       <Route path="/account" element={<AccountSettingsPage />} />
+
+          <Route path="/verify" element={<VerifyEmail />} />
+
+
+      <Route path="/select-payment" element={<SelectPayment />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/choose-sponsor" element={<ChooseSponsor />} />
+
+
+
+      <Route path="/merchant-home" element={<MerchantHome />} />
+
+
+      {/* user profile and account settings */}
+      <Route path="/account" element={<AccountSettingsPage />} />
+
+
+
       <Route path="request-successful" element={<RequestSuccessful />} />
       {/* general error pages */}
       <Route path="/page-under-construction" element={<ErrorPage />} />
@@ -81,6 +104,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/jumia-shopping" element={<JumiaShopping />} />
       <Route path="/jumia" element={<Jumia />} />
       <Route path="/electricity" element={<Electricity />} />
+
       {/* Merchant routes */}
       <Route path="/merchant-home" element={<MerchantHome />} />
       <Route path="/register" element={<RegistrationGuard />}>
@@ -88,7 +112,9 @@ const AppRoutes: React.FC = () => {
         <Route path="personal" element={<PersonalDetailsPage />} />
         <Route path="bank" element={<BankDetailsPage />} />
       </Route>
+
       {/* Catch-all: redirect unknown routes to landing */}
+
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
