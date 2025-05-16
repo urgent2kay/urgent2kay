@@ -1,7 +1,9 @@
+
 import { useState } from "react";
 import { useRegisterMutation } from "../features/auth/authApi";
 import { useNavigate } from "react-router-dom";
 import "./Signup.css";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -30,6 +32,7 @@ const Signup = () => {
     e.preventDefault();
     setError("");
     setSuccess("");
+
 
     if (!formData.termsAccepted) {
       setError("You must agree to the terms and conditions.");
@@ -71,11 +74,15 @@ const Signup = () => {
             payments.
           </p>
           <p className="signin-text">
-            Already have an account? <span className="link">Sign in</span>
+            Already have an account?{" "}
+            <Link to="/sign-in">
+              <span className="link">Sign in</span>
+            </Link>
           </p>
         </div>
       </div>
       <div className="right-pane">
+        {/* <form className="signup-form" onSubmit={handleSubmit}> */}
         <form className="signup-form" onSubmit={handleSubmit}>
           <h2 className="form-title">Sign Up</h2>
 
@@ -143,7 +150,10 @@ const Signup = () => {
             <span className="arrow">&rarr;</span>
           </button>
           <p className="signin-text2">
-            Already have an account? <span className="link">Sign in</span>
+            Already have an account?{" "}
+            <Link to="/sign-in">
+              <span className="link">Sign in</span>{" "}
+            </Link>
           </p>
         </form>
       </div>
