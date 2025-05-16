@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaSearch, FaBell, FaUser } from 'react-icons/fa';
 
 const Header: React.FC = () => {
   const [notificationOpen, setNotificationOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleNotification = () => {
     setNotificationOpen((prev) => {
@@ -19,6 +21,11 @@ const Header: React.FC = () => {
       if (newState) setNotificationOpen(false);
       return newState;
     });
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // or sessionStorage.removeItem('token') if you're using sessionStorage
+    navigate('/login'); // redirect to login page
   };
 
   return (
@@ -41,11 +48,10 @@ const Header: React.FC = () => {
           <p style={{ fontSize: '12px', color: '#555' }}>Let’s simplify your finances!</p>
         </div>
 
-
         <div
           className="search-container search-bar2"
           style={{
-            border: 'none', 
+            border: 'none',
             boxShadow: 'none',
             outline: 'none',
           }}
@@ -85,20 +91,14 @@ const Header: React.FC = () => {
                 backgroundColor: 'transparent',
               }}
             />
-
-    
           </div>
         </div>
       </div>
 
-
       <div
         style={{
-
-          
           display: 'flex',
           alignItems: 'center',
-
           gap: '12px',
           position: 'relative',
           flexGrow: 1,
@@ -162,13 +162,10 @@ const Header: React.FC = () => {
             <p style={{ margin: 0, padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px' }}>
               Notification 2
             </p>
-
-            
           </div>
         </div>
 
         {/* Profile Dropdown */}
-
         <div
           style={{
             position: 'relative',
@@ -208,10 +205,12 @@ const Header: React.FC = () => {
               Profile Settings
             </p>
             <div style={{ borderTop: '1px solid #ddd', margin: '4px 0' }}></div>
-            <p style={{ margin: 0, padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px' }}>
+            <p
+              onClick={handleLogout}
+              style={{ margin: 0, padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px' }}
+            >
               Logout
             </p>
-
           </div>
         </div>
       </div>

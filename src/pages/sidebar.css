@@ -1,4 +1,11 @@
 /* Sidebar Styles */
+html, body {
+  height: 100% ;
+  margin: 0;
+  padding: 0;
+}
+
+
 .sidebar {
   width: 240px !important;
   background-color: #1B0B2E !important;

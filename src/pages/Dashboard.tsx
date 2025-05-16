@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import TemplatePage from '../pages/Template'; 
 import StatsCards from '../components/dashboard/StatsCards';
-import DahboardActions from '../components/dashboard/DashboardActions';
+import DashboardActions from '../components/dashboard/DashboardActions';
 import RecentActivities from '../components/dashboard/RecentActivities';
 import { Activity } from '../types/dashboardindex';
 
@@ -41,7 +41,7 @@ const Dashboard: React.FC = () => {
     <TemplatePage>
       <div className="dashboard">
         <StatsCards stats={stats} />
-        <DahboardActions />
+        <DashboardActions />
         <RecentActivities activities={activities} />
       </div>
     </TemplatePage>
