@@ -6,9 +6,11 @@ import GenerateRequest from "../pages/GenerateRequest";
 // import TemplatePage from "../pages/Template";
 import BundleOverview from "../pages/BundleOverview";
 import Signup from "../pages/Signup";
+import Login from "../pages/Signin";
 
 import SelectPayment from "../pages/SelectPayment";
 import ChooseSponsor from "../pages/ChooseSponsor";
+import VerifyEmail from "../pages/VerifyEmail";
 
 import RequestSuccessful from "../pages/RequestSucessful";
 import Dashboard from "../pages/Dashboard";
@@ -20,8 +22,11 @@ import BusinessDetailsPage from "../components/merchant/BusinessDetails";
 import PersonalDetailsPage from "../components/merchant/PersonalDetails";
 import BankDetailsPage from "../components/merchant/BankDetails";
 
+
+
 import Dashboard from "../../src/pages/Dashboard/Dashboard";
 import LandingPage from "../pages/LandingPage/LandingPage";
+
 
 import ViewDetails from "../pages/ViewDetails";
 import PaymentDetails from "../pages/PaymentDetails";
@@ -50,12 +55,15 @@ const AppRoutes: React.FC = () => {
 
       {/* Public pages */}
       <Route path="/sign-up" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/choose-sponsor" element={<ChooseSponsor />} />
       <Route path="/bundle-overview" element={<BundleOverview />} />
       <Route path="/generate-request" element={<GenerateRequest />} />
       {/* <Route path="/template" element={<TemplatePage />} /> */}
       <Route path="/bundle-overview" element={<BundleOverview />} />
       <Route path="/sign-up" element={<Signup />} />
+          <Route path="/verify" element={<VerifyEmail />} />
+
 
       <Route path="/select-payment" element={<SelectPayment />} />
       <Route path="/dashboard" element={<Dashboard />} />
@@ -94,10 +102,6 @@ const AppRoutes: React.FC = () => {
       
       <Route path="/electricity" element={<Electricity />} />
       
-      
-     
-      
-      
 
       {/* Merchant routes */}
       <Route path="/merchant-home" element={<MerchantHome />} />
@@ -107,9 +111,6 @@ const AppRoutes: React.FC = () => {
         <Route path="bank" element={<BankDetailsPage />} />
       </Route>
 
-
-
-      
 
       {/* Catch-all: redirect unknown routes to landing */}
 

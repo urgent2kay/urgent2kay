@@ -1,11 +1,14 @@
 
-
-
 import { useState } from "react";
+import { useRegisterMutation } from "../features/auth/authApi";
+import { useNavigate } from "react-router-dom";
 import "./Signup.css";
 import { Link } from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate();
+  const [register, { isLoading }] = useRegisterMutation();
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -14,7 +17,6 @@ const Signup = () => {
     termsAccepted: false,
   });
 
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -31,107 +33,31 @@ const Signup = () => {
     setError("");
     setSuccess("");
 
-    if (!formData.termsAccepted) {
-      setError("You must agree to the terms and conditions.");
-      return;
-    }
-
-    setLoading(true);
-    try {
-      const response = await fetch("https://your-api.com/api/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        const resData = await response.json();
-        throw new Error(resData.message || "Signup failed");
-      }
-
-      setSuccess("Signup successful!");
-    } catch (err: { message: string }) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { id, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [id]: type === "checkbox" ? checked : value,
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
-    setSuccess("");
-    // setRedirectToDashboard(true);
-
-    // if (redirectToDashboard) {
-    //   // Redirect to the dashboard after signup
-    //   return <Navigate to="/dashboard" replace />;
-    // }
 
     if (!formData.termsAccepted) {
       setError("You must agree to the terms and conditions.");
       return;
     }
 
-    setLoading(true);
-    try {
-      const response = await fetch("https://your-api.com/api/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    const [firstName, lastName = ""] = formData.fullName.trim().split(" ");
 
-      if (!response.ok) {
-        const resData = await response.json();
-        throw new Error(resData.message || "Signup failed");
-      }
+    try {
+      await register({
+        firstName,
+        lastName,
+        email: formData.email,
+        phone: formData.phone,
+        password: formData.password,
+        role: "bill-owner",
+      }).unwrap();
 
       setSuccess("Signup successful!");
-    } catch (err: unknown) {
-      console.error('server side error', err);
-      setError(err instanceof Error ? err.message : "An error occurred");
-    } finally {
-      setLoading(false);
+      navigate("/login");
+    } catch (err: any) {
+      console.error("API Error:", err);
+      setError(err?.data?.message || "Signup failed");
     }
   };
-
-
-// import React from "react";
-// import { Navigate } from "react-router-dom";
-// import "./Signup.css";
-
-// const Signup = () => {
-//   const [redirectToDashboard, setRedirectToDashboard] = React.useState(false);
-
-
-//   const handleSubmit = (e: React.FormEvent) => {
-//     e.preventDefault();
-//     // Simulate the signup process and redirect to the dashboard
-//     setRedirectToDashboard(true);
-//   };
-
-//   if (redirectToDashboard) {
-//     // Redirect to the dashboard after signup
-//     return <Navigate to="/dashboard" replace />;
-//   }
-
-
 
   return (
     <div className="signup-container">
@@ -210,17 +136,17 @@ const Signup = () => {
           <div className="terms">
             <input
               type="checkbox"
-              id="terms"
+              id="termsAccepted"
               checked={formData.termsAccepted}
               onChange={handleChange}
             />
-            <label htmlFor="terms">
+            <label htmlFor="termsAccepted">
               I agree to Urgent 2kay's Terms and Conditions, Privacy Policy and
               Cookies Policy
             </label>
           </div>
-          <button type="submit" className="signup-button" disabled={loading}>
-            {loading ? "Signing up..." : "Sign Up"}{" "}
+          <button type="submit" className="signup-button" disabled={isLoading}>
+            {isLoading ? "Signing up..." : "Sign Up"}{" "}
             <span className="arrow">&rarr;</span>
           </button>
           <p className="signin-text2">
