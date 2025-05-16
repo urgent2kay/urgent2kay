@@ -20,12 +20,12 @@ import BusinessDetailsPage from "../components/merchant/BusinessDetails";
 import PersonalDetailsPage from "../components/merchant/PersonalDetails";
 import BankDetailsPage from "../components/merchant/BankDetails";
 
-import ViewDetails from "../pages/ViewDetails";
+// import ViewDetails from "../pages/ViewDetails";
 import PaymentDetails from "../pages/PaymentDetails";
 import RemoveMainSponsor from "../pages/RemoveMainSponsor";
 import MainSponsor from "../pages/MainSponsor";
 import FirstRelationship from "../pages/FirstRelationship";
-import RelationshipCreated from "../pages/RelationshipCreated";
+// import RelationshipCreated from "../pages/RelationshipCreated";
 import SupportInvite from "../pages/SupportInvite";
 import NotifySupport from "../pages/NotifySupport";
 import NoRelationship from "../pages/NoRelationship";
@@ -33,6 +33,8 @@ import CreateRelationship from "../pages/CreateRelationship";
 
 import AccountSettingsPage from "../pages/AccountSettingsPage";
 
+import ErrorPage from "../pages/404Page";
+import ErrorPageReverse from "../pages/ErrorPageReverse";
 
 import Electricity from "../pages/Electricity/Electricity";
 import Jumia from "../pages/jumia/Jumia";
@@ -41,10 +43,8 @@ import JumiaShopping from "../pages/jumia/JumiaShopping";
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
-
       {/* Default route */}
       <Route path="/" element={<LandingPage />} />
-
       {/* Public pages */}
       <Route path="/sign-up" element={<Signup />} />
       <Route path="/choose-sponsor" element={<ChooseSponsor />} />
@@ -53,28 +53,26 @@ const AppRoutes: React.FC = () => {
       {/* <Route path="/template" element={<TemplatePage />} /> */}
       <Route path="/bundle-overview" element={<BundleOverview />} />
       <Route path="/sign-up" element={<Signup />} />
-
       <Route path="/select-payment" element={<SelectPayment />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/choose-sponsor" element={<ChooseSponsor />} />
-
       {/* user profile and account settings */}
       <Route path="/account" element={<AccountSettingsPage />} />
-
       <Route path="request-successful" element={<RequestSuccessful />} />
-
+      {/* general error pages */}
+      <Route path="/page-under-construction" element={<ErrorPage />} />
+      <Route path="error-404-page" element={<ErrorPageReverse />} />
       {/* the relationship pages have 14 screens, these are 10 out of the 14 */}
       <Route path="/choose-sponsor" element={<NoRelationship />} />
       <Route path="/create-relationship" element={<CreateRelationship />} />
       <Route path="/payment-details" element={<PaymentDetails />} />
-      <Route path="/created-relationship" element={<RelationshipCreated />} />
+      {/* <Route path="/created-relationship" element={<RelationshipCreated />} /> */}
       <Route path="/support-invite" element={<SupportInvite />} />
       <Route path="/notify" element={<NotifySupport />} />
       <Route path="/first-relationship" element={<FirstRelationship />} />
       <Route path="/main-sponsor" element={<MainSponsor />} />
       <Route path="/remove-sponsor" element={<RemoveMainSponsor />} />
-      <Route path="/view-details" element={<ViewDetails />} />
-
+      {/* <Route path="/view-details" element={<ViewDetails />} /> */}
       {/* Note that whenever the other pages are ready, we can navigate from this
       point down. For now, the path will not work. i used the / path for
       testing ⚠️⚠️⚠️*/}
@@ -82,14 +80,7 @@ const AppRoutes: React.FC = () => {
       {/* Registration flow - all steps nested under RegistrationGuard */}
       <Route path="/jumia-shopping" element={<JumiaShopping />} />
       <Route path="/jumia" element={<Jumia />} />
-      
       <Route path="/electricity" element={<Electricity />} />
-      
-      
-     
-      
-      
-
       {/* Merchant routes */}
       <Route path="/merchant-home" element={<MerchantHome />} />
       <Route path="/register" element={<RegistrationGuard />}>
@@ -97,13 +88,8 @@ const AppRoutes: React.FC = () => {
         <Route path="personal" element={<PersonalDetailsPage />} />
         <Route path="bank" element={<BankDetailsPage />} />
       </Route>
-
-      
-
       {/* Catch-all: redirect unknown routes to landing */}
       <Route path="*" element={<Navigate to="/" replace />} />
-
-
     </Routes>
   );
 };

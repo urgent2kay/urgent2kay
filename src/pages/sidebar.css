@@ -1,4 +1,10 @@
 /* Sidebar Styles */
+body {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+
 .sidebar {
   width: 240px !important;
   background-color: #1B0B2E !important;
@@ -9,7 +15,7 @@
   align-items: flex-start !important;
   transition: width 0.3s ease !important;
   transform: translateX(0) !important;
-  height: 100vh !important; 
+  height: 100vh !important;
 }
 
 .sidebar.open {
@@ -28,7 +34,7 @@
   display: flex !important;
   flex-direction: column !important;
   width: 100% !important;
-  flex-grow: 1; 
+  flex-grow: 1;
 }
 
 .nav-item {
@@ -119,5 +125,5 @@
 
   .sidebar-toggle.mobile-only {
     display: block;
-}
+  }
 }

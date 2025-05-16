@@ -7,6 +7,13 @@ import merchLogo from "../../assets/logo-purple1.svg";
 import { FaFileUpload } from "react-icons/fa";
 import "./merchant.css";
 
+interface BankDetailsErrors {
+  bankName?: string;
+  accountName?: string;
+  accountNumber?: string;
+  ownershipProof?: string;
+  agreedToTerms?: string;
+}
 
 const BankDetailsPage = () => {
   const context = useOutletContext<OutletContextType>();
@@ -21,7 +28,7 @@ const BankDetailsPage = () => {
   };
 
   const [formData, setFormData] = useState<BankDetails>(defaultBankDetails);
-  const [errors, setErrors] = useState<Partial<typeof defaultBankDetails>>({});
+  const [errors, setErrors] = useState<BankDetailsErrors>({});
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -48,11 +55,11 @@ const BankDetailsPage = () => {
     }));
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFormData((prev) => ({ ...prev, ownershipProof: e.target.files![0] }));
-    }
-  };
+  // const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (e.target.files && e.target.files[0]) {
+  //     setFormData((prev) => ({ ...prev, ownershipProof: e.target.files![0] }));
+  //   }
+  // };
 
   const handleDrop = (e: React.DragEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -79,26 +86,40 @@ const BankDetailsPage = () => {
   };
 
   const validate = (): boolean => {
-    const newErrors: Partial<BankDetails> = {};
-    if (!formData.accountName)
+    const newErrors: BankDetailsErrors = {};
+    let isValid = true;
+
+    if (!formData.accountName) {
       newErrors.accountName = "Account name is required";
-    if (!formData.accountNumber)
-      newErrors.accountNumber = "Account number is required";
-    if (!formData.bankName) newErrors.bankName = "Bank name is required";
-    if (!formData.ownershipProof) {
-      formData.ownershipProof = e.target.files?.[0] || null;
+      isValid = false;
     }
+
+    if (!formData.accountNumber) {
+      newErrors.accountNumber = "Account number is required";
+      isValid = false;
+    }
+
+    if (!formData.bankName) {
+      newErrors.bankName = "Bank name is required";
+      isValid = false;
+    }
+
+    if (!formData.ownershipProof) {
+      newErrors.ownershipProof = "Proof of ownership is required";
+      isValid = false;
+    }
+
+    if (!formData.agreedToTerms) {
+      newErrors.agreedToTerms = "You must agree to the terms and conditions";
+      isValid = false;
+    }
+
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return isValid;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.agreedToTerms) {
-      alert("You must agree to the terms and conditions.");
-      return;
-    }
-
     if (validate()) {
       handleBankSubmit(formData);
     }
@@ -219,6 +240,8 @@ const BankDetailsPage = () => {
                   const file = e.target.files?.[0] || null;
                   setFormData({ ...formData, ownershipProof: file });
                 }}
+                style={{ display: "none" }}
+                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
               />
             </div>
             <small>e.g. CAC cert, Utility Bill, etc</small>
