@@ -1,14 +1,17 @@
 import { useState } from "react";
+import { useLoginMutation } from "../features/auth/authApi"; 
+import { useNavigate, Link } from "react-router-dom";
 import "./Signup.css";
-import { Link } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [login, { isLoading }] = useLoginMutation();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -24,28 +27,16 @@ const Login = () => {
     e.preventDefault();
     setError("");
     setSuccess("");
-    setLoading(true);
 
     try {
-      const response = await fetch("https://your-api.com/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        const resData = await response.json();
-        throw new Error(resData.message || "Login failed");
-      }
-
+      const user = await login(formData).unwrap();
       setSuccess("Login successful!");
-      // Optionally redirect here
+      
+
+      
+      navigate("/dashboard"); 
     } catch (err: any) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
+      setError(err?.data?.message || "Login failed");
     }
   };
 
@@ -62,8 +53,8 @@ const Login = () => {
           </p>
           <p className="signin-text">
             Don’t have an account?{" "}
-            <Link to="/sign-up">
-              <span className="link">Sign up</span>
+            <Link to="/sign-up" className="link">
+              Sign up
             </Link>
           </p>
         </div>
@@ -98,15 +89,15 @@ const Login = () => {
             />
           </div>
 
-          <button type="submit" className="signup-button" disabled={loading}>
-            {loading ? "Logging in..." : "Log In"}{" "}
+          <button type="submit" className="signup-button" disabled={isLoading}>
+            {isLoading ? "Logging in..." : "Log In"}{" "}
             <span className="arrow">&rarr;</span>
           </button>
 
           <p className="signin-text2">
             Don’t have an account?{" "}
-            <Link to="/sign-up">
-              <span className="link">Sign up</span>
+            <Link to="/sign-up" className="link">
+              Sign up
             </Link>
           </p>
         </form>
