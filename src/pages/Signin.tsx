@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { useLoginMutation } from "../features/auth/authApi";
 import { useNavigate, Link } from "react-router-dom";
 import {
@@ -11,17 +12,17 @@ import {
   Card,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./Signup.css";
+import { Link } from "react-router-dom";
 
 const Login = () => {
-  const navigate = useNavigate();
-  const [login, { isLoading }] = useLoginMutation();
-
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -37,8 +38,10 @@ const Login = () => {
     e.preventDefault();
     setError("");
     setSuccess("");
+    setLoading(true);
 
     try {
+
       await login(formData).unwrap();
       setSuccess("Login successful!");
       navigate("/dashboard");
@@ -61,10 +64,12 @@ const Login = () => {
       }
 
       setError(errorMessage);
+
     }
   };
 
   return (
+
     <Container fluid style={{ padding: 0, margin: 0, height: "100vh" }}>
       <Row style={{ margin: 0, padding: 0, height: "100%" }}>
         <Col
@@ -86,6 +91,7 @@ const Login = () => {
                 Sign up
               </Link>
             </p>
+            
           </div>
         </Col>
 
@@ -141,6 +147,7 @@ const Login = () => {
               </Button>
             </Form>
 
+
             <p className="signin-text2 text-center mt-3">
               Don’t have an account?{" "}
               <Link to="/sign-up" className="link">
@@ -151,6 +158,7 @@ const Login = () => {
         </Col>
       </Row>
     </Container>
+
   );
 };
 
