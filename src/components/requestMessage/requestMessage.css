@@ -1,0 +1,44 @@
+.request-notification {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  color: #f3f3f3;
+  padding: 12px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+.notification-text {
+  flex: 1;
+  margin-right: 12px;
+}
+
+.priority-text {
+  font-weight: bold;
+}
+
+.priority-text.very-urgent {
+  color: #dc2626;
+}
+
+.priority-text.important {
+  color: #f97316;
+}
+
+.priority-text.normal {
+  color: #22c55e;
+}
+
+.review-button {
+  background-color: #5e00b8;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+}
