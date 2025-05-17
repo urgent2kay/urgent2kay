@@ -1,23 +1,7 @@
 /* Sidebar Styles */
-html, body {
-  height: 100% ;
-  margin: 0;
-  padding: 0;
-}
 
 
-.sidebar {
-  width: 240px !important;
-  background-color: #1B0B2E !important;
-  padding: 20px !important;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  transition: width 0.3s ease !important;
-  transform: translateX(0) !important;
-  height: 100vh !important; 
-}
+
 
 .sidebar.open {
   width: 240px !important;

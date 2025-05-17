@@ -64,10 +64,16 @@ html {
 }
 
 .link {
-  color: #3e0d73;
+  color: white;
   font-weight: 600;
   cursor: pointer;
 }
+.link:hover {
+  color: rgb(76, 6, 142);
+  font-weight: 800;
+  
+}
+
 
 /* Right Pane */
 .right-pane {
