@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    height: 100vh;
+    width: 100vw;
+    font-family: Archivo, sans-serif;
+}
+
+.main-error-div {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    height: 100vh;
+}
+
+.error-page-body {
+    display: block;
+    margin: 0 auto;
+}
+
+.error-page-image {
+    width: 150px;
+}
+
+.error-page-body {
+    display: block;
+    margin: 0 auto;
+    padding: 2rem 4rem;
+    text-align: center;
+}
+
+.error-page-body h3 {
+    color: #401A6D;
+    margin-top: .6rem;
+    margin-bottom: .6rem;
+}
+
+.error-page-body p {
+    font-size: .8rem;
+    color: #555252;
+}
+
+.reverse-body h3 {
+    color: #232020;
+    font-size: 1rem;
+    margin-top: .8rem;
+    margin-bottom: .8rem;
+}
+
+.reverse-body h1 {
+    font-size: 4rem;
+    color: #232020;
+}
+
+.reverse-body p {
+    width: 23rem;
+    line-height: 140%;
+}
+
+@media (max-width: 480px) {
+    .main-error-div {
+        padding: 1rem .5rem;
+        align-items: center;
+        width: 100%;
+    }
+
+    .error-page-image {
+        align-self: self-start;
+    }
+
+    .error-page-body {
+        width: 100%;
+    }
+
+    .reverse-body p {
+        width: 100%;
+    }
+
+    .error-page-body h3 {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .reverse-body h1 {
+        width: 100%;
+        font-size: 2.5rem;
+    }
+
+}
