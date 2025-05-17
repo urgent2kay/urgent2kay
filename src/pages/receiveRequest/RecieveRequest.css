@@ -1,0 +1,62 @@
+.requests-container {
+  padding: 24px;
+}
+
+.requests-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.day-heading {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.request-card {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.request-card:hover {
+  background-color: #f9fafb;
+}
+
+.request-info {
+  flex: 1;
+}
+
+.request-title {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.request-meta {
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.request-message {
+  font-weight: 500;
+  color: #333;
+  margin-top: 6px;
+}
+
+.request-amount {
+  font-size: 0.875rem;
+  color: #888;
+}
+
+.request-priority {
+  font-size: 0.875rem;
+  color: #dc2626;
+  font-weight: 600;
+}
