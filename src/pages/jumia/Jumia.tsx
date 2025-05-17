@@ -1,40 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Sidebar from '../Sidebar';
-import Header from '../../components/Header';
+
+import TemplatePage from '../Template';
 import './jumia.css';
 
 const Jumia: React.FC = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth <= 768);
-      if (window.innerWidth <= 768) setSidebarOpen(true);
     };
 
     checkScreenSize();
     window.addEventListener('resize', checkScreenSize);
+
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  return (
-    <div className="jumia-page">
-      {sidebarOpen && (
-        <div className="jumia-sidebar">
-          <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
-        </div>
-      )}
-      <div className="jumia-main">
-        <Header />
+  const handleBack = () => {
+    navigate('/generate-request');
+  };
 
-        <button className="back-button" onClick={() => navigate('/generate-request')}>
+  return (
+    <TemplatePage>
+      <div className="jumia-main" style={isMobile ? { padding: '10px 20px' } : {}}>
+        <button onClick={handleBack} className="back-button">
           ← Back
         </button>
 
-        <div className="shopping-section">
+        <div className="shopping-section" style={isMobile ? { paddingTop: '20px' } : {}}>
           <h2 className="shopping-title">Shopping</h2>
           <p className="service-provider-caption">Service Provider</p>
 
@@ -43,7 +39,9 @@ const Jumia: React.FC = () => {
             onClick={() => navigate('/jumia-shopping')}
             role="button"
             tabIndex={0}
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') navigate('/jumia-shopping'); }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') navigate('/jumia-shopping');
+            }}
           >
             Jumia
           </div>
@@ -52,7 +50,7 @@ const Jumia: React.FC = () => {
           <div className="provider-box">Konga</div>
         </div>
       </div>
-    </div>
+    </TemplatePage>
   );
 };
 

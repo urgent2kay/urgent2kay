@@ -69,29 +69,39 @@ const Signin = () => {
   return (
     <Container fluid style={{ padding: 0, margin: 0, height: "100vh" }}>
       <Row style={{ margin: 0, padding: 0, height: "100%" }}>
-        <Col
-          md={6}
-          className="left-pane d-none d-md-flex align-items-center justify-content-start"
-          style={{ padding: 0, margin: 0 }}
-        >
-          <div className="overlay text-white ms-5">
-            <h2>
-              Welcome back to <span className="brand">Urgent 2kay</span>
-            </h2>
-            <p className="subtitle">
-              Sign in to manage your payments with ease.
-            </p>
-            <p className="small-text">
-              Pay bills, send money and stay on top of things.
-            </p>
-            <p className="signin-text">
-              Don’t have an account?{" "}
-              <Link to="/sign-up" className="link">
-                Sign up
-              </Link>
-            </p>
-          </div>
-        </Col>
+
+       <Col
+  md={6}
+  className="left-pane d-none d-md-flex align-items-center justify-content-start"
+  style={{ padding: 0, margin: 0 }}
+>
+  <div
+    style={{
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
+      color: "white",
+      padding: "2rem",
+      borderRadius: "8px",
+      marginLeft: "2rem",
+    }}
+    className="text-white ms-5"
+  >
+    <h2>
+      Welcome back to <span className="brand">Urgent 2kay</span>
+    </h2>
+    <p className="subtitle">Sign in to manage your payments with ease.</p>
+    <p className="small-text">
+      Pay bills, send money and stay on top of things.
+    </p>
+    <p className="signin-text">
+      Don’t have an account?{" "}
+      <Link to="/sign-up" className="link">
+        Sign up
+      </Link>
+    </p>
+  </div>
+</Col>
+
+
 
         <Col
           md={6}
