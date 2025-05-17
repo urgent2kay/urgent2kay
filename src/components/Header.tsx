@@ -1,14 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaSearch, FaBell, FaUser } from 'react-icons/fa';
+import ReactDOM from 'react-dom';
+import { Button } from 'react-bootstrap';
+import './Header.css';
 
 const Header: React.FC = () => {
   const [notificationOpen, setNotificationOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const navigate = useNavigate();
 
+  const notifRef = useRef<HTMLDivElement>(null);
+  const profileRef = useRef<HTMLDivElement>(null);
+  const notifBtnRef = useRef<HTMLDivElement>(null);
+  const profileBtnRef = useRef<HTMLDivElement>(null);
+
+  const [notifPos, setNotifPos] = useState<DOMRect | null>(null);
+  const [profilePos, setProfilePos] = useState<DOMRect | null>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (notifRef.current && !notifRef.current.contains(event.target as Node) &&
+          notifBtnRef.current && !notifBtnRef.current.contains(event.target as Node)) {
+        setNotificationOpen(false);
+      }
+      if (profileRef.current && !profileRef.current.contains(event.target as Node) &&
+          profileBtnRef.current && !profileBtnRef.current.contains(event.target as Node)) {
+        setProfileOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    if (notificationOpen && notifBtnRef.current) {
+      setNotifPos(notifBtnRef.current.getBoundingClientRect());
+    } else {
+      setNotifPos(null);
+    }
+  }, [notificationOpen]);
+
+  useEffect(() => {
+    if (profileOpen && profileBtnRef.current) {
+      setProfilePos(profileBtnRef.current.getBoundingClientRect());
+    } else {
+      setProfilePos(null);
+    }
+  }, [profileOpen]);
+
   const toggleNotification = () => {
-    setNotificationOpen((prev) => {
+    setNotificationOpen(prev => {
       const newState = !prev;
       if (newState) setProfileOpen(false);
       return newState;
@@ -16,7 +58,7 @@ const Header: React.FC = () => {
   };
 
   const toggleProfile = () => {
-    setProfileOpen((prev) => {
+    setProfileOpen(prev => {
       const newState = !prev;
       if (newState) setNotificationOpen(false);
       return newState;
@@ -24,195 +66,110 @@ const Header: React.FC = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); // or sessionStorage.removeItem('token') if you're using sessionStorage
-    navigate('/login'); // redirect to login page
+    localStorage.removeItem('token');
+    navigate('/login');
+  };
+
+  const renderDropdown = (content: React.ReactNode, position: DOMRect | null) => {
+    if (!position) return null;
+    return ReactDOM.createPortal(
+      <div
+        className="portal-dropdown"
+        style={{
+          top: position.bottom + window.scrollY + 8,
+          left: position.left + window.scrollX,
+        }}
+      >
+        {content}
+      </div>,
+      document.body
+    );
   };
 
   return (
-    <header
-      style={{
-        backgroundColor: 'white',
-        padding: '10px 15px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        boxShadow: '0 1px 5px rgba(0, 0, 0, 0.05)',
-        width: '100%',
-        flexWrap: 'wrap',
-        gap: '10px',
-      }}
-    >
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexGrow: 1 }}>
+    <header className="header">
+      <div className="header-left">
         <div>
-          <h2 style={{ fontSize: '16px', color: '#333', marginRight: '5px' }}>Hi, Ada</h2>
-          <p style={{ fontSize: '12px', color: '#555' }}>Let’s simplify your finances!</p>
+          <h2
+  className="mb-0 d-none d-sm-block"
+  style={{ fontSize: '16px', color: '#333' }}
+>
+  Hi, Ada
+</h2>
+
+        <p
+  className="mb-0 text-secondary d-none d-sm-block"
+  style={{ fontSize: '12px' }}
+>
+  Let’s simplify your finances!
+</p>
+
         </div>
 
-        <div
-          className="search-container search-bar2"
-          style={{
-            border: 'none',
-            boxShadow: 'none',
-            outline: 'none',
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              width: '340px',
-              padding: '5px',
-              alignItems: 'center',
-              gap: '10px',
-              borderRadius: '58px',
-              border: '1px solid #E9DDDD',
-              backgroundColor: '#FFFFFF',
-            }}
-          >
-            <FaSearch
-              style={{
-                color: '#9C9999',
-                fontSize: '14px',
-              }}
-            />
+        <div className="search-bar2">
+          <div className="search-input-container">
+            <FaSearch className="text-muted" style={{ fontSize: '14px' }} />
             <input
               type="text"
               placeholder="Search"
-              style={{
-                flex: 1,
-                border: 'none',
-                outline: 'none',
-                fontFamily: 'Archivo, sans-serif',
-                fontSize: '13px',
-                fontStyle: 'normal',
-                fontWeight: 400,
-                lineHeight: '140%',
-                letterSpacing: '0.52px',
-                color: '#9C9999',
-                backgroundColor: 'transparent',
-              }}
+              className="search-input"
             />
           </div>
         </div>
       </div>
 
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-          position: 'relative',
-          flexGrow: 1,
-          justifyContent: 'flex-end',
-        }}
-      >
-        <button
-          style={{
-            backgroundColor: '#401A6D',
-            color: 'white',
-            padding: '5px 10px',
-            border: 'none',
-            borderRadius: '6px',
-            cursor: 'pointer',
-            fontSize: '12px',
-            marginRight: '8px',
-          }}
+      <div className="header-right">
+        <Button
+          variant="dark"
+          size="sm"
+          className="me-2 rounded-2"
         >
           Connect Wallet
-        </button>
+        </Button>
 
-        {/* Notification Dropdown */}
         <div
-          style={{
-            position: 'relative',
-            width: '30px',
-            height: '30px',
-            borderRadius: '50%',
-            backgroundColor: '#f0f0f0',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            cursor: 'pointer',
-          }}
+          ref={notifBtnRef}
           onClick={toggleNotification}
+          className="icon-button"
+          aria-label="Toggle notifications"
+          role="button"
+          tabIndex={0}
+          onKeyDown={e => { if (e.key === 'Enter') toggleNotification(); }}
         >
-          <FaBell style={{ fontSize: '16px' }} />
-          <div
-            style={{
-              position: 'absolute',
-              top: '40px',
-              right: '0',
-              backgroundColor: 'white',
-              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-              borderRadius: '8px',
-              padding: '8px',
-              display: notificationOpen ? 'flex' : 'none',
-              flexDirection: 'column',
-              width: '120px',
-              zIndex: 1000,
-              visibility: notificationOpen ? 'visible' : 'hidden',
-              opacity: notificationOpen ? 1 : 0,
-              pointerEvents: notificationOpen ? 'auto' : 'none',
-              transition: 'opacity 0.3s ease, visibility 0.3s ease',
-            }}
-          >
-            <p style={{ margin: 0, padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px' }}>
-              Notification 1
-            </p>
-            <div style={{ borderTop: '1px solid #ddd', margin: '4px 0' }}></div>
-            <p style={{ margin: 0, padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px' }}>
-              Notification 2
-            </p>
-          </div>
+          <FaBell />
         </div>
 
-        {/* Profile Dropdown */}
         <div
-          style={{
-            position: 'relative',
-            width: '30px',
-            height: '30px',
-            borderRadius: '50%',
-            backgroundColor: '#f0f0f0',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginRight: '10px',
-            cursor: 'pointer',
-          }}
+          ref={profileBtnRef}
           onClick={toggleProfile}
+          className="icon-button profile"
+          aria-label="Toggle profile menu"
+          role="button"
+          tabIndex={0}
+          onKeyDown={e => { if (e.key === 'Enter') toggleProfile(); }}
         >
-          <FaUser style={{ fontSize: '16px' }} />
-          <div
-            style={{
-              position: 'absolute',
-              top: '40px',
-              right: '0',
-              backgroundColor: 'white',
-              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-              borderRadius: '8px',
-              padding: '8px',
-              display: profileOpen ? 'flex' : 'none',
-              flexDirection: 'column',
-              width: '120px',
-              zIndex: 1000,
-              visibility: profileOpen ? 'visible' : 'hidden',
-              opacity: profileOpen ? 1 : 0,
-              pointerEvents: profileOpen ? 'auto' : 'none',
-              transition: 'opacity 0.3s ease, visibility 0.3s ease',
-            }}
-          >
-            <p style={{ margin: 0, padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px' }}>
-              Profile Settings
-            </p>
-            <div style={{ borderTop: '1px solid #ddd', margin: '4px 0' }}></div>
-            <p
-              onClick={handleLogout}
-              style={{ margin: 0, padding: '6px 8px', cursor: 'pointer', color: '#333', fontSize: '12px' }}
-            >
-              Logout
-            </p>
-          </div>
+          <FaUser />
         </div>
+
+        {notificationOpen &&
+          renderDropdown(
+            <div ref={notifRef}>
+              <p>Notification 1</p>
+              <hr />
+              <p>Notification 2</p>
+            </div>,
+            notifPos
+          )}
+
+        {profileOpen &&
+          renderDropdown(
+            <div ref={profileRef}>
+              <p>Profile Settings</p>
+              <hr />
+              <p onClick={handleLogout} style={{ cursor: 'pointer' }}>Logout</p>
+            </div>,
+            profilePos
+          )}
       </div>
     </header>
   );

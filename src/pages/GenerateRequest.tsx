@@ -22,12 +22,10 @@ import rectangle40 from "../assets/Rectangle40.png";
 import removebg from "../assets/removebg-preview.png";
 import gift from "../assets/gift.png";
 import woman from "../assets/woman.png";
-import RequestNotification from "../components/requestMessage/requestMessage";
 
 const GenerateRequest: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
-  const [formData, setFormData] = useState();
 
   return (
     <div
@@ -48,16 +46,6 @@ const GenerateRequest: React.FC = () => {
         }}
       >
         <Header />
-
-        {recentlySentRequest && (
-          <RequestNotification
-            beneficiary={recentlySentRequest.beneficiary}
-            priority={recentlySentRequest.priority}
-            amount={recentlySentRequest.amount}
-            requestId={recentlySentRequest.id}
-          />
-        )}
-
         <main className="main-content" style={{ padding: "0 20px" }}>
           <div className="balance-card">
             <div className="balance-content">
@@ -75,14 +63,18 @@ const GenerateRequest: React.FC = () => {
                 Combine bills, subscriptions, and personal needs into one simple
                 request.
               </span>
-              <div className="create-bundle-text">Create a Bundle →</div>
+              <Link to="/error-404-page"><div className="create-bundle-text">Create a Bundle →</div></Link>
             </div>
             <div className="request-item">
               <span className="request-text">
                 Review and approve bundled requests to send payments directly to
                 service providers.
-              </span>
-              <div className="create-bundle-text">Sponsor a Bundle →</div>
+              </span>{" "}
+              <Link to="/error-404-page">
+                <div className="create-bundle-text">
+                  Sponsor a Bundle →
+                </div>{" "}
+              </Link>
             </div>
           </div>
 

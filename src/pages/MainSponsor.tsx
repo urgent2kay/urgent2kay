@@ -22,4 +22,4 @@ function MainSponsor() {
   );
 }
 
-export default MainSponsor;
+export default MainSponsor; 
