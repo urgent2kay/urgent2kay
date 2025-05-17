@@ -14,9 +14,9 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./Signup.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
-const Login = () => {
+const Signin = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -41,7 +41,6 @@ const Login = () => {
     setLoading(true);
 
     try {
-
       await login(formData).unwrap();
       setSuccess("Login successful!");
       navigate("/dashboard");
@@ -64,12 +63,10 @@ const Login = () => {
       }
 
       setError(errorMessage);
-
     }
   };
 
   return (
-
     <Container fluid style={{ padding: 0, margin: 0, height: "100vh" }}>
       <Row style={{ margin: 0, padding: 0, height: "100%" }}>
         <Col
@@ -81,7 +78,9 @@ const Login = () => {
             <h2>
               Welcome back to <span className="brand">Urgent 2kay</span>
             </h2>
-            <p className="subtitle">Sign in to manage your payments with ease.</p>
+            <p className="subtitle">
+              Sign in to manage your payments with ease.
+            </p>
             <p className="small-text">
               Pay bills, send money and stay on top of things.
             </p>
@@ -91,7 +90,6 @@ const Login = () => {
                 Sign up
               </Link>
             </p>
-            
           </div>
         </Col>
 
@@ -147,7 +145,6 @@ const Login = () => {
               </Button>
             </Form>
 
-
             <p className="signin-text2 text-center mt-3">
               Don’t have an account?{" "}
               <Link to="/sign-up" className="link">
@@ -158,8 +155,7 @@ const Login = () => {
         </Col>
       </Row>
     </Container>
-
   );
 };
 
-export default Login;
+export default Signin;

@@ -25,29 +25,22 @@ const actions = [
     desc: "Automate recurring payments for bills and expenses ahead of time.",
     bgColor: "#076B6B",
     icon: scheduleBundleIcon,
-    route: "/bundle-overview",
+    route: "/error-404-page",
   },
   {
     title: "Create A Relationship",
     desc: "Link a sponsor or beneficiary account for seamless interactions.",
     bgColor: "#0A2680",
     icon: relationshipIcon,
-    route: "/relationships",
+    route: "/create-relationship",
   },
 ];
 
 const DashboardActions = () => {
   const navigate = useNavigate();
 
-  //useEffect, get request that would check whether there was any payment request
-
-  // const data = "ginger";
-
   return (
     <div className="dashboard-actions">
-      {/* {data === "ginger" && (
-        <RequestMessage/> 
-      )} */}
       {actions.map((action, idx) => (
         <div
           key={idx}

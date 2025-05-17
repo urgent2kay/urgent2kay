@@ -58,7 +58,7 @@ const ChooseSponsor: React.FC = () => {
               <Link to="/bundle-overview">
                 <button className="send-button">Continue</button>
               </Link>
-              <Link to="/bundle-overview">
+              <Link to="/create-relationship">
                 <button className="edit-button">Add New Sponsor</button>
               </Link>
             </div>
