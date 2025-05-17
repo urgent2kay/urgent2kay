@@ -1,9 +1,17 @@
-
 import { useState } from "react";
 import { useRegisterMutation } from "../features/auth/authApi";
 import { useNavigate, Link } from "react-router-dom";
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  Button,
+  Alert,
+  Card,
+} from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./Signup.css";
-
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -33,7 +41,6 @@ const Signup = () => {
     setError("");
     setSuccess("");
 
-
     if (!formData.termsAccepted) {
       setError("You must agree to the terms and conditions.");
       return;
@@ -53,114 +60,173 @@ const Signup = () => {
 
       setSuccess("Signup successful!");
       navigate("/login");
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("API Error:", err);
-      setError(err?.data?.message || "Signup failed");
+
+      if (
+        err &&
+        typeof err === "object" &&
+        "data" in err &&
+        typeof (err as any).data === "object" &&
+        "message" in (err as any).data
+      ) {
+        setError((err as any).data.message || "Signup failed");
+      } else if (
+        err &&
+        typeof err === "object" &&
+        "message" in err &&
+        typeof (err as any).message === "string"
+      ) {
+        setError((err as any).message || "Signup failed");
+      } else {
+        setError("Signup failed");
+      }
     }
   };
 
   return (
-    <div className="signup-container">
-      <div className="left-pane">
-        <div className="overlay">
-          <h2>
-            Welcome to <span className="brand">Urgent 2kay</span>
-          </h2>
-          <p className="subtitle">
-            Skip the hassle. Send & pay bills in one click.
-          </p>
-          <p className="small-text">
-            No more scattered requests or late fees—just simple, direct payments.
-          </p>
-          <p className="signin-text">
-            Already have an account?{" "}
-
-            <Link to="/login" className="link">
-              Sign in
-
-            </Link>
-          </p>
-        </div>
-      </div>
-      <div className="right-pane">
-        
-        <form className="signup-form" onSubmit={handleSubmit}>
-          <h2 className="form-title">Sign Up</h2>
-
-          {error && <p className="error-text">{error}</p>}
-          {success && <p className="success-text">{success}</p>}
-
-          <div className="form-group">
-            <label htmlFor="fullName">Full Name</label>
-            <input
-              type="text"
-              id="fullName"
-              value={formData.fullName}
-              onChange={handleChange}
-              placeholder="Enter your full name"
-              required
-            />
+    <Container
+      fluid
+      style={{
+        padding: 0,
+        margin: 0,
+        height: "100vh",
+        width: "100vw",
+        overflow: "hidden",
+      }}
+    >
+      <Row
+        style={{
+          margin: 0,
+          padding: 0,
+          height: "100%",
+          width: "100%",
+        }}
+      >
+        <Col
+          md={6}
+          style={{ padding: 0, margin: 0 }}
+          className="left-pane d-none d-md-flex align-items-center justify-content-start"
+        >
+          <div className="overlay text-white ms-5">
+            <h2>
+              Welcome to <span className="brand">Urgent 2kay</span>
+            </h2>
+            <p className="subtitle">
+              Skip the hassle. Send & pay bills in one click.
+            </p>
+            <p className="small-text">
+              No more scattered requests or late fees—just simple, direct payments.
+            </p>
+            <p className="signin-text">
+              Already have an account?{" "}
+              <Link to="/login" className="link">
+                Sign in
+              </Link>
+            </p>
           </div>
-          <div className="form-group">
-            <label htmlFor="email">Email address</label>
-            <input
-              type="email"
-              id="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Enter your email"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="phone">Enter phone number</label>
-            <input
-              type="tel"
-              id="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="Enter your phone number"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Set password</label>
-            <input
-              type="password"
-              id="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="Enter password"
-              required
-            />
-          </div>
-          <div className="terms">
-            <input
-              type="checkbox"
-              id="termsAccepted"
-              checked={formData.termsAccepted}
-              onChange={handleChange}
-            />
-            <label htmlFor="termsAccepted">
-              I agree to Urgent 2kay's Terms and Conditions, Privacy Policy and
-              Cookies Policy
-            </label>
-          </div>
-          <button type="submit" className="signup-button" disabled={isLoading}>
-            {isLoading ? "Signing up..." : "Sign Up"}{" "}
-            <span className="arrow">&rarr;</span>
-          </button>
-          <p className="signin-text2">
-            Already have an account?{" "}
+        </Col>
 
-            <Link to="/login" className="link">
-              Sign in
+        <Col
+          md={6}
+          style={{ padding: 0, margin: 0 }}
+          className="right-pane d-flex align-items-center justify-content-center"
+        >
+          <Card
+            className="signup-form p-4"
+            style={{
+              maxWidth: "400px",
+              width: "100%",
+              margin: "0 1rem",
+            }}
+          >
+            <h2 className="form-title mb-3">Sign Up</h2>
 
-            </Link>
-          </p>
-        </form>
-      </div>
-    </div>
+            {error && <Alert variant="danger">{error}</Alert>}
+            {success && <Alert variant="success">{success}</Alert>}
+
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3" controlId="fullName">
+                <Form.Label>Full Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter your full name"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="email">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter your email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="phone">
+                <Form.Label>Phone Number</Form.Label>
+                <Form.Control
+                  type="tel"
+                  placeholder="Enter your phone number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="password">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Enter password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group
+                className="mb-3 d-flex align-items-start gap-2"
+                controlId="termsAccepted"
+              >
+                <Form.Check
+                  type="checkbox"
+                  checked={formData.termsAccepted}
+                  onChange={handleChange}
+                  required
+                />
+                <Form.Label className="small">
+                  I agree to Urgent 2kay's Terms and Conditions, Privacy Policy
+                  and Cookies Policy
+                </Form.Label>
+              </Form.Group>
+
+              <Button
+                variant="primary"
+                type="submit"
+                className="w-100 signup-button"
+                disabled={isLoading}
+              >
+                {isLoading ? "Signing up..." : "Sign Up"}{" "}
+                <span className="arrow">→</span>
+              </Button>
+            </Form>
+
+            <p className="signin-text2 text-center mt-3">
+              Already have an account?{" "}
+              <Link to="/login" className="link">
+                Sign in
+              </Link>
+            </p>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

@@ -5,6 +5,7 @@ import {
   FrequencyType,
   ApiResponse,
 } from "../types/relationship/relationshipData";
+import RelationshipCreated from "./RelationshipCreated";
 import Sidebar from "./Sidebar";
 import Header from "../components/Header";
 import { FaTimes } from "react-icons/fa";
@@ -30,6 +31,14 @@ const CreateRelationship: React.FC = () => {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [showModal, setShowModal] = useState(false);
+  const [sponsorEmail, setSponsorEmail] = useState("");
+
+
+
+  useEffect(() => {
+    document.body.style.overflow = showModal ? "hidden" : "auto";
+  }, [showModal]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -61,7 +70,7 @@ const CreateRelationship: React.FC = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    console.log("Submit handler triggered");  //debugging
+    console.log("Submit handler triggered"); //debugging
 
     e.preventDefault();
 
@@ -77,67 +86,53 @@ const CreateRelationship: React.FC = () => {
 
     setIsSubmitting(true);
     setSubmitError(null);
-    setSubmitSuccess(false);
+    setShowModal(true); //remove and add to the API try block when ready ⚠️
+    setSponsorEmail(formData.email); //this too
+    setSubmitSuccess(true);
     console.log("Form submitted:", formData);
-    // alert("Sponsor saved successfully 🎉");  //debugging
+    // alert("Sponsor saved successfully 🎉");  //debugging and remove when API is ready ⚠️
 
-    try {
-      const numericSpendLimit = parseFloat(
-        formData.spendLimit.replace(/,/g, "")
-      );
+    // try {
+    //   const submissionData = {
+    //     ...formData,
+    //     spendLimit: parseFloat(formData.spendLimit.replace(/,/g, "")),
+    //     ...(formData.profileImage && { profileImage: formData.profileImage }),
+    //   };
 
-      const submissionData = {
-        ...formData,
-        spendLimit: numericSpendLimit,
-        ...(formData.profileImage
-          ? { profileImage: formData.profileImage }
-          : {}),
-      };
+    //   const response = await fetch(
+    //     "https://urgent2kay.onrender.com/api/relationship",
+    //     {
+    //       method: "POST",
+    //       // credentials: "include", // Browser should handle auth cookies unless the backend saves in localStorage then adjust
+    //       // headers: { "Content-Type": "application/json" },
+    //       body: JSON.stringify(submissionData),
+    //     }
+    //   );
 
-      const response = await fetch("https://learnable24group4.com/sponsor", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${addtokenhere}`,
-        },
-        body: JSON.stringify(submissionData),
-      });
+    //   if (!response.ok)
+    //     throw new Error(`HTTP error! status: ${response.status}`);
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const result: ApiResponse = await response.json();
-
-      if (result.success) {
-        setSubmitSuccess(true);
-        setFormData({
-          fullName: "",
-          email: "",
-          spendLimit: "",
-          phoneNumber: "",
-          relationshipType: "Other",
-          frequency: "Monthly",
-          profileImage: "",
-        });
-        setPreviewImage(null);
-      } else {
-        throw new Error(result.error || "Submission failed! 😞");
-      }
-    } catch (error) {
-      const message =
-        error instanceof Error ? error.message : "An unknown error occurred";
-      console.error("Submission error:", message);
-      setSubmitError(message);
-      setSubmitError(
-        error instanceof Error ? error.message : "An unknown error occurred"
-      );
-      console.error(
-        error instanceof Error ? error.message : "An unknown error occurred 😞"
-      );
-    } finally {
-      setIsSubmitting(false);
-    }
+    //   const result = await response.json();
+    //   if (result.success) {
+    //     setSubmitSuccess(true);
+    //     setShowModal(true);
+    //     setFormData({
+    //       fullName: "",
+    //       email: "",
+    //       spendLimit: "",
+    //       phoneNumber: "",
+    //       relationshipType: "Other",
+    //       frequency: "Monthly",
+    //       profileImage: "",
+    //     });
+    //   } else {
+    //     throw new Error(result.error || "Submission failed");
+    //   }
+    // } catch (error) {
+    //   setSubmitError(error instanceof Error ? error.message : "Unknown error");
+    // } finally {
+    //   setIsSubmitting(false);
+    // }
   };
 
   const toggleSidebar = () => {
@@ -310,6 +305,14 @@ const CreateRelationship: React.FC = () => {
       <button className="sidebar-toggle" onClick={toggleSidebar}>
         {sidebarOpen ? <FaTimes /> : <span>☰</span>}
       </button>
+
+      {showModal && (
+        <RelationshipCreated
+          show={showModal}
+          onClose={() => setShowModal(false)}
+          sponsorEmail={sponsorEmail}
+        />
+      )}
     </div>
   );
 };
