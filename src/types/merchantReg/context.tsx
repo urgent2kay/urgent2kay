@@ -15,3 +15,5 @@ export type OutletContextType = {
   handleBankSubmit: (data: BankDetails) => void;
   status: "idle" | "submitting" | "success" | "error";
 };
+
+

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { format, isAfter, sub } from "date-fns";
-
+import ViewDetails from "./ViewDetails";  
 import Sidebar from "./Sidebar";
 import Header from "../components/Header";
 import { FaTimes, FaSearch, FaArrowLeft } from "react-icons/fa";
@@ -38,6 +38,8 @@ const PaymentDetails: React.FC = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Bundle[]>([]);
   const [error, setError] = useState("");
+
+  const [showModal, setShowModal] = useState(false);
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -126,7 +128,15 @@ const PaymentDetails: React.FC = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
-  const sevenDaysAgo = sub(new Date(), { days: 7 });
+  const sevenDaysAgo = sub(new Date(), { days: 7 }); 
+
+  const handleViewDetails = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <div className="generate-request-container">
@@ -134,7 +144,6 @@ const PaymentDetails: React.FC = () => {
       <div className="main-section">
         <Header />
         <main className="main-content main3">
-
           <a href="#" className="back-nav">
             <button className="back-nav">
               <FaArrowLeft /> Back
@@ -143,8 +152,7 @@ const PaymentDetails: React.FC = () => {
           <div className="payment-body">
             <h4>Payment Details/Mother</h4>
 
-            
-            <div className="sponsor-body-top">
+            <div className="sponsor-body-top sponsor-body-top2">
               <div className="display-relationship sponsor-payment-body-card">
                 <h3>Sponsor</h3>
                 <div className="mother2">
@@ -180,7 +188,6 @@ const PaymentDetails: React.FC = () => {
                   <p>Recent Payments</p>
 
                   <form className="search-container" onSubmit={handleSearch}>
-
                     <FaSearch className="payment-search-icon" />
                     <input
                       type="search"
@@ -246,7 +253,13 @@ const PaymentDetails: React.FC = () => {
                         <td>{person.time}</td>
                         <td>{person.status}</td>
                         <td>
-                          <a href="#">{person.action}</a>
+                          {/* <a href="#">{person.action}</a> */}
+                          <button
+                            className="view-details-button"
+                            onClick={handleViewDetails}
+                          >
+                            View details
+                          </button>
                         </td>
                       </tr>
                     ))}
@@ -257,6 +270,8 @@ const PaymentDetails: React.FC = () => {
           </div>
         </main>
       </div>
+
+      {showModal && <ViewDetails onClose={handleCloseModal} />}
 
       <button className="sidebar-toggle" onClick={toggleSidebar}>
         {sidebarOpen ? <FaTimes /> : <span>☰</span>}

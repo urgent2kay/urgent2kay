@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { useLoginMutation } from "../features/auth/authApi";
 import { useNavigate, Link } from "react-router-dom";
 import {
@@ -11,17 +12,17 @@ import {
   Card,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./Signup.css";
+// import { Link } from "react-router-dom";
 
-const Login = () => {
-  const navigate = useNavigate();
-  const [login, { isLoading }] = useLoginMutation();
-
+const Signin = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -37,6 +38,7 @@ const Login = () => {
     e.preventDefault();
     setError("");
     setSuccess("");
+    setLoading(true);
 
     try {
       await login(formData).unwrap();
@@ -67,6 +69,7 @@ const Login = () => {
   return (
     <Container fluid style={{ padding: 0, margin: 0, height: "100vh" }}>
       <Row style={{ margin: 0, padding: 0, height: "100%" }}>
+
        <Col
   md={6}
   className="left-pane d-none d-md-flex align-items-center justify-content-start"
@@ -97,6 +100,7 @@ const Login = () => {
     </p>
   </div>
 </Col>
+
 
 
         <Col
@@ -164,4 +168,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signin;
