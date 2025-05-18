@@ -1,5 +1,4 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
 import {
   FaTachometerAlt,
   FaPlusCircle,
@@ -8,10 +7,10 @@ import {
   FaHistory,
   FaQuestionCircle,
   FaUser,
-  FaSignOutAlt,
-} from "react-icons/fa";
+  FaSignOutAlt
+} from 'react-icons/fa';
 
-import "./sidebar.css";
+import './sidebar.css';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -20,7 +19,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, toggleSidebar }) => {
   return (
-    <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}>
+    <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
       {/* Toggle button visible only on mobile */}
       <button className="sidebar-toggle mobile-only" onClick={toggleSidebar}>
         <FaTimes />
@@ -28,41 +27,41 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, toggleSidebar }) => {
 
       <h2 className="logo">Urgent2Kay</h2>
       <nav className="nav-links">
-        <Link to="#" className="nav-item active">
+        <a href="/dashboard" className="nav-item">
           <FaTachometerAlt className="nav-icon" />
           Dashboard
-        </Link>
-        <Link to="/generate-request" className="nav-item">
+        </a>
+        <a className="nav-item active" href="#">
           <FaPlusCircle className="nav-icon" />
           Generate Request
-        </Link>
-        <Link to="/create-relationship" className="nav-item">
+        </a>
+        <a href="/relationship" className="nav-item">
           <FaUsers className="nav-icon" />
           Relationship
-        </Link>
-        <Link to="/page-under-construction" className="nav-item">
+        </a>
+        <a href="#" className="nav-item">
           <FaHistory className="nav-icon" />
           Transaction History
-        </Link>
-        <Link to="/page-under-construction" className="nav-item">
+        </a>
+        <a href="#" className="nav-item">
           <FaQuestionCircle className="nav-icon" />
           Help
-        </Link>
-        <Link to="/page-under-construction" className="nav-item">
+        </a>
+        <a href="#" className="nav-item">
           <FaUser className="nav-icon" />
           Profile
-        </Link>
-        <Link to="/page-under-construction" className="nav-item">
+        </a>
+        <a href="/account" className="nav-item">
           <FaUser className="nav-icon" />
           Settings
-        </Link>
+        </a>
       </nav>
 
       <div className="logout-container">
-        <Link to="#" className="logout-link">
+        <a href="#" className="logout-link">
           <FaSignOutAlt className="logout-icon" />
           Logout
-        </Link>
+        </a>
       </div>
     </aside>
   );

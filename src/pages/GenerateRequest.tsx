@@ -41,58 +41,32 @@ const GenerateRequest: React.FC = () => {
             <span className="request-text">
               Combine bills, subscriptions, and personal needs into one simple request.
             </span>
-    
-
-              <Link to="/bill"  className="create-bundle-text">
-              Create a Bundle →
-            </Link>
+            <div className="create-bundle-text">Create a Bundle →</div>
           </div>
           <div className="request-item">
             <span className="request-text">
               Review and approve bundled requests to send payments directly to service providers.
             </span>
-           
-               <Link to="/main-sponsor"  className="create-bundle-text">
-              Sponsor a Bundle →
-            </Link>
+            <div className="create-bundle-text">Sponsor a Bundle →</div>
           </div>
         </div>
 
-     <div className="categories-container">
-  <Link to="/electricity" className="category-item">
-    <div className="icon-circle"><IoIosFlash className="category-icon" /></div>
-    <span className='spans'>Electricity</span>
-  </Link>
-  <Link to="/jumia" className="category-item">
-    <div className="icon-circle"><IoIosCart className="category-icon" /></div>
-    <span className='spans'>Shop Online</span>
-  </Link>
-  <Link to="/page-under-construction" className="category-item">
-    <div className="icon-circle"><IoIosSchool className="category-icon" /></div>
-    <span className='spans'>School Fees</span>
-  </Link>
-  <Link to="/page-under-construction" className="category-item">
-    <div className="icon-circle"><IoIosHome className="category-icon" /></div>
-    <span className='spans'>House Rent</span>
-  </Link>
-  <Link to="/page-under-construction" className="category-item">
-    <div className="icon-circle"><IoIosCall className="category-icon" /></div>
-    <span className='spans'>Airtime</span>
-  </Link>
-  <Link to="/page-under-construction" className="category-item">
-    <div className="icon-circle"><IoIosNutrition className="category-icon" /></div>
-    <span className='spans'>Food</span>
-  </Link>
-  <Link to="/page-under-construction" className="category-item">
-    <div className="icon-circle"><IoIosCloudDownload className="category-icon" /></div>
-    <span className='spans'>Data Top Up</span>
-  </Link>
-  <Link to="/page-under-construction" className="category-item">
-    <div className="icon-circle"><IoIosSend className="category-icon" /></div>
-    <span className='spans'>Transfer</span>
-  </Link>
-</div>
-
+        <div className="categories-container">
+          <Link to="/electricity" className="category-item">
+            <div className="icon-circle"><IoIosFlash className="category-icon" /></div>
+            <span>Electricity</span>
+          </Link>
+          <Link to="/jumia" className="category-item">
+            <div className="icon-circle"><IoIosCart className="category-icon" /></div>
+            <span>Shop Online</span>
+          </Link>
+          <div className="category-item"><div className="icon-circle"><IoIosSchool className="category-icon" /></div><span>School Fees</span></div>
+          <div className="category-item"><div className="icon-circle"><IoIosHome className="category-icon" /></div><span>House Rent</span></div>
+          <div className="category-item"><div className="icon-circle"><IoIosCall className="category-icon" /></div><span>Airtime</span></div>
+          <div className="category-item"><div className="icon-circle"><IoIosNutrition className="category-icon" /></div><span>Food</span></div>
+          <div className="category-item"><div className="icon-circle"><IoIosCloudDownload className="category-icon" /></div><span>Data Top Up</span></div>
+          <div className="category-item"><div className="icon-circle"><IoIosSend className="category-icon" /></div><span>Transfer</span></div>
+        </div>
 
         <div className="suggested-wrapper">
           <div className="suggested-header">Suggested For You</div>
