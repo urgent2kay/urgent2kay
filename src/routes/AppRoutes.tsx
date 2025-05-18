@@ -43,7 +43,11 @@ import Electricity from "../pages/Electricity/Electricity";
 import Jumia from "../pages/jumia/Jumia";
 import JumiaShopping from "../pages/jumia/JumiaShopping";
 import RecieveRequest from "../pages/receiveRequest/RecieveRequest";
+<<<<<<< HEAD
 import SponsorBundleOverview from "../pages/SponsorBundleOverview/SponsorBundleOverview";
+=======
+import Signin from "../pages/Signin";
+>>>>>>> origin
 
 const AppRoutes: React.FC = () => {
   return (
@@ -58,6 +62,7 @@ const AppRoutes: React.FC = () => {
       {/* <Route path="/template" element={<TemplatePage />} /> */}
       <Route path="/bundle-overview" element={<BundleOverview />} />
       <Route path="/sign-up" element={<Signup />} />
+      <Route path="/sign-in" element={<Signin />} />
 
       <Route path="/verify" element={<VerifyEmail />} />
 
@@ -69,8 +74,9 @@ const AppRoutes: React.FC = () => {
 
       <Route path="/verify" element={<VerifyEmail />} />
 
-      <Route path="/request-successful" element={<RequestSuccessful />} />
       <Route path="/recieve-request" element={<RecieveRequest />} />
+
+      <Route path="/request-successful" element={<RequestSuccessful />} />
 
       <Route path="request-successful" element={<RequestSuccessful />} />
       {/* general error pages */}
