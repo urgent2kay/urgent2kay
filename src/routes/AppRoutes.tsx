@@ -43,11 +43,8 @@ import Electricity from "../pages/Electricity/Electricity";
 import Jumia from "../pages/jumia/Jumia";
 import JumiaShopping from "../pages/jumia/JumiaShopping";
 import RecieveRequest from "../pages/receiveRequest/RecieveRequest";
-<<<<<<< HEAD
 import SponsorBundleOverview from "../pages/SponsorBundleOverview/SponsorBundleOverview";
-=======
 import Signin from "../pages/Signin";
->>>>>>> origin
 
 const AppRoutes: React.FC = () => {
   return (
