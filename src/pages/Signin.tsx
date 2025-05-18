@@ -96,7 +96,7 @@ const Login = () => {
             </h2>
             <p className="subtitle">Sign in to manage your payments with ease.</p>
             <p className="small-text">
-              Pay bills, send money and stay on top of things.
+              Pay bills, send money and stay on top of things..
             </p>
             <p className="signin-text">
               Don’t have an account?{" "}
