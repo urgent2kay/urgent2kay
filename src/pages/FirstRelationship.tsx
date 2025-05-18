@@ -9,6 +9,7 @@ import celebrate2 from "../assets/celebrate2.png";
 import cleanup from "../assets/cleanup.png";
 import sponsor2 from "../assets/sponsor2.png";
 import { Link } from "react-router-dom";
+import TemplatePage from "./Template";
 
 interface RelationshipCreatedProps {
   sponsorEmail?: string;
@@ -75,72 +76,64 @@ const FirstRelationship: React.FC<RelationshipCreatedProps> = ({
   };
 
   return (
-    <div className="generate-request-container">
-      <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+    <TemplatePage>
+      <main className="main-content main2">
+        <div className="align-left">
+          <h1>My Relationships</h1>
+          <div className="display-relationship">
+            <img src={womanProfile} alt="doctor" className="rel-doctor" />
+            <div className="mother">
+              <p>Mrs. Kansi</p>
+              <span>Mother</span>
+            </div>
+            {/* <button className="small-rel-btn">View</button> */}
+            {/* <button className="small-rel-btn small-rel-btn2">Edit</button> */}
+            <div ref={menuRef} className="kebab-container">
+              <button onClick={() => setOpen(!open)} className="dot-group">
+                <div className="dot"></div>
+                <div className="dot"></div>
+                <div className="dot"></div>
+              </button>
 
-      <div className="main-section">
-        <Header />
-
-        <main className="main-content main2">
-          <div className="align-left">
-            <h1>My Relationships</h1>
-            <div className="display-relationship">
-              <img src={womanProfile} alt="doctor" className="rel-doctor" />
-              <div className="mother">
-                <p>Mrs. Kansi</p>
-                <span>Mother</span>
-              </div>
-              <button className="small-rel-btn">View</button>
-              <button className="small-rel-btn small-rel-btn2">Edit</button>
-              <div ref={menuRef} className="kebab-container">
-                <button onClick={() => setOpen(!open)} className="dot-group">
-                  <div className="dot"></div>
-                  <div className="dot"></div>
-                  <div className="dot"></div>
-                </button>
-
-                {open && (
-                  <div className="kebab-menu">
-                    {menuItems.map((item) => (
-                      <button
-                        key={item}
-                        className="kebab-item"
-                        onClick={() => handleMenuClick(item)}
-                      >
-                        {item}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
+              {open && (
+                <div className="kebab-menu">
+                  {menuItems.map((item) => (
+                    <button
+                      key={item}
+                      className="kebab-item"
+                      onClick={() => handleMenuClick(item)}
+                    >
+                      {item}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
-          {/* <button className="main2-btn">Add New Relationship</button> */}
-          <div className="button-group2">
-            <Link to="/create-relationship">
-              <button className="main2-btn">Add New Relationship</button>
-            </Link>
-            {/* <Link to="rt-invite"> */}{" "}
-            <button className="main2-btn" onClick={handleCopyLink}>
-              Share Invite Link
-            </button>
-            {/* </Link> */}
-            {/* <p>If your sponsor doesn't have an account with us</p> */}
-            {/* <Link to="/notify"> */}{" "}
-            <button className="main2-btn" onClick={handleNotifySponsor}>
-              Notify Your Sponsor
-            </button>
-            {/* </Link> */}
-            {/* <p>If your sponsor has an account with us</p> */}
-          </div>
-        </main>
-      </div>
-
+        </div>
+        {/* <button className="main2-btn">Add New Relationship</button> */}
+        <div className="button-group2">
+          <Link to="/create-relationship">
+            <button className="main2-btn">Add New Relationship</button>
+          </Link>
+          {/* <Link to="rt-invite"> */}{" "}
+          <button className="main2-btn" onClick={handleCopyLink}>
+            Share Invite Link
+          </button>
+          {/* </Link> */}
+          {/* <p>If your sponsor doesn't have an account with us</p> */}
+          {/* <Link to="/notify"> */}{" "}
+          <button className="main2-btn" onClick={handleNotifySponsor}>
+            Notify Your Sponsor
+          </button>
+          {/* </Link> */}
+          {/* <p>If your sponsor has an account with us</p> */}
+        </div>
+      </main>
       {/* Sidebar Toggle Button */}
       <button className="sidebar-toggle" onClick={toggleSidebar}>
         {sidebarOpen ? <FaTimes /> : <span>☰</span>}
       </button>
-
       {/* Main Sponsor Modal */}
       {showMainSponsorModal && (
         <div className="modal-overlay2">
@@ -170,7 +163,6 @@ const FirstRelationship: React.FC<RelationshipCreatedProps> = ({
           </div>
         </div>
       )}
-
       {showRemoveSponsorModal && (
         <div className="modal-overlay3">
           <div className="rel-invite-container modal3">
@@ -200,7 +192,6 @@ const FirstRelationship: React.FC<RelationshipCreatedProps> = ({
           </div>
         </div>
       )}
-
       {showDetails && (
         <div className="modal-overlay5">
           <div className="modal5">
@@ -242,7 +233,6 @@ const FirstRelationship: React.FC<RelationshipCreatedProps> = ({
           </div>
         </div>
       )}
-
       {showRemoveMinorSponsor && (
         <div className="modal-overlay6">
           <div className="rel-invite-container modal6">
@@ -269,7 +259,8 @@ const FirstRelationship: React.FC<RelationshipCreatedProps> = ({
           </div>
         </div>
       )}
-    </div>
+      ;
+    </TemplatePage>
   );
 };
 

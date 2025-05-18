@@ -1,0 +1,93 @@
+.request-card {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 1.25rem 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.request-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+.request-left {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.request-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.request-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.request-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #222;
+}
+
+.request-beneficiary {
+  font-size: 0.875rem;
+  color: #777;
+  margin-bottom: 0.25rem;
+}
+
+.request-message {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.view-details {
+  font-size: 0.85rem;
+  color: #10b981;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.view-details:hover {
+  text-decoration: underline;
+}
+
+.request-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.request-amount {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.request-meta {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.request-priority {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #dc2626;
+  margin-top: 0.25rem;
+  text-transform: capitalize;
+}

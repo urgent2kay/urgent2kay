@@ -44,6 +44,8 @@ import Jumia from "../pages/jumia/Jumia";
 import JumiaShopping from "../pages/jumia/JumiaShopping";
 import RecieveRequest from "../pages/receiveRequest/RecieveRequest";
 // import Signin from "../pages/Signin";
+import SponsorBundleOverview from "../pages/SponsorBundleOverview/SponsorBundleOverview";
+import ServicesPage from "../components/ScheduleBill/ServicesPage";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -94,10 +96,15 @@ const AppRoutes: React.FC = () => {
       testing ⚠️⚠️⚠️*/}
       <Route path="/" element={<MerchantHome />} />
       {/* Registration flow - all steps nested under RegistrationGuard */}
+      <Route path="service-page" element={<ServicesPage />} />
       <Route path="/jumia-shopping" element={<JumiaShopping />} />
       <Route path="/jumia" element={<Jumia />} />
 
       <Route path="/electricity" element={<Electricity />} />
+      <Route
+        path="/sponsor-bundle-overview"
+        element={<SponsorBundleOverview />}
+      />
 
       {/* Merchant routes */}
       <Route path="/merchant-home" element={<MerchantHome />} />

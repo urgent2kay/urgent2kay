@@ -12,13 +12,15 @@ import {
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Signup.css";
+import signupBg from "../assets/signup.png"; 
 
 const Signup = () => {
   const navigate = useNavigate();
   const [register, { isLoading }] = useRegisterMutation();
 
   const [formData, setFormData] = useState({
-    fullName: "",
+    firstName: "",
+    lastName: "",
     email: "",
     phone: "",
     password: "",
@@ -46,12 +48,10 @@ const Signup = () => {
       return;
     }
 
-    const [firstName, lastName = ""] = formData.fullName.trim().split(" ");
-
     try {
       await register({
-        firstName,
-        lastName,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
         email: formData.email,
         phone: formData.phone,
         password: formData.password,
@@ -87,34 +87,34 @@ const Signup = () => {
   return (
     <Container
       fluid
-      style={{
-        padding: 0,
-        margin: 0,
-        height: "100vh",
-        width: "100vw",
-        overflow: "hidden",
-      }}
+      style={{ padding: 0, margin: 0, height: "100vh", width: "100vw", overflowY: "auto" }}
     >
-      <Row
-        style={{
-          margin: 0,
-          padding: 0,
-          height: "100%",
-          width: "100%",
-        }}
-      >
+      <Row style={{ margin: 0, padding: 0, height: "100%", width: "100%" }}>
         <Col
           md={6}
-          style={{ padding: 0, margin: 0 }}
           className="left-pane d-none d-md-flex align-items-center justify-content-start"
+          style={{
+            padding: 0,
+            margin: 0,
+            backgroundImage: `url(${signupBg})`, 
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         >
-          <div className="overlay text-white ms-5">
+          <div
+            style={{
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              color: "white",
+              padding: "2rem",
+              borderRadius: "8px",
+              marginLeft: "2rem",
+            }}
+            className="text-white ms-5"
+          >
             <h2>
-              Welcome to <span className="brand">Urgent 2kay</span>
+              Welcome back to <span className="brand">Urgent 2kay</span>
             </h2>
-            <p className="subtitle">
-              Skip the hassle. Send & pay bills in one click.
-            </p>
+            <p className="subtitle">Skip the hassle. Send & pay bills in one click.</p>
             <p className="small-text">
               No more scattered requests or late fees—just simple, direct
               payments.
@@ -135,11 +135,7 @@ const Signup = () => {
         >
           <Card
             className="signup-form p-4"
-            style={{
-              maxWidth: "400px",
-              width: "100%",
-              margin: "0 1rem",
-            }}
+            style={{ maxWidth: "400px", width: "100%", margin: "0 1rem" }}
           >
             <h2 className="form-title mb-3">Sign Up</h2>
 
@@ -147,12 +143,23 @@ const Signup = () => {
             {success && <Alert variant="success">{success}</Alert>}
 
             <Form onSubmit={handleSubmit}>
-              <Form.Group className="mb-3" controlId="fullName">
-                <Form.Label>Full Name</Form.Label>
+              <Form.Group className="mb-3" controlId="firstName">
+                <Form.Label>First Name</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Enter your full name"
-                  value={formData.fullName}
+                  placeholder="Enter your first name"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="lastName">
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter your last name"
+                  value={formData.lastName}
                   onChange={handleChange}
                   required
                 />
@@ -181,7 +188,7 @@ const Signup = () => {
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="password">
-                <Form.Label>Password</Form.Label>
+                <Form.Label>Set Password</Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="Enter password"
@@ -191,10 +198,7 @@ const Signup = () => {
                 />
               </Form.Group>
 
-              <Form.Group
-                className="mb-3 d-flex align-items-start gap-2"
-                controlId="termsAccepted"
-              >
+              <Form.Group className="mb-3 d-flex align-items-start gap-2" controlId="termsAccepted">
                 <Form.Check
                   type="checkbox"
                   checked={formData.termsAccepted}
@@ -213,14 +217,13 @@ const Signup = () => {
                 className="w-100 signup-button"
                 disabled={isLoading}
               >
-                {isLoading ? "Signing up..." : "Sign Up"}{" "}
-                <span className="arrow">→</span>
+                {isLoading ? "Signing up..." : "Sign Up"} <span className="arrow">→</span>
               </Button>
             </Form>
 
             <p className="signin-text2 text-center mt-3">
               Already have an account?{" "}
-              <Link to="/login" className="link">
+              <Link to="/login" className="link1">
                 Sign in
               </Link>
             </p>

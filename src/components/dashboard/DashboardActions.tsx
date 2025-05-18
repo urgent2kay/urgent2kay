@@ -1,5 +1,5 @@
 import "./Dashboard.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import createBundleIcon from "../../assets/bundle-icon.svg";
 import sponsorBundleIcon from "../../assets/payment-icon.svg";
 import scheduleBundleIcon from "../../assets/scheduled-icon.svg";
@@ -18,14 +18,14 @@ const actions = [
     desc: "Approve and support a bundle request from someone you trust.",
     bgColor: "#044D06",
     icon: sponsorBundleIcon,
-    route: "/choose-sponsor",
+    route: "/sponsor-bundle-overview",
   },
   {
     title: "Schedule A Bundle",
     desc: "Automate recurring payments for bills and expenses ahead of time.",
     bgColor: "#076B6B",
     icon: scheduleBundleIcon,
-    route: "/error-404-page",
+    route: "/service-page",
   },
   {
     title: "Create A Relationship",
@@ -55,7 +55,9 @@ const DashboardActions = () => {
           />
           <h3 className="dashboard-actions-title">{action.title}</h3>
           <p className="dashboard-actions-desc">{action.desc}</p>
-          <span className="dashboard-actions-link">Get Started →</span>
+          <Link to="/jumia">
+            <span className="dashboard-actions-link">Get Started →</span>
+          </Link>
         </div>
       ))}
     </div>

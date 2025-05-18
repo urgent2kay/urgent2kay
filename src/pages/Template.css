@@ -12,15 +12,20 @@ html, body, #root {
   position: relative;
 }
 
+
 .sidebar {
-  height: 100%;
-  width: 240px;
-  background-color: #1B0B2E;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
+  width: 240px !important;
+  background-color: #1B0B2E !important;
+  padding: 20px !important;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  transition: width 0.3s ease !important;
+  transform: translateX(0) !important;
+  height: 100vh !important; 
 }
+
 
 .main-section {
   flex: 1;

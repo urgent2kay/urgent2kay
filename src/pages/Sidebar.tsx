@@ -51,7 +51,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, toggleSidebar }) => {
           <FaUser className="nav-icon" />
           Profile
         </a>
-        <a href="/page-under-construction" className="nav-item">
+        <a href="/account" className="nav-item">
           <FaUser className="nav-icon" />
           Settings
         </a>

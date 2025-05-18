@@ -1,0 +1,159 @@
+.bundle-container4 {
+  padding: 1rem;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f9f9f902;
+  color: #333;
+  size: 100%;
+}
+
+.header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.bundle-card4 {
+  background: white;
+  padding: 2rem;
+
+  size: 70%;
+}
+
+.profile-section4 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.profile-img4 {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.relation4 {
+  font-weight: 500;
+  color: #555;
+}
+
+.bundle-info4 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.bundle-id4 {
+  color: #777;
+}
+
+.priority4 {
+  color: red;
+  font-weight: bold;
+}
+
+.section-title4 {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #5e2b97;
+  margin-bottom: 1rem;
+}
+
+.essentials-table4 {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  margin: 0 20%;
+}
+
+.essentials-table4 th,
+.essentials-table4 td {
+  border-bottom: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+  font-size: 0.95rem;
+  display: flex;
+  /* flex-direction: row; */
+  gap: 20px;
+}
+.essentials-table4 tr {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.total-section4 {
+  margin: 10px 45%;
+}
+
+.total-amount4 {
+  font-weight: bold;
+  align-content: center;
+}
+
+.button-group4 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn4 {
+  padding: 0.5rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.accept4 {
+  background-color: #5e2b97;
+  color: white;
+  border-radius: 28px;
+}
+
+.reject4 {
+  background-color: white;
+  border-color: #f1c40f;
+  color: #5e2b97;
+  border-radius: 28px;
+}
+
+.save4 {
+  background-color: white;
+  border-color: #f1c40f;
+  color: #5e2b97;
+  border-radius: 28px;
+}
+
+.accept4:hover {
+  background-color: #47217a;
+}
+
+.reject4:hover,
+.save4:hover {
+  background-color: #fdf3d5;
+}
+
+@media (max-width: 600px) {
+  .bundle-info4 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .essentials-table4 th,
+  .essentials-table4 td {
+    font-size: 0.85rem;
+  }
+
+  .btn4 {
+    width: 100%;
+    text-align: center;
+  }
+}

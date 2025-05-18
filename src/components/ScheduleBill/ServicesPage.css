@@ -1,0 +1,45 @@
+.services-container {
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: #2e2e2e;
+}
+
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.service-item {
+  background: #f6f0f8;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.service-item:hover {
+  background-color: #e6dbf3;
+  transform: scale(1.05);
+}
+
+.icon {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.service-item p {
+  font-size: 14px;
+  color: #333;
+}
