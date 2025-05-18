@@ -6,7 +6,7 @@ import GenerateRequest from "../pages/GenerateRequest";
 // import TemplatePage from "../pages/Template";
 import BundleOverview from "../pages/BundleOverview";
 import Signup from "../pages/Signup";
-import Login from "../pages/SignIn";
+import Login from "../pages/Signin";
 
 import SelectPayment from "../pages/SelectPayment";
 import ChooseSponsor from "../pages/ChooseSponsor";
