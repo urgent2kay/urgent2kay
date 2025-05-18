@@ -116,7 +116,8 @@ const Signup = () => {
             </h2>
             <p className="subtitle">Skip the hassle. Send & pay bills in one click.</p>
             <p className="small-text">
-              No more scattered requests or late fees—just simple, direct payments.
+              No more scattered requests or late fees—just simple, direct
+              payments.
             </p>
             <p className="signin-text">
               Already have an account?{" "}
