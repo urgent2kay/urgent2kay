@@ -55,6 +55,60 @@ const RegistrationGuard = () => {
     setRegistrationData((prev) => ({ ...prev, personal: data }));
   };
 
+  // const handleBankSubmit = async (data: BankDetails) => {
+  //   const completeData = { ...registrationData, bank: data };
+
+  //   try {
+  //     setStatus("submitting");
+  //     const formData = new FormData();
+
+  //     formData.append("business", JSON.stringify(completeData.business));
+
+  //     formData.append("personal", JSON.stringify(completeData.personal));
+
+  //     formData.append(
+  //       "bank",
+  //       JSON.stringify({
+  //         ...completeData.bank,
+  //         ownershipProof: undefined, //this should remove file from json data
+  //       })
+  //     );
+
+  //     if (completeData.bank.ownershipProof) {
+  //       formData.append("ownershipProof", completeData.bank.ownershipProof);
+  //     }
+
+  //     const response = await fetch(
+  //       "http://localhost:10000/api/v1/partner/register",
+  //       {
+  //         method: "POST",
+  //         // headers: {
+  //         //   "Content-Type": "application/json", //browser should set this
+  //         // },
+  //         body: formData,
+  //       }
+  //     );
+
+  //     if (!response.ok) {
+  //       const errorText = await response.text();
+  //       console.error("Raw error response:", errorText);
+  //       throw new Error(errorText || "Registration failed");
+  //     }
+
+  //     const data = await response.json();
+  //     setStatus("success");
+  //     return data;
+  //   } catch (error) {
+  //     setStatus("error");
+  //     setErrorMessage(
+  //       error instanceof Error
+  //         ? error.message
+  //         : "An unexpected error occurred during registration 😞"
+  //     );
+  //     console.error("Registration error: ", error); //debugging
+  //   }
+  // };
+
   const handleBankSubmit = async (data: BankDetails) => {
     const completeData = { ...registrationData, bank: data };
 
@@ -63,14 +117,12 @@ const RegistrationGuard = () => {
       const formData = new FormData();
 
       formData.append("business", JSON.stringify(completeData.business));
-
       formData.append("personal", JSON.stringify(completeData.personal));
-
       formData.append(
         "bank",
         JSON.stringify({
           ...completeData.bank,
-          ownershipProof: undefined, //this should remove file from json data
+          ownershipProof: undefined, // Remove file from JSON data
         })
       );
 
@@ -79,12 +131,9 @@ const RegistrationGuard = () => {
       }
 
       const response = await fetch(
-        "http://localhost:10000/api/v1/partner/register",
+        "https://urgent2kay.onrender.com/api/partner/register",
         {
           method: "POST",
-          // headers: {
-          //   "Content-Type": "application/json", //browser should set this
-          // },
           body: formData,
         }
       );
@@ -95,9 +144,9 @@ const RegistrationGuard = () => {
         throw new Error(errorText || "Registration failed");
       }
 
-      const data = await response.json();
+      const responseData = await response.json();
       setStatus("success");
-      return data;
+      return responseData;
     } catch (error) {
       setStatus("error");
       setErrorMessage(
@@ -105,7 +154,7 @@ const RegistrationGuard = () => {
           ? error.message
           : "An unexpected error occurred during registration 😞"
       );
-      console.error("Registration error: ", error); //debugging
+      console.error("Registration error: ", error);
     }
   };
 

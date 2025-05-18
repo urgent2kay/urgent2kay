@@ -1,7 +1,3 @@
-/* Sidebar Styles */
-
-
-
 
 .sidebar.open {
   width: 240px !important;
@@ -19,7 +15,7 @@
   display: flex !important;
   flex-direction: column !important;
   width: 100% !important;
-  flex-grow: 1; 
+  flex-grow: 1;
 }
 
 .nav-item {
@@ -39,6 +35,7 @@
 .nav-item.active {
   color: white !important;
   font-weight: bold !important;
+  
 }
 
 .nav-icon {
@@ -110,5 +107,5 @@
 
   .sidebar-toggle.mobile-only {
     display: block;
-}
+  }
 }

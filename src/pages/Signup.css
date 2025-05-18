@@ -8,8 +8,6 @@ html {
   overflow-y: auto;
 }
 
-
-
 .signup-container {
   display: flex;
   height: 100vh;
@@ -25,7 +23,7 @@ html {
 }
 
 .overlay {
-  background-color: #dad7d736;
+  background-color: #dad7d70a;
   backdrop-filter: blur(10px);
   color: #fff;
   height: 80%;
