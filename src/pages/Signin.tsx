@@ -92,11 +92,11 @@ const Login = () => {
             className="text-white ms-5"
           >
             <h2>
-              Welcome back to <span className="brand">Urgent 2kay</span>
+              Welcome back to <span className="brand">Urgent 2kay!</span>
             </h2>
             <p className="subtitle">Sign in to manage your payments with ease.</p>
             <p className="small-text">
-              Pay bills, send money and stay on top of things..
+              Pay bills, send money and stay on top of things.
             </p>
             <p className="signin-text">
               Don’t have an account?{" "}
