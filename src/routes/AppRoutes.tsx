@@ -2,11 +2,11 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import LandingPage from "../pages/LandingPage/LandingPage";
-import GenerateRequest from "../pages/GenerateRequest";
+// import GenerateRequest from "../pages/GenerateRequest";
 // import TemplatePage from "../pages/Template";
 import BundleOverview from "../pages/BundleOverview";
 import Signup from "../pages/Signup";
-import Login from "../pages/Signin";
+// import Login from "../pages/Signin";
 
 import SelectPayment from "../pages/SelectPayment";
 import ChooseSponsor from "../pages/ChooseSponsor";
@@ -22,7 +22,7 @@ import BusinessDetailsPage from "../components/merchant/BusinessDetails";
 import PersonalDetailsPage from "../components/merchant/PersonalDetails";
 import BankDetailsPage from "../components/merchant/BankDetails";
 
-import ViewDetails from "../pages/ViewDetails";
+// import ViewDetails from "../pages/ViewDetails";
 
 import PaymentDetails from "../pages/PaymentDetails";
 import RemoveMainSponsor from "../pages/RemoveMainSponsor";
@@ -43,7 +43,7 @@ import Electricity from "../pages/Electricity/Electricity";
 import Jumia from "../pages/jumia/Jumia";
 import JumiaShopping from "../pages/jumia/JumiaShopping";
 import RecieveRequest from "../pages/receiveRequest/RecieveRequest";
-import Signin from "../pages/Signin";
+// import Signin from "../pages/Signin";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -51,14 +51,14 @@ const AppRoutes: React.FC = () => {
       <Route path="/" element={<LandingPage />} />
       {/* Public pages */}
       <Route path="/sign-up" element={<Signup />} />
-      <Route path="/login" element={<Login />} />
+      {/* <Route path="/login" element={<Login />} /> */}
       <Route path="/choose-sponsor" element={<ChooseSponsor />} />
       <Route path="/bundle-overview" element={<BundleOverview />} />
-      <Route path="/generate-request" element={<GenerateRequest />} />
+      {/* <Route path="/generate-request" element={<GenerateRequest />} /> */}
       {/* <Route path="/template" element={<TemplatePage />} /> */}
       <Route path="/bundle-overview" element={<BundleOverview />} />
       <Route path="/sign-up" element={<Signup />} />
-      <Route path="/sign-in" element={<Signin />} />
+      {/* <Route path="/sign-in" element={<Signin />} /> */}
 
       <Route path="/verify" element={<VerifyEmail />} />
 

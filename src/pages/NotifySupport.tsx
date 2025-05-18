@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import logopurple from "../assets/logo-purple1.svg";
 import envelop from "../assets/envelop.png";
 

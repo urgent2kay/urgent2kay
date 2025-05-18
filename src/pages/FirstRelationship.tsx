@@ -8,6 +8,7 @@ import womanProfile from "../assets/Doctor.png";
 import celebrate2 from "../assets/celebrate2.png";
 import cleanup from "../assets/cleanup.png";
 import sponsor2 from "../assets/sponsor2.png";
+import { Link } from "react-router-dom";
 
 interface RelationshipCreatedProps {
   sponsorEmail?: string;
@@ -116,16 +117,20 @@ const FirstRelationship: React.FC<RelationshipCreatedProps> = ({
           </div>
           {/* <button className="main2-btn">Add New Relationship</button> */}
           <div className="button-group2">
-            <button className="main2-btn">Add New Relationship</button>
-
+            <Link to="/create-relationship">
+              <button className="main2-btn">Add New Relationship</button>
+            </Link>
+            {/* <Link to="rt-invite"> */}{" "}
             <button className="main2-btn" onClick={handleCopyLink}>
               Share Invite Link
             </button>
+            {/* </Link> */}
             {/* <p>If your sponsor doesn't have an account with us</p> */}
-
+            {/* <Link to="/notify"> */}{" "}
             <button className="main2-btn" onClick={handleNotifySponsor}>
               Notify Your Sponsor
             </button>
+            {/* </Link> */}
             {/* <p>If your sponsor has an account with us</p> */}
           </div>
         </main>

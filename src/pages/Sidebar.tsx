@@ -35,7 +35,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, toggleSidebar }) => {
           <FaPlusCircle className="nav-icon" />
           Generate Request
         </a>
-        <a href="/page-under-construction" className="nav-item">
+        <a href="/first-relationship" className="nav-item">
           <FaUsers className="nav-icon" />
           Relationship
         </a>
