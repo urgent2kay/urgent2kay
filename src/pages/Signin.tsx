@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { useLoginMutation } from "../features/auth/authApi";
 import { useNavigate, Link } from "react-router-dom";
 import {
@@ -12,21 +11,18 @@ import {
   Card,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import "./Signup.css";
-import signinBg from "../assets/signup.png"; 
+import signinBg from "../assets/signup.png";
 
+const Login = () => {
+  const navigate = useNavigate();
+  const [login, { isLoading }] = useLoginMutation();
 
-import "./Signup.css";
-// import { Link } from "react-router-dom";
-
-const Signin = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -42,10 +38,18 @@ const Signin = () => {
     e.preventDefault();
     setError("");
     setSuccess("");
-    setLoading(true);
 
     try {
-      await login(formData).unwrap();
+      const res = await login(formData).unwrap();
+        console.log("Login response:", res);  
+
+      // Store full user object and token from backend
+      const user = res.user;
+      const token = res.token;
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("userInfo", JSON.stringify(user));
+
       setSuccess("Login successful!");
       navigate("/dashboard");
     } catch (err: unknown) {
@@ -73,12 +77,11 @@ const Signin = () => {
   return (
     <Container fluid style={{ padding: 0, margin: 0, height: "100vh" }}>
       <Row style={{ margin: 0, padding: 0, height: "100%" }}>
-
         <Col
           md={6}
           className="left-pane d-none d-md-flex align-items-center justify-content-start"
           style={{
-            backgroundImage: `url(${ signinBg})`,
+            backgroundImage: `url(${signinBg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             padding: 0,
@@ -112,8 +115,6 @@ const Signin = () => {
             </p>
           </div>
 
-
-          
           <div
             style={{
               position: "absolute",
@@ -126,7 +127,6 @@ const Signin = () => {
             }}
           />
         </Col>
-
 
         <Col
           md={6}
@@ -193,4 +193,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Login;

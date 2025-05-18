@@ -9,6 +9,9 @@
   align-items: center;
   padding: 24px;
 }
+.spans{
+  color: #401A6D !important;
+}
 
 .balance-content {
   width: 134.2px;
