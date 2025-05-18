@@ -45,7 +45,7 @@ const GenerateRequest: React.FC = () => {
           </div>
           <div className="request-item">
             <span className="request-text">
-              Review and approve bundled requests to send payments directly to service providers.
+              Review and approve bundled requests to send payments directly to service providers..
             </span>
             <div className="create-bundle-text">Sponsor a Bundle →</div>
           </div>
