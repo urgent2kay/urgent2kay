@@ -1,6 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import Sidebar from "./Sidebar";
-import Header from "../components/Header";
 import { FaTimes } from "react-icons/fa";
 import "../pages/GenerateRequest.css";
 import "./relationship.css";

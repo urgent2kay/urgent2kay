@@ -6,8 +6,6 @@ import {
   ApiResponse,
 } from "../types/relationship/relationshipData";
 import RelationshipCreated from "./RelationshipCreated";
-import Sidebar from "./Sidebar";
-import Header from "../components/Header";
 import { FaTimes } from "react-icons/fa";
 import "./relationship.css";
 import manProfile from "../assets/manProfile.png";

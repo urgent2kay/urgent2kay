@@ -1,8 +1,5 @@
-import { FaTimes } from "react-icons/fa";
 import RequestList from "../../components/Reqest/RequestList";
-import Header from "../../components/Header";
-import Sidebar from "../Sidebar";
-import { useState } from "react";
+import TemplatePage from "../Template";
 
 export type RequestItemType = {
   id: string;
@@ -66,38 +63,18 @@ const groupByDay = (list: RequestItemType[]) => {
 
 const RequestsPage = () => {
   const groupedRequests = groupByDay(requests);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
-
   return (
-    <div className="generate-request-container">
-      {/* Sidebar */}
-      <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
-
+    <TemplatePage>
       {/* Main Section */}
       <div className="main-section">
-        <Header />
-
-        {/* Main Content */}
-        <main className="main-content">
-          {/* {children}{" "} */}
-          {/* ✅ This renders the content passed into TemplatePage */}
-        </main>
+        <main className="main-content"></main>
         <div>
           <h2 className="page-title">Requests</h2>
           <RequestList groupedRequests={groupedRequests} />
         </div>
         <main className="main-content"></main>
       </div>
-
-      {/* Sidebar Toggle Button */}
-      <button className="sidebar-toggle" onClick={toggleSidebar}>
-        {sidebarOpen ? <FaTimes /> : <span>☰</span>}
-      </button>
-    </div>
+    </TemplatePage>
   );
 };
 

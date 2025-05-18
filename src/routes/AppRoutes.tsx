@@ -46,6 +46,7 @@ import RecieveRequest from "../pages/receiveRequest/RecieveRequest";
 // import Signin from "../pages/Signin";
 import SponsorBundleOverview from "../pages/SponsorBundleOverview/SponsorBundleOverview";
 import ServicesPage from "../components/ScheduleBill/ServicesPage";
+import GenerateRequest from "../pages/GenerateRequest";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -56,7 +57,7 @@ const AppRoutes: React.FC = () => {
       {/* <Route path="/login" element={<Login />} /> */}
       <Route path="/choose-sponsor" element={<ChooseSponsor />} />
       <Route path="/bundle-overview" element={<BundleOverview />} />
-      {/* <Route path="/generate-request" element={<GenerateRequest />} /> */}
+      <Route path="/generate-request" element={<GenerateRequest />} />
       {/* <Route path="/template" element={<TemplatePage />} /> */}
       <Route path="/bundle-overview" element={<BundleOverview />} />
       <Route path="/sign-up" element={<Signup />} />

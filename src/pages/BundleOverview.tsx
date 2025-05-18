@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./BundleOverview.css";
 import "./RequestSucessful.css";
 // import Sidebar from "./Sidebar";
-import Header from "../components/Header";
 import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import TemplatePage from "./Template";
