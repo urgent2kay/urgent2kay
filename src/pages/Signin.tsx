@@ -12,7 +12,7 @@ import {
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Signup.css";
-import signinBg from "../assets/signup.png"; 
+import signinBg from "../assets/signup.png";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -40,7 +40,16 @@ const Login = () => {
     setSuccess("");
 
     try {
-      await login(formData).unwrap();
+      const res = await login(formData).unwrap();
+        console.log("Login response:", res);  
+
+      // Store full user object and token from backend
+      const user = res.user;
+      const token = res.token;
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("userInfo", JSON.stringify(user));
+
       setSuccess("Login successful!");
       navigate("/dashboard");
     } catch (err: unknown) {
@@ -72,7 +81,7 @@ const Login = () => {
           md={6}
           className="left-pane d-none d-md-flex align-items-center justify-content-start"
           style={{
-            backgroundImage: `url(${ signinBg})`,
+            backgroundImage: `url(${signinBg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             padding: 0,
@@ -106,7 +115,6 @@ const Login = () => {
             </p>
           </div>
 
-          
           <div
             style={{
               position: "absolute",
