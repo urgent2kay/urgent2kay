@@ -43,7 +43,11 @@ import Electricity from "../pages/Electricity/Electricity";
 import Jumia from "../pages/jumia/Jumia";
 import JumiaShopping from "../pages/jumia/JumiaShopping";
 import RecieveRequest from "../pages/receiveRequest/RecieveRequest";
+<<<<<<< HEAD
+import SponsorBundleOverview from "../pages/SponsorBundleOverview/SponsorBundleOverview";
+=======
 import Signin from "../pages/Signin";
+>>>>>>> origin
 
 const AppRoutes: React.FC = () => {
   return (
@@ -98,6 +102,10 @@ const AppRoutes: React.FC = () => {
       <Route path="/jumia" element={<Jumia />} />
 
       <Route path="/electricity" element={<Electricity />} />
+      <Route
+        path="/sponsor-bundle-overview"
+        element={<SponsorBundleOverview />}
+      />
 
       {/* Merchant routes */}
       <Route path="/merchant-home" element={<MerchantHome />} />
