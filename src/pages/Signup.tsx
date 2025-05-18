@@ -12,6 +12,7 @@ import {
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Signup.css";
+import signupBg from "../assets/signup.png"; 
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -84,13 +85,21 @@ const Signup = () => {
   };
 
   return (
-    <Container fluid style={{ padding: 0, margin: 0, height: "100vh", width: "100vw", overflowY: "auto", 
-     }}>
+    <Container
+      fluid
+      style={{ padding: 0, margin: 0, height: "100vh", width: "100vw", overflowY: "auto" }}
+    >
       <Row style={{ margin: 0, padding: 0, height: "100%", width: "100%" }}>
         <Col
           md={6}
           className="left-pane d-none d-md-flex align-items-center justify-content-start"
-          style={{ padding: 0, margin: 0 }}
+          style={{
+            padding: 0,
+            margin: 0,
+            backgroundImage: `url(${signupBg})`, 
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         >
           <div
             style={{
@@ -148,7 +157,7 @@ const Signup = () => {
                 <Form.Label>Last Name</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Enter your second name"
+                  placeholder="Enter your last name"
                   value={formData.lastName}
                   onChange={handleChange}
                   required

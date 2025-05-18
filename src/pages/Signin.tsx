@@ -12,6 +12,7 @@ import {
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Signup.css";
+import signinBg from "../assets/signup.png"; 
 
 const Login = () => {
   const navigate = useNavigate();
@@ -67,37 +68,57 @@ const Login = () => {
   return (
     <Container fluid style={{ padding: 0, margin: 0, height: "100vh" }}>
       <Row style={{ margin: 0, padding: 0, height: "100%" }}>
-       <Col
-  md={6}
-  className="left-pane d-none d-md-flex align-items-center justify-content-start"
-  style={{ padding: 0, margin: 0 }}
->
-  <div
-    style={{
-      backgroundColor: "rgba(0, 0, 0, 0.5)",
-      color: "white",
-      padding: "2rem",
-      borderRadius: "8px",
-      marginLeft: "2rem",
-    }}
-    className="text-white ms-5"
-  >
-    <h2>
-      Welcome back to <span className="brand">Urgent 2kay</span>
-    </h2>
-    <p className="subtitle">Sign in to manage your payments with ease.</p>
-    <p className="small-text">
-      Pay bills, send money and stay on top of things.
-    </p>
-    <p className="signin-text">
-      Don’t have an account?{" "}
-      <Link to="/sign-up" className="link">
-        Sign up
-      </Link>
-    </p>
-  </div>
-</Col>
+        <Col
+          md={6}
+          className="left-pane d-none d-md-flex align-items-center justify-content-start"
+          style={{
+            backgroundImage: `url(${ signinBg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            padding: 0,
+            margin: 0,
+            position: "relative",
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              color: "white",
+              padding: "2rem",
+              borderRadius: "8px",
+              marginLeft: "2rem",
+              zIndex: 1,
+            }}
+            className="text-white ms-5"
+          >
+            <h2>
+              Welcome back to <span className="brand">Urgent 2kay</span>
+            </h2>
+            <p className="subtitle">Sign in to manage your payments with ease.</p>
+            <p className="small-text">
+              Pay bills, send money and stay on top of things.
+            </p>
+            <p className="signin-text">
+              Don’t have an account?{" "}
+              <Link to="/sign-up" className="link">
+                Sign up
+              </Link>
+            </p>
+          </div>
 
+          
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              zIndex: 0,
+            }}
+          />
+        </Col>
 
         <Col
           md={6}
