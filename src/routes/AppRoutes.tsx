@@ -22,10 +22,7 @@ import BusinessDetailsPage from "../components/merchant/BusinessDetails";
 import PersonalDetailsPage from "../components/merchant/PersonalDetails";
 import BankDetailsPage from "../components/merchant/BankDetails";
 
-
 import ViewDetails from "../pages/ViewDetails";
-
-
 
 import PaymentDetails from "../pages/PaymentDetails";
 import RemoveMainSponsor from "../pages/RemoveMainSponsor";
@@ -39,7 +36,6 @@ import CreateRelationship from "../pages/CreateRelationship";
 
 import AccountSettingsPage from "../pages/AccountSettingsPage";
 
-
 import ErrorPage from "../pages/404Page";
 import ErrorPageReverse from "../pages/ErrorPageReverse";
 
@@ -47,12 +43,11 @@ import Electricity from "../pages/Electricity/Electricity";
 import Jumia from "../pages/jumia/Jumia";
 import JumiaShopping from "../pages/jumia/JumiaShopping";
 import RecieveRequest from "../pages/receiveRequest/RecieveRequest";
+import SponsorBundleOverview from "../pages/SponsorBundleOverview/SponsorBundleOverview";
 
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
-
-
       <Route path="/" element={<LandingPage />} />
       {/* Public pages */}
       <Route path="/sign-up" element={<Signup />} />
@@ -68,17 +63,14 @@ const AppRoutes: React.FC = () => {
 
       <Route path="/select-payment" element={<SelectPayment />} />
       <Route path="/dashboard" element={<Dashboard />} />
-    
+
       {/* user profile and account settings */}
       <Route path="/account" element={<AccountSettingsPage />} />
 
-          <Route path="/verify" element={<VerifyEmail />} />
-     
-      <Route path="/recieve-request" element={<RecieveRequest />} />
+      <Route path="/verify" element={<VerifyEmail />} />
 
-     
       <Route path="/request-successful" element={<RequestSuccessful />} />
-
+      <Route path="/recieve-request" element={<RecieveRequest />} />
 
       <Route path="request-successful" element={<RequestSuccessful />} />
       {/* general error pages */}
@@ -104,6 +96,10 @@ const AppRoutes: React.FC = () => {
       <Route path="/jumia" element={<Jumia />} />
 
       <Route path="/electricity" element={<Electricity />} />
+      <Route
+        path="/sponsor-bundle-overview"
+        element={<SponsorBundleOverview />}
+      />
 
       {/* Merchant routes */}
       <Route path="/merchant-home" element={<MerchantHome />} />

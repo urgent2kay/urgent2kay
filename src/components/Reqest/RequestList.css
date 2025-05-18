@@ -1,0 +1,106 @@
+/* RequestList.css */
+
+.request-list {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: #1e1e1e;
+}
+
+.day-group {
+  margin-bottom: 2rem;
+}
+
+.day-heading {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.request-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  margin-bottom: 1rem;
+  transition: box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.request-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.request-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.request-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.request-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.request-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.request-beneficiary {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.request-message {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #2c2c2c;
+}
+
+.request-right {
+  text-align: right;
+}
+
+.request-amount {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.request-meta {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.request-priority {
+  font-weight: 500;
+  color: #d60000;
+  text-transform: capitalize;
+}
+
+.view-details {
+  color: #10b981;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.view-details:hover {
+  text-decoration: underline;
+}

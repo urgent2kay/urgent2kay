@@ -1,54 +1,76 @@
-import "./RecieveRequest.css";
-import { useEffect, useState } from "react";
-import { fetchRequests } from "../../api/RecieveRequest";
-import { Link } from "react-router-dom";
+import { FaTimes } from "react-icons/fa";
+import RequestList from "../../components/Reqest/RequestList";
 import Header from "../../components/Header";
 import Sidebar from "../Sidebar";
-import { FaTimes } from "react-icons/fa";
+import { useState } from "react";
 
-export interface Request {
+export type RequestItemType = {
   id: string;
   title: string;
-  beneficiary: string;
-  amount: number;
+  beneficiaryName: string;
+  relationship: string;
   message: string;
+  amount: number;
+  sentTime: string;
   priority: "Very urgent" | "Important" | "Normal";
-  sentAt: string;
-  relation: string;
-  imageUrl: string;
-}
+  avatarUrl: string;
+  dayGroup: string; // e.g. "Today", "Tuesday"
+};
+
+const requests: RequestItemType[] = [
+  {
+    id: "1",
+    title: "Monthly Essentials",
+    beneficiaryName: "Ada",
+    relationship: "Daughter",
+    message: "Mummy, please this is very important... 😢",
+    amount: 32500,
+    sentTime: "1 hour ago",
+    priority: "Very urgent",
+    avatarUrl: "https://i.pravatar.cc/150?img=1",
+    dayGroup: "Today",
+  },
+  {
+    id: "2",
+    title: "Skincare Essentials",
+    beneficiaryName: "Chinonso",
+    relationship: "Son",
+    message: "Mummy, my skincare has finished. 😟",
+    amount: 153000,
+    sentTime: "2 days ago",
+    priority: "Important",
+    avatarUrl: "https://i.pravatar.cc/150?img=2",
+    dayGroup: "Tuesday",
+  },
+  {
+    id: "3",
+    title: "Rent & Others",
+    beneficiaryName: "Cynthia",
+    relationship: "Friend",
+    message: "Ngozi, I really need these... 😢",
+    amount: 700000,
+    sentTime: "2 days ago",
+    priority: "Very urgent",
+    avatarUrl: "https://i.pravatar.cc/150?img=3",
+    dayGroup: "Tuesday",
+  },
+];
+
+const groupByDay = (list: RequestItemType[]) => {
+  return list.reduce((acc, item) => {
+    acc[item.dayGroup] = acc[item.dayGroup] || [];
+    acc[item.dayGroup].push(item);
+    return acc;
+  }, {} as Record<string, RequestItemType[]>);
+};
 
 const RequestsPage = () => {
-  const [requests, setRequests] = useState<Request[]>([]);
-  //   const [loading, setLoading] = useState(true);
+  const groupedRequests = groupByDay(requests);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
-
-  useEffect(() => {
-    fetchRequests().then((data) => {
-      setRequests(data);
-      //   setLoading(false);
-    });
-  }, []);
-
-  //   if (loading) return <p>Loading requests...</p>;
-
-  const groupByDay = (items: Request[]) => {
-    const grouped: { [key: string]: Request[] } = {};
-    items.forEach((req) => {
-      const day = new Date(req.sentAt).toLocaleDateString("en-US", {
-        weekday: "long",
-      });
-      grouped[day] = grouped[day] || [];
-      grouped[day].push(req);
-    });
-    return grouped;
-  };
-
-  const groupedRequests = groupByDay(requests);
 
   return (
     <div className="generate-request-container">
@@ -58,49 +80,17 @@ const RequestsPage = () => {
       {/* Main Section */}
       <div className="main-section">
         <Header />
+
         {/* Main Content */}
         <main className="main-content">
-          <div className="requests-container">
-            <Link to="/generate-request">
-              <button className="back-button">
-                <span className="dropdown-icon">
-                  <img src="./Image/dropdown.png" alt="Dropdown Icon" />
-                </span>
-                Back
-              </button>
-            </Link>
-            <div className="bundle-header">Requests</div>
-            {/* <div className="requests-container"> */}
-            {/* <h1 className="requests-title">Requests</h1> */}
-            {Object.entries(groupedRequests).map(([day, reqs]) => (
-              <div key={day}>
-                <h2 className="day-heading">{day}</h2>
-                {reqs.map((req) => (
-                  <Link to={`/requests/${req.id}`} key={req.id}>
-                    <div className="request-card">
-                      <img
-                        src={req.imageUrl}
-                        alt={req.beneficiary}
-                        className="w-12 h-12 rounded-full"
-                      />
-                      <div className="request-info">
-                        <h3 className="request-title">{req.title}</h3>
-                        <p className="request-meta">
-                          {req.relation} / {req.beneficiary}
-                        </p>
-                        <p className="request-message">{req.message}</p>
-                        <p className="request-amount">
-                          ₦{req.amount.toLocaleString()}
-                        </p>
-                      </div>
-                      <div className="request-priority">{req.priority}</div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            ))}
-          </div>
+          {/* {children}{" "} */}
+          {/* ✅ This renders the content passed into TemplatePage */}
         </main>
+        <div>
+          <h2 className="page-title">Requests</h2>
+          <RequestList groupedRequests={groupedRequests} />
+        </div>
+        <main className="main-content"></main>
       </div>
 
       {/* Sidebar Toggle Button */}
