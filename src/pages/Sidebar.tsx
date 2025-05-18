@@ -51,6 +51,10 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, toggleSidebar }) => {
           <FaUser className="nav-icon" />
           Profile
         </a>
+         <a href="/merchant-home" className="nav-item">
+          <FaUser className="nav-icon" />
+          Merchant
+        </a>
         <a href="/account" className="nav-item">
           <FaUser className="nav-icon" />
           Settings
